@@ -19,9 +19,9 @@ function determineGiscusTheme() {
   let giscusAttributes = {
     src: "https://giscus.app/client.js",
     "data-repo": "rykerwilliams/clevelandrocs.net",
-    "data-repo-id": "",
+    "data-repo-id": "R_kgDOPyxuFg",
     "data-category": "Comments",
-    "data-category-id": "",
+    "data-category-id": "DIC_kwDOPyxuFs4CvoSn",
     "data-mapping": "title",
     "data-strict": "1",
     "data-reactions-enabled": "1",
