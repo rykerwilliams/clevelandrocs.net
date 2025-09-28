@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-The Rocs are going to Thrash Bash!
+The Rocs are going to Thrash Bash 4!
