@@ -30,7 +30,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/blog/";
               },
-            },{id: "post-a-post-with-image-galleries",
+            },{id: "post-2019-rocs-old-school-tournament",
+        
+          title: "2019 Rocs Old School Tournament",
+        
+        description: "2019 Rocs Old School Tournament",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/2019rocsos/";
+          
+        },
+      },{id: "post-a-post-with-image-galleries",
         
           title: "a post with image galleries",
         
@@ -354,10 +365,15 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "news-the-rocs-are-going-to-thrash-bash",
-          title: 'The Rocs are going to Thrash Bash!',
+          section: "News",},{id: "news-the-rocs-are-going-to-thrash-bash-4",
+          title: 'The Rocs are going to Thrash Bash 4!',
           description: "",
-          section: "News",},{id: "projects-project-8",
+          section: "News",},{id: "projects-rajah",
+          title: 'Rajah',
+          description: "Rajah James",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/8_project%20copy/";
+            },},{id: "projects-project-8",
           title: 'project 8',
           description: "an other project with a background image and giscus comments",
           section: "Projects",handler: () => {
