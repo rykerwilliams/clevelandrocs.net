@@ -21,7 +21,8 @@ strong {
 
 body {
   max-width: 100%;
-  overflow-x: hidden;
+  /* allow horizontal scrolling when needed (tables and other wide elements) */
+  overflow-x: visible;
 }
 
 hr {
@@ -54,8 +55,24 @@ table {
     border-collapse: collapse;
   }
 
+  /* also target Bootstrap-style tables with the `.table` class so our
+     mobile rules win (`.table td` has higher specificity than `table td`) */
+  table,
+  .table {
+    /* keep block behavior for both plain tables and those using .table */
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    table-layout: auto;
+    border-collapse: collapse;
+  }
+
   table td,
-  table th {
+  table th,
+  .table td,
+  .table th {
     white-space: normal; /* allow wrapping inside cells */
     word-break: break-word;
     padding: 0.1rem 0.35rem 0.1rem 0; /* restore smaller padding on mobile */
@@ -67,7 +84,11 @@ table {
   table img,
   table code,
   table pre,
-  table a {
+  table a,
+  .table img,
+  .table code,
+  .table pre,
+  .table a {
     max-width: 100%;
     overflow-wrap: anywhere;
     word-break: break-word;
