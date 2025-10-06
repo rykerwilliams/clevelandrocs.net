@@ -53,7 +53,7 @@ table {
   table th {
     white-space: normal; /* allow wrapping inside cells */
     word-break: break-word;
-    padding: 0.1rem 0.35rem 0.1rem 0; /* smaller padding on mobile */
+  padding: 0.05rem 0.175rem 0.05rem 0; /* smaller padding on mobile (halved) */
     font-size: 0.85rem; /* smaller text to reduce wrapping */
   }
 
@@ -68,35 +68,7 @@ table {
     word-break: break-word;
   }
 
-  // Scroll hint: subtle fade overlays at left/right edges to indicate
-  // horizontal scroll is available on small screens. Keeps pointer-events:none
-  // so it doesn't block interaction.
-  table {
-    position: relative;
-  }
-
-  table::before,
-  table::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 1.6rem;
-    pointer-events: none;
-    z-index: 4;
-    transition: opacity 200ms ease;
-    opacity: 0.95;
-  }
-
-  table::before {
-    left: 0;
-    background: linear-gradient(to right, var(--global-bg-color), transparent);
-  }
-
-  table::after {
-    right: 0;
-    background: linear-gradient(to left, var(--global-bg-color), transparent);
-  }
+  
 }
 
 a,
