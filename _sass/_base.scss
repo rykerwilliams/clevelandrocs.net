@@ -35,6 +35,40 @@ table {
   }
 }
 
+// Make tables more mobile-friendly: allow cells to wrap, reduce padding and
+// font-size slightly, and enable horizontal scrolling when necessary. This
+// keeps tables readable on narrow viewports while preventing layout breakage.
+@media (max-width: 768px) {
+  table {
+    display: block; /* enables native horizontal scrolling when table is wider */
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    table-layout: auto; /* let columns size based on content/wrapping */
+    border-collapse: collapse;
+  }
+
+  table td,
+  table th {
+    white-space: normal; /* allow wrapping inside cells */
+    word-break: break-word;
+    padding: 0.25rem 0.5rem 0.25rem 0; /* smaller padding on mobile */
+    font-size: 0.95rem; /* slightly smaller text */
+  }
+
+  /* Prevent images, code blocks or long strings inside cells from forcing
+     the table to overflow horizontally. */
+  table img,
+  table code,
+  table pre,
+  table a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
 a,
 table.table a {
   color: var(--global-theme-color);
@@ -734,9 +768,6 @@ footer.sticky-bottom {
 
     li {
       margin-bottom: 1rem;
-
-      .preview {
-      }
 
       .abbr {
         margin-bottom: 0.5rem;
