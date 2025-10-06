@@ -70,6 +70,7 @@ table th {
     word-break: break-word;
     padding: 0.1rem 0.35rem 0.1rem 0; /* restore smaller padding on mobile */
     font-size: 0.75rem; /* reduce font-size to help reduce wrapping */
+    text-align: center; /* center table text on small screens */
   }
   /* Prevent images, code blocks or long strings inside cells from forcing
      the table to overflow horizontally. */
