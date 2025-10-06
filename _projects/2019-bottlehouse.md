@@ -1,0 +1,243 @@
+---
+layout: page
+title: 2019 Rocs Old School Tournament
+description: 2019 Rocs Old School Tournament (project view)
+img: assets/img/2019rocsos/ClevelandOS022019CoverageHeader-1.jpg
+importance: 2
+category: work
+giscus_comments: true
+toc:
+  sidebar: left
+images:
+  photoswipe: true
+  spotlight: true
+  venobox: true
+pretty_table: true
+---
+
+> Originally published on Eternal Central at <a href="https://www.eternalcentral.com/cleveland-rocs-02-2019-old-school-93-94-coverage/">this link</a>
+
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/ClevelandOS022019CoverageHeader-1.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+This past weekend marked the first official event hosted by the Cleveland Rocs Old School club. Registration was capped early, and 38 Magicians converged in Cleveland, making a strong statement about the amount of Old School interest in Ohio. This event was run as a charity for the Providence House, a local child services group in Cleveland. The event was run as Swiss with no playoff, for a total of 6 rounds on the day.
+
+## Final Standings
+
+<table
+  data-toggle="table"
+  data-url="{{ '/assets/json/2019Bottlehouse.json' | relative_url }}">
+  <thead>
+    <tr>
+      <th data-field="Rank">Rank</th>
+      <th data-field="Player">Player</th>
+      <th data-field="Points">Points</th>
+      <th data-field="OMP">OMP</th>
+      <th data-field="GWP">GWP</th>
+      <th data-field="OGP">OGP</th>
+    </tr>
+  </thead>
+</table>
+
+## Metagame Breakdown
+
+<table
+  data-toggle="table"
+  data-url="{{ '/assets/json/2019Bottlehousemetagame.json' | relative_url }}">
+  <thead>
+    <tr>
+      <th data-field="first_name">First Name</th>
+      <th data-field="last_name">Last Name</th>
+      <th data-field="deck_name">Deck</th>
+      <th data-field="awarded">Awarded</th>
+    </tr>
+  </thead>
+</table>
+
+## Decklists
+
+Chris Carmichael – Mono Black Nether Void (Most Creative 07 Place)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019ChrisCarmichaelDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Anthony Carosone – Workshop Aggro Mono Green (Most Creative 08 Place)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019AnthonyCarosoneDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+William Casale – White Weenie
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019WilliamCasaleDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Jeremy Chernick – Stasis Control (Most Creative 09 Place)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019JeremyChernickDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+David Combs – Eureka
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019DavidCombsDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Ward Crane – Black White Abyss Control
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019WardCraneDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Biagio Di Cioccio – 4C Aggro Control (08 Place After Swiss Rounds)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019BiaggioDiCioccioDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Sean Duffy – Atog UR
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019SeanDuffyDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Robert Foflygen – Alpha Nature (Most Creative 02 Place)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019RobertFoflygenDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Russell Gribbell – Dreams Combo 5C
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019RussellGribbellDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Jason Jaco – Naya Bazaar Zoo (02 Place After Swiss Rounds)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019JacoDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Rajah James – Workshop Aggro Mono Red (09 Place After Swiss Rounds)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019RajahJamesDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Aric Kelley – Mono Black
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019AricKelleyDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Kevin Kelsey – Erhnam and Burn’Em RG
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019KevinKelseyDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Mike Klements – Merfolk Hack (Most Creative 04 Place)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019MikeKlementsDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Jason Koresko – Gauntlet of Rocs (Most Creative 03 Place)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019JasonKoreskoDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Brian Limbacher – Eureka (Most Creative 06 Place)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019BrianLimbacherDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Erik Limbacher – WGU Zoo (04 Place After Swiss Rounds)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019ErikLimbacherDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Tony Livecchi – Black White
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019TonyLivecchiDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Dan Luchesa – RUG Tempo
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019DanLuchesaDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Steve McGrew – Power Monolith Combo
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019SteveMcGrewDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Andrew McLennan – UWR Aggro Control
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019AndrewMcLennanDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Benjermin Perry – Mono Black (01 Place After Swiss Rounds)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019BenjerminPerryDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Nathan Phillips – Mono Black
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019NathanPhillipsDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Patrick Quinn – Disco Troll Beast
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019PatrickQuinnDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Joe Reuschel – Mirror Lich Combo
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019JoeReuschelDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Ben Revell – Black Blue
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019BenRevellDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Jon Revell – RUG Zoo (05 Place After Swiss Rounds)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019JonRevellDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Sean Revell – Workshop Aggro Mono Blue (03 Place After Swiss Rounds)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019SeanRevellDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Matt Shields – Untamed Jund (BRG) Ramp (06 Place After Swiss Rounds; Most Creative 05 Place)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019MattShieldsDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Andrew Terwilliger – White Weenie
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019AndrewTerwilligerDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Nam Tran – Power Monolith Combo
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019NamTranDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Pez Unholy – Black Blue (07 Place After Swiss Rounds)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019PezUnholyDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Justin Waller – Mephistopheles’ Sanctuary (Most Creative 01 Place)
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019JustinWallerDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Kyle Wells – ErhnamGeddon GW
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019KyleWellsDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Brandon Wilkins – Goblins Mono Red
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019BrandonWilkinsDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Herb Wilson – Pink Weenie
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019HerbWilsonDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Craig Winzer – Erhnam and Burn’Em RG
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019CraigWinzerDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+## Tournament Action
+
+The venue: Bottlehouse Brewery
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019BottlehouseBrewery.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Card Signing!
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/ClevelandRocsOS022019CardSigning.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Hurloon in the Wild
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/ClevelandOS022019HurloonInTheWild.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+## Matchup Photos
+
+<p>Carmichael (Mono Black Nether Void) vs. Shields (Untamed Jund Ramp)<br />
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019CarmichaelVsShields.jpg" 
+ class="img-fluid rounded z-depth-1" zoomable=true %}
+</p><p>Casale (White Weenie) vs. Kelsey (Erhnam &#038; Burn Em RG)<br />
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019CasaleVsKelsey.jpg"
+ class="img-fluid rounded z-depth-1" zoomable=true %}
+</p><p>Jaco (Naya Bazaar Zoo) vs. Klements (Merfolk Hack)<br />
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019JacoVsKlements.jpg" 
+ class="img-fluid rounded z-depth-1" zoomable=true %}
+</p><p>Revell (Workshop Aggro Mono Blue) vs. Crane (Black White Abyss Control)<br />
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019RevellVsCrane.jpg" 
+ class="img-fluid rounded z-depth-1" zoomable=true %}
+</p><p>Chernick (Stasis Control) vs. Quinn (Disco Troll Beast)<br />
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019ChernickVsQuinn.jpg" 
+ class="img-fluid rounded z-depth-1" zoomable=true %}
+</p><p>Shields (Untamed Jund Ramp) vs. James (Workshop Aggro Mono Red)<br />
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019ShieldsVsJames.jpg" 
+ class="img-fluid rounded z-depth-1" zoomable=true %}
+</p><p>Kelley (Mono Black) vs. Koresko (Gauntlet of Rocs)<br />
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019KelleyVsKoresko.jpg" 
+ class="img-fluid rounded z-depth-1" zoomable=true %}
+</p><p>Jaco (Naya Bazaar Zoo) vs. Combs (Eureka)<br />
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019JacoVsCombs.jpg" 
+ class="img-fluid rounded z-depth-1" zoomable=true %}
+</p><p>Revell (RUG Zoo) vs. James (Workshop Aggro Mono Red)<br />
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019RevellVsJames.jpg" 
+ class="img-fluid rounded z-depth-1" zoomable=true %}
+</p><p>McGrew (Power Monolith Combo) vs. Quinn (Disco Troll Beast)<br />
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019McGrewVsQuinn.jpg" 
+ class="img-fluid rounded z-depth-1" zoomable=true %}
+</p>
+
+## Wrap Up
+
+<p>Alpha 40 Side Games<br />
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019Alpha40SideGames.jpg" 
+ class="img-fluid rounded z-depth-1" zoomable=true %}
+</p>
+
+Additionally, there was an ongoing series of raffles run throughout the day. Some of the sweet prizes included these:
+
+<blockquote class="twitter-tweet" data-lang="en">
+<p lang="en" dir="ltr">Joey combs just handed me $100 for the charity and this altered Ali to auction. Mark Poole gave me this Island. <a href="https://twitter.com/hashtag/mfclerocs2019?src=hash&amp;ref_src=twsrc%5Etfw">#mfclerocs2019</a> killing me. Cannot believe this generosity. <a href="https://t.co/jOB6STLIQ9">pic.twitter.com/jOB6STLIQ9</a></p>
+<p>&mdash; Cleveland Rocs (@ClevelandRocsOG) <a href="https://twitter.com/ClevelandRocsOG/status/1099047524587982848?ref_src=twsrc%5Etfw">February 22, 2019</a></p></blockquote>
+<p><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>Winning the coolest raffle!<br />
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019RaffleWinner.jpg" 
+ class="img-fluid rounded z-depth-1" zoomable=true %}
+</p>
+
+<p>The Crew<br />
+{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019TheCrew.jpg" 
+ class="img-fluid rounded z-depth-1" zoomable=true %}
+</p>
+
+## Providence House
+
+After the dust settled, the Cleveland Rocs were able to raise $1700+ dollars for Providence House! Thank you to everyone who came to game, and donated to charity. For any corrections, comments, follow up, or to send us any action shots to add to this report, please email eternalcentral@gmail.com. Thanks for reading, and we’ll catch you next time.
