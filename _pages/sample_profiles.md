@@ -7,16 +7,30 @@ profiles:
     image: prof_pic.jpg
     image_circular: true
     more_info: |
-      **Dr. Ryker Williams**  
-      Computational Scientist
+      **Ryker "Roc" Williams**  
+      Competitive MTG Player
     content: profile-ryker.md
   - align: right
     image: prof_pic_color.png
     image_circular: false
     more_info: |
-      **Jane Doe**  
-      Research Engineer
+      **Jane "Forge" Doe**  
+      Competitive MTG Player & Streamer
     content: profile-jane.md
+  - align: left
+    image: 10.jpg
+    image_circular: false
+    more_info: |
+      **Alex "River" Rivera**  
+      Tournament Grinder
+    content: profile-alex.md
+  - align: right
+    image: 11.jpg
+    image_circular: true
+    more_info: |
+      **Maria "Spark" Chen**  
+      Content Creator & MTG Specialist
+    content: profile-maria.md
 ---
 
 This page demonstrates the `profiles` layout. Each profile's detailed bio is stored in a separate file and included via `include_relative` so you can reuse or edit profiles independently.
