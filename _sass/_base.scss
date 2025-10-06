@@ -53,7 +53,7 @@ table {
   table th {
     white-space: normal; /* allow wrapping inside cells */
     word-break: break-word;
-  padding: 0.05rem 0.175rem 0.05rem 0; /* smaller padding on mobile (halved) */
+    padding: 0.05rem 0.175rem 0.05rem 0; /* smaller padding on mobile (halved) */
     font-size: 0.85rem; /* smaller text to reduce wrapping */
   }
 
@@ -67,8 +67,6 @@ table {
     overflow-wrap: anywhere;
     word-break: break-word;
   }
-
-  
 }
 
 a,
