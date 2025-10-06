@@ -53,8 +53,8 @@ table {
   table th {
     white-space: normal; /* allow wrapping inside cells */
     word-break: break-word;
-    padding: 0.05rem 0.175rem 0.05rem 0; /* smaller padding on mobile (halved) */
-    font-size: 0.85rem; /* smaller text to reduce wrapping */
+    padding: 0.1rem 0.35rem 0.1rem 0; /* restore smaller padding on mobile */
+    font-size: 0.75rem; /* reduce font-size to help reduce wrapping */
   }
 
   /* Prevent images, code blocks or long strings inside cells from forcing
