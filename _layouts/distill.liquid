@@ -106,15 +106,15 @@
         {% endif %}
         <br>
         <br>
-        {% if site.disqus_shortname and page.disqus_comments %}{% include disqus.liquid %}{% endif %}
+        {% if site.disqus_shortname and page.disqus_comments %}
+          {% include disqus.liquid %}{% endif %}
         {% if site.giscus.repo and page.giscus_comments %}
           {% include giscus.liquid %}
         {% endif %}
       </d-article>
-    </div>
+  </div>
 
-    <!-- Footer -->
-    {% include footer.liquid %}
+    <!-- Footer removed site-wide -->
 
     <!-- JavaScripts -->
     {% include distill_scripts.liquid %}

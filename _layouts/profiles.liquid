@@ -4,6 +4,18 @@ layout: page
 <div class="post">
   <article>
     {% if page.profiles %}
+      <!-- Navigation links to individual profile pages -->
+      <nav class="profiles-nav mb-3">
+        <div class="list-group list-group-horizontal flex-wrap">
+          {% for profile in page.profiles %}
+            {% if profile.content %}
+              {% assign fname = profile.content | split: '/' | last %}
+              {% assign slug = fname | remove: 'profile-' | remove: '.md' %}
+              <a class="list-group-item list-group-item-action" href="{{ '/profiles/' | append: slug | append: '/' | relative_url }}">{{ profile.more_info | strip_html | strip_newlines | truncate: 40 }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </nav>
       {% for profile in page.profiles %}
         <hr>
         <div class="profile float-{% if profile.align == 'left' %}left{% else %}right{% endif %}">

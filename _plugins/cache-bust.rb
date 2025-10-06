@@ -25,8 +25,22 @@ module Jekyll
       end
 
       def file_content
-        local_file_name = file_name.slice((file_name.index('assets/')..-1))
-        File.read(local_file_name)
+        # Attempt to read the local asset path (strip any leading path before 'assets/')
+        local_file_name = begin
+          file_name.slice((file_name.index('assets/')..-1))
+        rescue StandardError
+          file_name
+        end
+
+        begin
+          File.read(local_file_name)
+        rescue Errno::ENOENT => e
+          # Don't break the build if an optional asset is missing; warn and return empty content
+          if defined?(Jekyll) && Jekyll.respond_to?(:logger)
+            Jekyll.logger.warn "CacheBust:", "missing file for cache-bust: #{local_file_name} (#{e.class})"
+          end
+          ""
+        end
       end
 
       def file_contents

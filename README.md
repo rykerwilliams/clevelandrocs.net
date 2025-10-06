@@ -322,11 +322,11 @@ You can add extra information to a publication, like a PDF file in the [assets/p
 
 ### Collections
 
-This Jekyll theme implements `collections` to let you break up your work into categories. The theme comes with two default collections: `news` and `projects`. Items from the `news` collection are automatically displayed on the home page. Items from the `projects` collection are displayed on a responsive grid on projects page.
+This Jekyll theme implements `collections` to let you break up your work into categories. The theme comes with two default collections: `news` and `events` (previously called "projects"). Items from the `news` collection are automatically displayed on the home page. Items from the `events` collection are displayed on a responsive grid on the events page.
 
-[![Projects Preview](readme_preview/projects.png)](https://alshedivat.github.io/al-folio/projects/)
+[![Events Preview](readme_preview/projects.png)](https://alshedivat.github.io/al-folio/events/)
 
-You can easily create your own collections, apps, short stories, courses, or whatever your creative work is. To do this, edit the collections in the [\_config.yml](_config.yml) file, create a corresponding folder, and create a landing page for your collection, similar to `_pages/projects.md`.
+You can easily create your own collections, apps, short stories, courses, or whatever your creative work is. To do this, edit the collections in the [\_config.yml](_config.yml) file, create a corresponding folder, and create a landing page for your collection, similar to `_pages/events.md`.
 
 ---
 
@@ -356,7 +356,7 @@ For more details on how to create distill-styled posts using `<d-*>` tags, pleas
 Photo formatting is made simple using [Bootstrap's grid system](https://getbootstrap.com/docs/4.4/layout/grid/). Easily create beautiful grids within your blog posts and project pages, also with support for [video](https://alshedivat.github.io/al-folio/blog/2023/videos/) and [audio](https://alshedivat.github.io/al-folio/blog/2023/audios/) embeds:
 
 <p align="center">
-  <a href="https://alshedivat.github.io/al-folio/projects/1_project/">
+  <a href="https://alshedivat.github.io/al-folio/events/1_project/">
     <img src="readme_preview/photos-screenshot.png" width="75%">
   </a>
 </p>
