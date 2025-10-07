@@ -15,17 +15,14 @@ pagination:
   trail:
     before: 1 # The number of links before the current page
     after: 3 # The number of links after the current page
-display_categories: [profile]
+display_categories: [profiles]
 horizontal: false
 ---
 
 <!-- pages/profiles.md -->
 <div class="profiles">
-{% if site.profiles %}
-  {% assign sorted_profiles = site.profiles | sort: "importance" %}
-{% else %}
-  {% assign sorted_profiles = site.pages | where_exp: "p", "p == nil and p == nil" %}
-{% endif %}
+
+{% assign sorted_profiles = site.profiles | sort: "importance" %}
 
 {% if site.enable_profile_categories and page.display_categories %}
 

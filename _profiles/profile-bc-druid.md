@@ -5,6 +5,7 @@ description: a dude
 img: assets/img/5.jpg
 importance: profile
 giscus_comments: true
+categories: profiles
 ---
 
 ### BC Druid

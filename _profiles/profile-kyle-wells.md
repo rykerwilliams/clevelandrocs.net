@@ -5,6 +5,7 @@ description: a chump
 img: assets/img/9.jpg
 importance: profile
 giscus_comments: true
+categories: profiles
 ---
 
 ### Kyle Wells

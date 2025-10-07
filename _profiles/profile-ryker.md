@@ -5,6 +5,7 @@ description: a champ
 img: assets/img/.prof_pic.jpg
 importance: profile
 giscus_comments: true
+categories: profiles
 ---
 
 ### Ryker Williams

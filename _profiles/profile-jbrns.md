@@ -5,6 +5,7 @@ description: a n00b
 img: assets/img/3.jpg
 importance: profile
 giscus_comments: true
+categories: profiles
 ---
 
 ### JBrns
