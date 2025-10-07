@@ -11,7 +11,9 @@ layout: page
             {% if profile.content %}
               {% assign fname = profile.content | split: '/' | last %}
               {% assign slug = fname | remove: 'profile-' | remove: '.md' %}
-              <a class="list-group-item list-group-item-action" href="{{ '/profiles/' | append: slug | append: '/' | relative_url }}">{{ profile.more_info | strip_html | strip_newlines | truncate: 40 }}</a>
+              <a class="list-group-item list-group-item-action" href="{{ '/profiles/' | append: slug | append: '/' | relative_url }}">
+                {{- profile.more_info | strip_html | strip_newlines | truncate: 40 -}}
+              </a>
             {% endif %}
           {% endfor %}
         </div>
