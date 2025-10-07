@@ -1,78 +1,48 @@
-<div class="post">
-  <article>
-    {{ content }}
+<ul class="card-text font-weight-light list-group list-group-flush">
+  {{ content }}
 
-    {% comment %} Auto-generated list of individual profile pages under /profiles/ {% endcomment %}
-    {% assign profile_pages = site.pages | where_exp: 'p', "p.url contains '/profiles/' and p.url != '/profiles/'" %}
-    {% if profile_pages and profile_pages.size > 0 %}
-      <nav class="profiles-directory mb-4">
-        <h2>Player profiles</h2>
-        <p>Quick links to each player's full profile:</p>
-        <ul class="list-unstyled">
-          {% assign sorted = profile_pages | sort: 'title' %}
-          {% for p in sorted %}
-            {% if p.url contains '/profiles/' and p.url != '/profiles/' %}
-              {% assign clean_url = p.url | replace: 'index.html', '' | replace: 'index.htm', '' %}
-              {% if clean_url == '' %}
-                {% assign clean_url = '/' %}
-              {% endif %}
-              {% if clean_url | slice: -1, 1 != '/' %}
-                {% assign clean_url = clean_url | append: '/' %}
-              {% endif %}
-              <li class="mb-2">
-                <a href="{{ clean_url | relative_url }}">{{ p.title | default: p.name | default: p.url }}</a>
-                {% if p.excerpt %}
-                  — {{ p.excerpt | strip_html | truncate: 140 }}
-                {% endif %}
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </nav>
-    {% endif %}
-
-    {% if page.profiles %}
-      <!-- Optional quick links defined in page front-matter -->
-      <nav class="profiles-nav mb-3">
-        <div class="list-group list-group-horizontal flex-wrap">
-          {% for profile in page.profiles %}
-            {% if profile.content %}
-              {% assign fname = profile.content | split: '/' | last %}
-              {% assign slug = fname | remove: 'profile-' | remove: '.md' %}
-              <a class="list-group-item list-group-item-action" href="{{ '/profiles/' | append: slug | append: '/' | relative_url }}">
-                {{ profile.more_info | strip_html | strip_newlines | truncate: 40 }}
-              </a>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </nav>
-
-      {% for profile in page.profiles %}
-        <hr>
-        <div class="profile mb-4">
-          {% if profile.image %}
-            {% assign profile_image_path = profile.image | prepend: 'assets/img/' %}
-            {% if profile.image_circular %}
-              {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-            {% else %}
-              {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
-            {% endif %}
-            {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw{% endcapture %}
-            {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=profile.image %}
+  {% comment %} collect profile pages under /profiles/ (exclude the index) {% endcomment %}
+  {% assign profile_pages = site.pages | where_exp: 'p', "p.url contains '/profiles/' and p.url != '/profiles/'" %}
+  {% if profile_pages and profile_pages.size > 0 %}
+    <nav class="profiles-directory mb-4">
+      <h2>Player profiles</h2>
+      <p>Quick links to each player's full profile:</p>
+      <ul class="list-unstyled">
+        {% assign sorted = profile_pages | sort: 'title' %}
+        {% for p in sorted %}
+          {% assign clean_url = p.url | replace: 'index.html', '' | replace: 'index.htm', '' %}
+          {% if clean_url == '' %}
+            {% assign clean_url = '/' %}
           {% endif %}
-
-          {% if profile.more_info %}
-            <div class="more-info">{{ profile.more_info }}</div>
+          {% if clean_url | slice: -1, 1 != '/' %}
+            {% assign clean_url = clean_url | append: '/' %}
           {% endif %}
-
-          <div class="profile-content mt-3">
-            {% if profile.content %}
-              {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
-              {{ profile_content | markdownify }}
+          <li class="mb-2">
+            <a href="{{ clean_url | relative_url }}">{{ p.title | default: p.name | default: clean_url }}</a>
+            {% if p.excerpt %}
+              — {{ p.excerpt | strip_html | truncate: 140 }}
             {% endif %}
-          </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+
+  {% comment %} optional: render profile blocks if page.profiles front-matter is provided {% endcomment %}
+  {% if page.profiles %}
+    <hr>
+    {% for profile in page.profiles %}
+      <div class="profile mb-4">
+        {% if profile.more_info %}
+          <div class="more-info">{{ profile.more_info }}</div>
+        {% endif %}
+        <div class="profile-content mt-3">
+          {% if profile.content %}
+            {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
+            {{ profile_content | markdownify }}
+          {% endif %}
         </div>
-      {% endfor %}
-    {% endif %}
-  </article>
-</div>
+      </div>
+    {% endfor %}
+  {% endif %}
+</ul>

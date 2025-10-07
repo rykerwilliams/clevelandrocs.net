@@ -4,7 +4,7 @@ title: 2019 Rocs Old School Tournament
 description: 2019 Rocs Old School Tournament (event view)
 img: assets/img/2019rocsos/ClevelandOS022019CoverageHeader-1.jpg
 importance: 2
-category: work
+category: fun
 giscus_comments: true
 toc:
   sidebar: left

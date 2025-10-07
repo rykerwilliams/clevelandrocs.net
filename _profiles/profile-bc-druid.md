@@ -23,5 +23,3 @@ BC Druid is a consistent top-performer in local Modern events, known for a measu
 - Frequent contributor to the local testing group and sideboard guides.
 
 </div>
-```
-````

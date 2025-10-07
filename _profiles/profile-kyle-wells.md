@@ -24,5 +24,3 @@ Kyle Wells is a veteran player and local event organizer who helps run weekly to
 </div>
 
 </div>
-```
-````

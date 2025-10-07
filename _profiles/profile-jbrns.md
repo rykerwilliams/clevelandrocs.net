@@ -28,5 +28,3 @@ JBrns is a grinder and metagame analyst who focuses on Modern and Legacy. He enj
 - <span class="badge">Legacy</span> Delver — Local league wins
 
 </div>
-```
-````

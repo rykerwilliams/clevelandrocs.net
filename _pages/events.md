@@ -2,7 +2,7 @@
 layout: page
 title: events
 permalink: /events/
-description: A growing collection of your cool events.
+description: A growing collection of cool events.
 nav: true
 nav_order: 3
 display_categories: [work, fun]

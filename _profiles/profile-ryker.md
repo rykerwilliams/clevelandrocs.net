@@ -2,7 +2,7 @@
 layout: page
 title: Ryker Williams
 description: a champ
-img: assets/img/.prof_pic.jpg
+img: assets/img/prof_pic.jpg
 importance: profile
 giscus_comments: true
 categories: profiles
@@ -53,4 +53,3 @@ Ryker "Roc" Williams is a competitive Magic: The Gathering player and deckbuilde
 		</div>
 	</div>
 </div>
-```

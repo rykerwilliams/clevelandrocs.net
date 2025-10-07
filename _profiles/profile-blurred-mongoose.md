@@ -34,5 +34,3 @@ Blurred Mongoose is an inventive deckbuilder known for creative brews in Pioneer
 </div>
 
 </div>
-```
-````
