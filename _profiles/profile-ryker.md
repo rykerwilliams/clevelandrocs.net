@@ -3,7 +3,7 @@ layout: page
 title: Ryker Williams
 description: a champ
 img: assets/img/prof_pic.jpg
-importance: profile
+importance: 1
 giscus_comments: true
 categories: profiles
 ---

@@ -24,10 +24,10 @@
       {% assign img_url = img %}
       {% if img_url != '' %}
         {% if img_url contains '://' %}
-          {# leave full URLs alone #}
+          {% comment %} leave full URLs alone {% endcomment %}
         {% else %}
           {% if img_url | slice: 0,1 == '/' %}
-            {# already starts with / #}
+            {% comment %} already starts with / {% endcomment %}
           {% else %}
             {% assign img_url = '/' | append: img_url %}
           {% endif %}
@@ -49,9 +49,9 @@
         <h3 class="card-title text-lowercase">{{ include.profile.title }}</h3>
 
         {% if include.profile.description %}
-          <p class="card-text">{{ include.profile.description | strip_html | truncate: 140 }}</p>
+          <p class="card-text">{{ include.profile.description | strip_html | truncate: 125 }}</p>
         {% else %}
-          {% assign excerpt = include.profile.content | strip_html | strip_newlines | truncate: 140 %}
+          {% assign excerpt = include.profile.content | strip_html | strip_newlines | truncate: 125 %}
           <p class="card-text">{{ excerpt }}</p>
         {% endif %}
 

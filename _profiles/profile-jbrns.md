@@ -3,7 +3,7 @@ layout: page
 title: JBrns
 description: a n00b
 img: assets/img/3.jpg
-importance: profile
+importance: 1
 giscus_comments: true
 categories: profiles
 ---

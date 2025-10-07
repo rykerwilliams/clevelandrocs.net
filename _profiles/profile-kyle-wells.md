@@ -3,7 +3,7 @@ layout: page
 title: THE Kyle Wells
 description: a chump
 img: assets/img/9.jpg
-importance: profile
+importance: 1
 giscus_comments: true
 categories: profiles
 ---

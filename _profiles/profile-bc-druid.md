@@ -3,7 +3,7 @@ layout: page
 title: BC Druid
 description: a dude
 img: assets/img/5.jpg
-importance: profile
+importance: 1
 giscus_comments: true
 categories: profiles
 ---
