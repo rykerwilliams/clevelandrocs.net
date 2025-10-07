@@ -3,8 +3,19 @@ layout: page
 title: profiles
 permalink: /profiles/
 description: Cleveland Rocs Player Profiles
-nav: false
-display_categories: [profiles, players]
+nav: true
+nav_order: 1
+pagination:
+  enabled: true
+  collection: profiles
+  permalink: /page/:num/
+  per_page: 5
+  sort_field: date
+  sort_reverse: true
+  trail:
+    before: 1 # The number of links before the current page
+    after: 3 # The number of links after the current page
+display_categories: []
 horizontal: false
 ---
 
@@ -22,6 +33,7 @@ horizontal: false
 
 {% for category in page.display_categories %}
 <a id="{{ category }}" href="#{{ category }}">
+
 <h2 class="category">{{ category }}</h2>
 </a>
 
