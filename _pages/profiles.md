@@ -15,7 +15,7 @@ pagination:
   trail:
     before: 1 # The number of links before the current page
     after: 3 # The number of links after the current page
-display_categories: [profiles]
+display_categories: [profile]
 horizontal: false
 ---
 

@@ -1,10 +1,15 @@
-````markdown
-```markdown
+---
+layout: page
+title: Blurred Mongoose
+description: a mongoose
+img: assets/img/2.jpg
+importance: profile
+giscus_comments: true
+---
+
 ### Blurred Mongoose
 
 <div class="profile">
-
-![Blurred Mongoose](/assets/img/4.jpg){:.avatar}
 
 Blurred Mongoose is an inventive deckbuilder known for creative brews in Pioneer and Modern. They focus on unconventional card choices and enjoy presenting deck techs.
 

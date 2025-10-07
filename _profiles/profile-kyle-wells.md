@@ -1,10 +1,15 @@
-````markdown
-```markdown
+---
+layout: page
+title: THE Kyle Wells
+description: a chump
+img: assets/img/9.jpg
+importance: profile
+giscus_comments: true
+---
+
 ### Kyle Wells
 
 <div class="profile">
-
-![Kyle Wells](/assets/img/9.jpg){:.avatar}
 
 Kyle Wells is a veteran player and local event organizer who helps run weekly tournaments and supports newer players.
 

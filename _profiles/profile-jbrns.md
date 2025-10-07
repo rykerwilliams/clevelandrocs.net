@@ -1,10 +1,15 @@
-````markdown
-```markdown
+---
+layout: page
+title: JBrns
+description: a n00b
+img: assets/img/3.jpg
+importance: profile
+giscus_comments: true
+---
+
 ### JBrns
 
 <div class="profile">
-
-![JBrns](/assets/img/3.jpg){:.avatar}
 
 JBrns is a grinder and metagame analyst who focuses on Modern and Legacy. He enjoys testing new deck ideas and optimizing sideboards for local and regional events.
 

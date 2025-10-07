@@ -1,9 +1,15 @@
-```markdown
+---
+layout: page
+title: Ryker Williams
+description: a champ
+img: assets/img/.prof_pic.jpg
+importance: profile
+giscus_comments: true
+---
+
 ### Ryker Williams
 
 <div class="profile">
-
-![Ryker headshot](/assets/img/prof_pic.jpg){:.avatar}
 
 Ryker "Roc" Williams is a competitive Magic: The Gathering player and deckbuilder. He focuses on Modern and Pioneer formats, testing new brews and refining sideboards for tournament play.
 
