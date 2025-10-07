@@ -29,7 +29,7 @@ The project is structured as follows, focusing on the main components that you w
 ├── 📂 _pages/: contains the pages of the website
 |   └── 📄 404.md: 404 page (page not found)
 ├── 📂 _posts/: contains the blog posts
-├── 📂 _projects/: contains the projects
+├── 📂 _events/: contains the events (previously _projects)
 └── 📂 _sass/: contains the SASS files that define the style of the website
     ├── 📄 _base.scss: base style of the website
     ├── 📄 _cv.scss: style of the CV page
@@ -69,9 +69,9 @@ If you want to create blog posts that are not ready to be published, but you wan
 
 Note that `posts` is also a collection, but it is a default collection created automatically by Jekyll. To access the posts, you can use the `site.posts` variable in your templates.
 
-## Creating new projects
+## Creating new events (previously called projects)
 
-You can create new projects by adding new Markdown files in the [\_projects](_projects/) directory. The easiest way to do this is to copy an existing project and modify it.
+You can create new events by adding new Markdown files in the [\_events](_events/) directory. The easiest way to do this is to copy an existing event and modify it.
 
 ## Adding some news
 
@@ -173,7 +173,7 @@ exclude:
   - _news/announcement_*.md
   - _pages/blog.md
   - _posts/
-  - _projects/?_project.md
+  - _events/?_event.md
   - assets/jupyter/blog.ipynb
 ```
 
@@ -211,7 +211,7 @@ To remove the news section, you can:
 
 To remove the projects/events section, you can:
 
-- delete the [\_projects](_projects/) directory (if present)
+- delete the [\_events](_events/) directory (if present)
 - delete the [\_events](_events/) directory (if present)
 - delete the projects page [\_pages/projects.md](_pages/projects.md) and/or the events page [\_pages/events.md](_pages/events.md)
 - remove reference to the projects/events page in our [\_pages/dropdown.md](_pages/dropdown.md)

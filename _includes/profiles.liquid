@@ -1,0 +1,44 @@
+<div class="col mb-4 profile-card-col">
+  <a class="profile-card-link" href="{{ include.profile.url }}">
+    <div class="card hoverable profile-card">
+      {% comment %} image: prefer page.image front-matter, then profile.jpg/png by slug, then fallback {% endcomment %}
+      {% assign img = include.profile.image | default: '' %}
+      {% if img == '' %}
+        {% assign slug = include.profile.url | split: '/' | reject: '' | last %}
+        {% assign try1 = 'assets/img/' | append: slug | append: '.jpg' %}
+        {% assign try2 = 'assets/img/' | append: slug | append: '.png' %}
+        {% assign img = try1 %}
+        {% comment %} fallback handled in figure include if missing {% endcomment %}
+      {% endif %}
+
+      <div class="profile-card-media">
+        <img
+          src="{{ img | relative_url }}"
+          alt="{{ include.profile.title }}"
+          class="img-fluid profile-card-img"
+          onerror="this.onerror=null;this.src='/assets/img/prof_pic.png'"
+        >
+      </div>
+
+      <div class="card-body">
+        <h3 class="card-title text-lowercase">{{ include.profile.title }}</h3>
+
+        {% if include.profile.description %}
+          <p class="card-text">{{ include.profile.description | strip_html | truncate: 140 }}</p>
+        {% else %}
+          {% assign excerpt = include.profile.content | strip_html | strip_newlines | truncate: 140 %}
+          <p class="card-text">{{ excerpt }}</p>
+        {% endif %}
+
+        <p class="post-meta small text-muted">
+          {% if include.profile.location -%}
+            <span class="me-2"><i class="fa fa-map-marker-alt"></i> {{ include.profile.location }}</span>
+          {%- endif %}
+          {% if include.profile.handle -%}
+            <span class="me-2"><i class="fa fa-user"></i> {{ include.profile.handle }}</span>
+          {%- endif %}
+        </p>
+      </div>
+    </div>
+  </a>
+</div>

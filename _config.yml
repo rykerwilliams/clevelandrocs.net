@@ -596,7 +596,7 @@ jsonresume:
   - work
   - education
   - publications
-  - projects
+    - projects # DEPRECATED: migrated to events
   - volunteer
   - awards
   - certificates
