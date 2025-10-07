@@ -1,48 +1,36 @@
-<ul class="card-text font-weight-light list-group list-group-flush">
-  {{ content }}
-
-  {% comment %} collect profile pages under /profiles/ (exclude the index) {% endcomment %}
-  {% assign profile_pages = site.pages | where_exp: 'p', "p.url contains '/profiles/' and p.url != '/profiles/'" %}
-  {% if profile_pages and profile_pages.size > 0 %}
-    <nav class="profiles-directory mb-4">
-      <h2>Player profiles</h2>
-      <p>Quick links to each player's full profile:</p>
-      <ul class="list-unstyled">
-        {% assign sorted = profile_pages | sort: 'title' %}
-        {% for p in sorted %}
-          {% assign clean_url = p.url | replace: 'index.html', '' | replace: 'index.htm', '' %}
-          {% if clean_url == '' %}
-            {% assign clean_url = '/' %}
-          {% endif %}
-          {% if clean_url | slice: -1, 1 != '/' %}
-            {% assign clean_url = clean_url | append: '/' %}
-          {% endif %}
-          <li class="mb-2">
-            <a href="{{ clean_url | relative_url }}">{{ p.title | default: p.name | default: clean_url }}</a>
-            {% if p.excerpt %}
-              — {{ p.excerpt | strip_html | truncate: 140 }}
+---
+layout: page
+---
+<div class="post">
+  <article>
+    {% if page.profiles %}
+      {% for profile in page.profiles %}
+        <hr>
+        <div class="profile float-{% if profile.align == 'left' %}left{% else %}right{% endif %}">
+          {% if profile.image %}
+            {% assign profile_image_path = profile.image | prepend: 'assets/img/' %}
+            {% if profile.image_circular %}
+              {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+            {% else %}
+              {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
             {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-    </nav>
-  {% endif %}
+            {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw"{% endcapture %}
+            {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=profile.image %}
+          {% endif %}
+          {% if profile.more_info %}
+            <div class="more-info">{{ profile.more_info }}</div>
+          {% endif %}
+        </div>
 
-  {% comment %} optional: render profile blocks if page.profiles front-matter is provided {% endcomment %}
-  {% if page.profiles %}
-    <hr>
-    {% for profile in page.profiles %}
-      <div class="profile mb-4">
-        {% if profile.more_info %}
-          <div class="more-info">{{ profile.more_info }}</div>
-        {% endif %}
-        <div class="profile-content mt-3">
+        <div class="clearfix">
           {% if profile.content %}
             {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
             {{ profile_content | markdownify }}
+          {% else %}
+            {{ content }}
           {% endif %}
         </div>
-      </div>
-    {% endfor %}
-  {% endif %}
-</ul>
+      {% endfor %}
+    {% endif %}
+  </article>
+</div>
