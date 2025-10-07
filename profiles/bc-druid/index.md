@@ -2,6 +2,7 @@
 layout: page
 title: BC Druid
 permalink: /profiles/bc-druid/
+img: assets/img/5.jpg
 ---
 
 ### BC Druid

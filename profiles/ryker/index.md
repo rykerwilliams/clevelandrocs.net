@@ -2,6 +2,7 @@
 layout: page
 title: Ryker
 permalink: /profiles/ryker/
+img: assets/img/prof_pic.jpg
 ---
 
 ### Ryker Williams

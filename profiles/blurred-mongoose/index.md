@@ -2,6 +2,7 @@
 layout: page
 title: Blurred Mongoose
 permalink: /profiles/blurred-mongoose/
+img: assets/img/2.jpg
 ---
 
 ### Blurred Mongoose

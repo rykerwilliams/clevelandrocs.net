@@ -2,21 +2,46 @@
   <a class="profile-card-link" href="{{ include.profile.url }}">
     <div class="card hoverable profile-card">
       {% comment %} image: prefer page.image front-matter, then profile.jpg/png by slug, then fallback {% endcomment %}
-      {% assign img = include.profile.image | default: '' %}
+      {% comment %} Resolve image path: prefer front-matter keys (image, img, img_path), then try slug-based filenames. Normalize to an absolute asset path. {% endcomment %}
+      {% assign img = '' %}
+      {% if include.profile.image %}
+        {% assign img = include.profile.image %}
+      {% elsif include.profile.img %}
+        {% assign img = include.profile.img %}
+      {% elsif include.profile.img_path %}
+        {% assign img = include.profile.img_path %}
+      {% endif %}
+
       {% if img == '' %}
         {% assign slug = include.profile.url | split: '/' | reject: '' | last %}
         {% assign try1 = 'assets/img/' | append: slug | append: '.jpg' %}
         {% assign try2 = 'assets/img/' | append: slug | append: '.png' %}
+        {% assign try3 = 'assets/img/' | append: slug | append: '.webp' %}
         {% assign img = try1 %}
-        {% comment %} fallback handled in figure include if missing {% endcomment %}
+      {% endif %}
+
+      {% comment %} Normalize: if the value is a bare path like "assets/img/5.jpg" make it "/assets/img/5.jpg"; allow absolute URLs through. {% endcomment %}
+      {% assign img_url = img %}
+      {% if img_url != '' %}
+        {% if img_url contains '://' %}
+          {# leave full URLs alone #}
+        {% else %}
+          {% if img_url | slice: 0,1 == '/' %}
+            {# already starts with / #}
+          {% else %}
+            {% assign img_url = '/' | append: img_url %}
+          {% endif %}
+        {% endif %}
+      {% else %}
+        {% assign img_url = '/assets/img/prof_pic.jpg' %}
       {% endif %}
 
       <div class="profile-card-media">
         <img
-          src="{{ img | relative_url }}"
+          src="{{ img_url | relative_url }}"
           alt="{{ include.profile.title }}"
           class="img-fluid profile-card-img"
-          onerror="this.onerror=null;this.src='/assets/img/prof_pic.png'"
+          onerror="this.onerror=null;this.src='/assets/img/prof_pic.jpg'"
         >
       </div>
 

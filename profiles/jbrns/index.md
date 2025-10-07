@@ -2,6 +2,7 @@
 layout: page
 title: JBrns
 permalink: /profiles/jbrns/
+img: assets/img/3.jpg
 ---
 
 ### JBrns

@@ -2,6 +2,7 @@
 layout: page
 title: Kyle Wells
 permalink: /profiles/kyle-wells/
+img: assets/img/9.jpg
 ---
 
 ### Kyle Wells
