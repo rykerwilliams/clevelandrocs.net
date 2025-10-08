@@ -1,5 +1,5 @@
 ---
-layout: profiles
+layout: page
 title: profiles
 permalink: /profiles/
 description: Cleveland Rocs Player Profiles
@@ -7,16 +7,14 @@ nav: true
 nav_order: 1
 display_categories: [profiles]
 horizontal: false
+toc:
+  sidebar: left
 ---
 
-<div class="profiles">
-
-{% comment %}
-Gather profile pages from site.pages (we use pages/profiles/<slug>/index.md files).
-Exclude the index itself and any pagination files.
-{% endcomment %}
-
+{% assign sorted_profiles = site.profiles | sort: "title" %}
+{% if sorted_profiles == empty %}
 {% assign sorted_profiles = site.pages | where_exp: "p", "p.url contains '/profiles/' and p.url != '/profiles/' and p.url != '/profiles/index.html'" | sort: "title" %}
+{% endif %}
 
 {% if page.horizontal %}
 
@@ -34,5 +32,3 @@ Exclude the index itself and any pagination files.
     {% endfor %}
   </div>
 {% endif %}
-
-</div>

@@ -1,0 +1,98 @@
+---
+layout: default
+---
+
+{% comment %} Profile pages: show a larger image column and add next/previous links below the content {% endcomment %}
+{% assign has_profile_image = false %}
+{% if page.url contains '/profiles/' %}
+  {% if page.img %}
+    {% assign img_path = page.img %}
+    {% assign has_profile_image = true %}
+  {% elsif page.image %}
+    {% assign img_path = page.image %}
+    {% assign has_profile_image = true %}
+  {% elsif page.img_path %}
+    {% assign img_path = page.img_path %}
+    {% assign has_profile_image = true %}
+  {% endif %}
+{% endif %}
+
+{% if has_profile_image %}
+  <div class="row mb-4 align-items-start">
+    <div class="col-12 col-md-4">
+      {% comment %} Use a larger hero image while preserving avatar styles {% endcomment %}
+      {% include figure.liquid path=img_path class='img-fluid rounded mx-auto d-block profile-hero avatar' alt=page.title cache_bust=true width='480' %}
+    </div>
+    <div class="col-12 col-md-8">
+      <article>
+        {% comment %} Avoid double-wrapping: if the content already includes a .profile container, render as-is {% endcomment %}
+        {% if content contains 'class="profile"' or content contains "class='profile'" %}
+          {%- assign processed = content -%}
+          {%- if processed contains 'markdown="1"' -%}
+            {%- assign processed = processed | replace: 'markdown="1"', '' -%}
+            {{ processed | markdownify }}
+          {%- else -%}
+            {{ content }}
+          {%- endif -%}
+        {% else %}
+          <div class="profile">
+            {{ content }}
+          </div>
+        {% endif %}
+
+        {% comment %} Previous / Next profile navigation: find index then assign prev/next by iterating {% endcomment %}
+        {% assign profiles = site.profiles | sort: 'title' %}
+        {% assign idx = nil %}
+        {% for p in profiles %}
+          {% if p.url == page.url %}
+            {% assign idx = forloop.index0 %}
+          {% endif %}
+        {% endfor %}
+
+        {% if idx != nil %}
+          {% assign prev_index = idx | minus: 1 %}
+          {% assign next_index = idx | plus: 1 %}
+          {% assign prev_profile = nil %}
+          {% assign next_profile = nil %}
+          {% for p in profiles %}
+            {% if forloop.index0 == prev_index %}
+              {% assign prev_profile = p %}
+            {% endif %}
+            {% if forloop.index0 == next_index %}
+              {% assign next_profile = p %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        {% if prev_profile or next_profile %}
+          <nav class="profile-nav mt-4 d-flex justify-content-between">
+            {% if prev_profile %}
+              <a class="btn btn-outline-primary" href="{{ prev_profile.url | relative_url }}">&larr; {{ prev_profile.title }}</a>
+            {% else %}
+              <span></span>
+            {% endif %}
+
+            {% if next_profile %}
+              <a class="btn btn-outline-primary" href="{{ next_profile.url | relative_url }}">{{ next_profile.title }} &rarr;</a>
+            {% else %}
+              <span></span>
+            {% endif %}
+          </nav>
+        {% endif %}
+
+      </article>
+    </div>
+  </div>
+{% else %}
+  {% comment %} Not a profile page with a hero image: fall back to normal behavior {% endcomment %}
+  {% if page.img %}
+    {% include figure.liquid path=page.img class='img-fluid rounded mx-auto d-block' alt=page.title cache_bust=true %}
+  {% endif %}
+  <article>
+    {{ content }}
+  </article>
+{% endif %}
+
+{% if site.giscus and page.giscus_comments %}
+  {% include giscus.liquid %}
+{% endif %}

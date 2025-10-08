@@ -1,0 +1,22 @@
+{% comment %}
+  Profiles TOC include: renders a sorted list of profiles for the sidebar.
+  Use the same structure expected by the site's TOC styles (nav[data-toggle="toc"]).
+{% endcomment %}
+{% assign sorted_profiles = site.profiles | sort: 'title' %}
+<nav id="toc-sidebar" data-toggle="toc" class="profiles-toc d-none d-md-block" role="navigation">
+  <ul class="nav flex-column">
+    {% for p in sorted_profiles %}
+      {% assign is_active = false %}
+      {% if p.url == page.url %}
+        {% assign is_active = true %}
+      {% endif %}
+      <li class="nav-item">
+        <a href="{{ p.url | relative_url }}" class="nav-link {% if is_active %}active{% endif %}">
+          {%- if is_active %}<strong>{% endif -%}
+          {{- p.title -}}
+          {%- if is_active %}</strong>{% endif -%}
+        ></a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

@@ -1,62 +1,62 @@
 ---
 layout: default
 ---
-{% if page._styles %}
-  <!-- Page/Post style -->
-  <style type="text/css">
-    {{ page._styles }}
-  </style>
+{% comment %} Profile pages: show a larger image column and add next/previous links below the content {% endcomment %}
+{% assign has_profile_image = false %}
+{% if page.url contains '/profiles/' %}
+  {% if page.img %}
+    {% assign img_path = page.img %}
+    {% assign has_profile_image = true %}
+  {% elsif page.image %}
+    {% assign img_path = page.image %}
+    {% assign has_profile_image = true %}
+  {% elsif page.img_path %}
+    {% assign img_path = page.img_path %}
+    {% assign has_profile_image = true %}
+  {% endif %}
 {% endif %}
 
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-description">{{ page.description }}</p>
-  </header>
-
-  {% comment %} For profile pages, place image to the left and content to the right {% endcomment %}
-  {% assign skip_article = false %}
-  {% if page.img and page.url contains '/profiles/' %}
-    <div class="row mb-4 align-items-start">
-      <div class="col-12 col-md-1">
-        {% assign img_path = page.img %}
-        {% comment %} add avatar class so _profiles.scss .profile .avatar rules apply {% endcomment %}
-        {% include figure.liquid path=img_path class='img-fluid rounded float-start avatar' alt=page.title cache_bust=true width='160' %}
-      </div>
-      <div class="col-12 col-md-11">
-        <article>
-          {% comment %} Avoid double-wrapping: if the content already includes a .profile container, render as-is {% endcomment %}
-          {% if content contains 'class="profile"' or content contains "class='profile'" %}
-            {%- assign processed = content -%}
-            {%- if processed contains 'markdown="1"' -%}
-              {%- assign processed = processed | replace: 'markdown="1"', '' -%}
-              {{ processed | markdownify }}
-            {%- else -%}
-              {{ content }}
-            {%- endif -%}
-          {% else %}
-            <div class="profile">
-              {{ content }}
-            </div>
-          {% endif %}
-        </article>
-      </div>
+{% if has_profile_image %}
+  <div class="row mb-4 align-items-start">
+    <div class="col-12 col-md-3">
+      {% comment %} Left sidebar TOC for profiles on medium+ screens {% endcomment %}
+      {% include profiles-toc.liquid %}
     </div>
-    {% assign skip_article = true %}
-  {% else %}
-    {% if page.img %}
-      {% assign img_path = page.img %}
-      {% include figure.liquid path=img_path class='img-fluid rounded mx-auto d-block' alt=page.title cache_bust=true %}
-    {% endif %}
-  {% endif %}
+    <div class="col-12 col-md-3">
+      {% comment %} Use a larger hero image while preserving avatar styles {% endcomment %}
+      {% include figure.liquid path=img_path class='img-fluid rounded mx-auto d-block profile-hero avatar' alt=page.title cache_bust=true width='480' %}
+    </div>
+    <div class="col-12 col-md-6">
+      <article>
+        {% comment %} Avoid double-wrapping: if the content already includes a .profile container, render as-is {% endcomment %}
+        {% if content contains 'class="profile"' or content contains "class='profile'" %}
+          {%- assign processed = content -%}
+          {%- if processed contains 'markdown="1"' -%}
+            {%- assign processed = processed | replace: 'markdown="1"', '' -%}
+            {{ processed | markdownify }}
+          {%- else -%}
+            {{ content }}
+          {%- endif -%}
+        {% else %}
+          <div class="profile">
+            {{ content }}
+          </div>
+        {% endif %}
 
-  {% unless skip_article %}
-    <article>
-      {{ content }}
-    </article>
-  {% endunless %}
-
-  {% if site.giscus and page.giscus_comments %}
-    {% include giscus.liquid %}
+        {%- comment -%} Previous/next navigation removed per request {%- endcomment -%}
+      </article>
+    </div>
+  </div>
+{% else %}
+  {% comment %} Not a profile page with a hero image: fall back to normal behavior {% endcomment %}
+  {% if page.img %}
+    {% include figure.liquid path=page.img class='img-fluid rounded mx-auto d-block' alt=page.title cache_bust=true %}
   {% endif %}
-</div>
+  <article>
+    {{ content }}
+  </article>
+{% endif %}
+
+{% if site.giscus and page.giscus_comments %}
+  {% include giscus.liquid %}
+{% endif %}

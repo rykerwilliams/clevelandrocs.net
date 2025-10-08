@@ -59,22 +59,67 @@ strong {
 }
 
 // Profile cards
+// Make all profile cards in the grid equal height using flexbox so
+// varying title/excerpt lengths won't change tile size.
+.profile-card-col {
+  display: flex; /* ensure the column stretches to the height of the row */
+}
+
+.profile-card-link {
+  display: block; /* make the <a> wrap the full card area */
+  width: 100%;
+}
+
 .profile-card {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* stretch to fill the column */
+
   .profile-card-media {
+    flex: 0 0 160px; /* fixed media area */
     height: 160px;
     overflow: hidden;
   }
 
   .profile-card-img {
     width: 100%;
-    height: 160px;
+    height: 100%;
     object-fit: cover;
     display: block;
   }
 
   .card-body {
-    min-height: 120px;
+    flex: 1 1 auto; /* fill remaining space so all cards match height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* keep meta/footer pinned to bottom */
+  }
+}
+
+/* Profiles TOC (sidebar list used on individual profile pages) */
+.profiles-toc {
+  max-width: 220px;
+  position: relative;
+
+  .list-group {
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.25rem;
+  }
+
+  .list-group-item {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.92rem;
+  }
+
+  /* Make the TOC sticky on larger viewports */
+  @media (min-width: 768px) {
+    .list-group {
+      position: sticky;
+      top: 1rem; /* below the fixed navbar */
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+    }
   }
 }
 

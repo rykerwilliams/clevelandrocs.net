@@ -1,23 +1,8 @@
 ---
 layout: page
 title: Kyle Wells
-permalink: /profiles/kyle-wells/
-img: assets/img/9.jpg
+permalink: /profiles/the-kyle-wells/
+img: assets/img/profiles/kyle.jpg
 ---
 
-### Kyle Wells
-
-<div class="profile">
-
-Kyle Wells is a veteran player and local event organizer who helps run weekly tournaments and supports newer players.
-
-- Location: Cleveland, OH
-- Handle: kylewells
-
-<h4>Community</h4>
-<div class="publications-grid">
-	<div class="pub">Organizer: Weekly Modern nights</div>
-	<div class="pub">Mentor: New player coaching and sideboard clinics</div>
-</div>
-
-</div>
+Kyle Wells started playing in 1997 and still hasn't figured it out.
