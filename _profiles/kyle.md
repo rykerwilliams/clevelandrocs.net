@@ -5,4 +5,6 @@ permalink: /profiles/the-kyle-wells/
 img: assets/img/profiles/kyle.jpg
 ---
 
-Kyle Wells started playing MtG in 1997 and still hasn't figured it out.
+## Kyle
+
+THE Kyle Wells started playing MtG in 1997 and still hasn't figured it out.

@@ -5,6 +5,8 @@ permalink: /profiles/jbrns/
 img: assets/img/profiles/jon.jpg
 ---
 
+## Jon
+
 JBrns is a grinder and metagame analyst who focuses on Modern and Legacy. He enjoys testing new deck ideas and optimizing sideboards for local and regional events.
 
 - Location: Cleveland, OH
