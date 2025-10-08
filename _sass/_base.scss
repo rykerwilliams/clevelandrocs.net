@@ -123,6 +123,27 @@ strong {
   }
 }
 
+/* Profiles TOC: sticky sidebar */
+.profiles-toc,
+.profile-toc {
+  position: sticky;
+  top: 1.5rem; /* move the TOC higher (closer to the top) */
+  max-height: calc(100vh - 1.5rem);
+  overflow: auto;
+  /* keep existing visual styles */
+  padding-right: 0.5rem;
+}
+
+/* ensure mobile hides/un-hides as before */
+@media (max-width: 767px) {
+  .profiles-toc,
+  .profile-toc {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+}
+
 body {
   max-width: 100%;
   /* allow horizontal scrolling when needed (tables and other wide elements) */
