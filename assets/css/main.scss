@@ -1,25 +1,31 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
-@charset "utf-8";
+// charset declaration removed; not required for modern builds.
 
-// Dimensions
-$max-content-width: {{ site.max_width }};
+// Dimensions handled through settings module override below.
 
+// Use module system (@use) instead of deprecated @import for local partials.
+// Provide $max-content-width override to settings before other modules that depend on it.
+@use "settings"; // cannot interpolate Liquid inside @use config; value supplied via custom property below
+@use "variables" as *; // expose theme variables un-namespaced for legacy partial code
+@use "themes";
+@use "layout";
+@use "base";
+@use "distill";
+@use "cv";
+@use "tabs";
+@use "typograms";
+
+// Inject dynamic max width via CSS custom property (optional mirror)
+:root { --site-max-content-width: {{ site.max_width }}; }
+
+// Third-party icon packs: keep using legacy @import for now (they internally use @import chains).
+// These can be migrated later if upstream provides module-ready versions.
 @import
-  "variables",
-  "themes",
-  "layout",
-  "base",
-  "distill",
-  "cv",
-  "tabs",
-  "typograms",
   "font-awesome/fontawesome",
   "font-awesome/brands",
   "font-awesome/solid",
   "font-awesome/regular",
   "tabler-icons/tabler-icons.scss",
   "tabler-icons/tabler-icons-filled.scss",
-  "tabler-icons/tabler-icons-outline.scss"
-;
+  "tabler-icons/tabler-icons-outline.scss";

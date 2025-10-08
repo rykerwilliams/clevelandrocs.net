@@ -1,3 +1,5 @@
+@use "variables" as *;
+@use "settings" as *;
 .tab {
   display: flex;
   flex-wrap: wrap;

@@ -3,6 +3,8 @@
  ******************************************************************************/
 
 @use "sass:color";
+@use "variables" as *;
+@use "settings" as *;
 
 :root {
   color-scheme: light;

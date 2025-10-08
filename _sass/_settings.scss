@@ -1,0 +1,5 @@
+// Settings & overridable defaults
+// Provide default values that can be configured via main.scss using @use ... with (...)
+// Keep only variables that need Liquid interpolation separate from other variable modules.
+
+$max-content-width: 930px !default;
