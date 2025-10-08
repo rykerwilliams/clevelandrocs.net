@@ -18,7 +18,39 @@ layout: default
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-meta">
       Created on {{ page.date | date: '%B %d, %Y' }}
-      {% if page.author %}by {{ page.author }}{% endif %}
+      {% comment %} Render author(s): link to profile if a matching profile title exists, otherwise link to the authors index anchor /authors/#slug {% endcomment %}
+      {% if page.author or page.authors %}
+        by
+        {% if page.author %}
+          {% assign author_list = page.author | split: '||' %}
+        {% elsif page.authors %}
+          {% assign author_list = page.authors %}
+        {% endif %}
+        {% for a in author_list %}
+          {% assign a = a | strip %}
+          {% assign a_slug = a | slugify %}
+          {% comment %}Find a profile by matching slugified title or slug/url containing the slug{% endcomment %}
+          {% assign prof = null %}
+          {% for p in site.profiles %}
+            {% if prof == null %}
+              {% assign p_title_slug = p.title | slugify %}
+              {% assign p_slug = p.slug | default: '' %}
+              {% assign p_url = p.url | default: '' %}
+              {% if p_title_slug == a_slug or p_slug == a_slug or p_url contains a_slug %}
+                {% assign prof = p %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          {% if prof %}
+            <a href="{{ prof.url | relative_url }}">{{ a }}</a>
+          {% else %}
+            <a href="{{ '/authors/#' | append: a_slug | relative_url }}">{{ a }}</a>
+          {% endif %}
+
+          {% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      {% endif %}
       {% if page.last_updated %}, last updated on {{ page.last_updated | date: '%B %d, %Y' }}{% endif %}
       {% if page.meta %}• {{ page.meta }}{% endif %}
     </p>

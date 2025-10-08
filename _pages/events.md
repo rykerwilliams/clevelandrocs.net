@@ -17,7 +17,12 @@ horizontal: false
   <a id="{{ category }}" href=".#{{ category }}">
     <h2 class="category">{{ category }}</h2>
   </a>
-  {% assign categorized_events = site.events | where: "category", category %}
+  {% if site.events %}
+    {% assign all_events = site.events %}
+  {% else %}
+    {% assign all_events = "" | split: "," %}
+  {% endif %}
+  {% assign categorized_events = all_events | where: "category", category %}
   {% assign sorted_events = categorized_events | sort: "importance" %}
   <!-- Generate cards for each event -->
   {% if page.horizontal %}
@@ -41,7 +46,12 @@ horizontal: false
 
 <!-- Display events without categories -->
 
-{% assign sorted_events = site.events | sort: "importance" %}
+{% if site.events %}
+{% assign all_events = site.events %}
+{% else %}
+{% assign all_events = "" | split: "," %}
+{% endif %}
+{% assign sorted_events = all_events | sort: "importance" %}
 
   <!-- Generate cards for each event -->
 
