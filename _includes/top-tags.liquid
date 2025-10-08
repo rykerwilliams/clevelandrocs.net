@@ -1,0 +1,119 @@
+{%- comment -%}
+  Dynamic Top N Tags panel.
+  Parameters (optional):
+    limit: number of tags to display (default 10)
+{%- endcomment -%}
+{%- assign limit = include.limit | default: 10 -%}
+
+{%- assign tag_counts = '' | split: ',' -%}
+{%- comment %} Build a map-like array: each item 'tag::count' {%- endcomment %}
+{%- for post in site.posts -%}
+  {%- for t in post.tags -%}
+    {%- assign tslug = t | downcase -%}
+    {%- assign existing = tag_counts | where: '0', tslug -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+{%- comment -%}
+  Simpler approach: accumulate into a string then parse. Liquid lacks hash mutation elegantly, so we'll rebuild counts with a scratch string.
+{%- endcomment -%}
+{%- assign counts_str = '' -%}
+{%- for post in site.posts -%}
+  {%- for t in post.tags -%}
+    {%- assign key = t | strip | downcase -%}
+    {%- if counts_str contains key | append: '::' -%}
+      {%- comment %} increment: find existing value {%- endcomment %}
+      {%- assign parts = counts_str | split: '||' -%}
+      {%- assign new_counts = '' -%}
+      {%- for p in parts -%}
+        {%- if p != '' -%}
+          {%- assign kv = p | split: '::' -%}
+          {%- assign tagname = kv[0] -%}
+          {%- assign tagcount = kv[1] | plus: 0 -%}
+          {%- if tagname == key -%}
+            {%- assign tagcount = tagcount | plus: 1 -%}
+          {%- endif -%}
+          {%- assign new_counts = new_counts | append: tagname | append: '::' | append: tagcount | append: '||' -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- assign counts_str = new_counts -%}
+    {%- else -%}
+      {%- assign counts_str = counts_str | append: key | append: '::1||' -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+{%- assign count_items = counts_str | split: '||' -%}
+{%- assign tag_objects = '' | split: ',' -%}
+{%- for item in count_items -%}
+  {%- if item != '' -%}
+    {%- assign kv = item | split: '::' -%}
+    {%- assign tag = kv[0] -%}
+    {%- assign cnt = kv[1] | plus: 0 -%}
+    {%- assign tag_objects = tag_objects | push: tag | push: cnt -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- comment -%}
+  Convert paired flat array to a list of indices to sort by count.
+{%- endcomment -%}
+{%- assign indices = '' | split: ',' -%}
+{%- assign size = tag_objects.size | divided_by: 2 -%}
+{%- for i in (0..size) -%}
+  {%- assign indices = indices | push: i -%}
+{%- endfor -%}
+
+{%- comment -%}
+  Bubble-sort-ish (inefficient but fine for small tag sets) descending by count.
+{%- endcomment -%}
+{%- assign sorted = indices -%}
+{%- for _ in (0..size) -%}
+  {%- for j in (0..size) -%}
+    {%- assign next = j | plus: 1 -%}
+    {%- if next < size -%}
+      {%- assign j_idx = sorted[j] | plus: 0 -%}
+      {%- assign n_idx = sorted[next] | plus: 0 -%}
+      {%- assign j_count_index = j_idx | times: 2 | plus: 1 -%}
+      {%- assign n_count_index = n_idx | times: 2 | plus: 1 -%}
+      {%- assign j_count = tag_objects[j_count_index] | plus: 0 -%}
+      {%- assign n_count = tag_objects[n_count_index] | plus: 0 -%}
+      {%- if n_count > j_count -%}
+        {%- assign temp = sorted[j] -%}
+        {%- assign sorted = sorted | push: 'SWAP_START' -%}
+        {%- assign left = '' | split: ',' -%}
+        {%- for k in (0..sorted.size) -%}
+        {%- endfor -%}
+        {%- assign sorted[j] = n_idx -%}
+        {%- assign sorted[next] = temp -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+{%- comment -%}
+  Render panel (limit applied)
+{%- endcomment -%}
+{%- if size > 0 -%}
+  <div class="top-tags">
+    <h5 class="mb-2">Top Tags</h5>
+    <ul class="list-unstyled m-0 p-0 d-flex flex-wrap align-items-center">
+      {%- assign shown = 0 -%}
+      {%- for idx in sorted -%}
+        {%- if shown >= limit -%}{%- break -%}{%- endif -%}
+        {%- assign t_index = idx | times: 2 -%}
+        {%- assign c_index = t_index | plus: 1 -%}
+        {%- assign tag = tag_objects[t_index] -%}
+        {%- assign cnt = tag_objects[c_index] -%}
+        {%- if tag and tag != '' -%}
+          <li class="me-2 d-flex align-items-center">
+            <i class="fa-solid fa-hashtag fa-sm"></i>&nbsp;<a href="{{ tag | slugify | prepend: '/articles/tag/' | relative_url }}">{{ tag }}</a>
+            {%- unless forloop.last or shown == limit -%}
+              <span class="mx-2 text-muted">&bull;</span>
+            {%- endunless -%}
+          </li>
+          {%- assign shown = shown | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}

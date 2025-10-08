@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Thrash Bash 4
-date: 2025-10-08 04:20:00
+date: 2025-10-08 16:20:00-0500
 featured: false
 description: Thrash Bash 4
 tags: ThrashBash

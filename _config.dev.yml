@@ -1,0 +1,31 @@
+# Development-only overrides
+# Include post_samples so you can preview demo posts locally.
+# Usage: bundle exec jekyll serve --config _config.yml,_config.dev.yml
+
+# Remove post_samples/ from exclusion list
+exclude:
+  - bin/
+  - CONTRIBUTING.md
+  - CUSTOMIZE.md
+  - Dockerfile
+  - docker-compose.yml
+  - docker-compose-slim.yml
+  - dropdown.md
+  - FAQ.md
+  - Gemfile
+  - Gemfile.lock
+  - INSTALL.md
+  - LICENSE
+  - lighthouse_results/
+  - package.json
+  - package-lock.json
+  - _pages/about_einstein.md
+  - purgecss.config.js
+  - README.md
+  - readme_preview/
+  - vendor
+
+# Optionally limit imagemagick during dev for speed (smaller widths)
+imagemagick:
+  enabled: true
+  widths: [480]
