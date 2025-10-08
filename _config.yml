@@ -48,6 +48,7 @@ footer_fixed: true
 search_enabled: true
 socials_in_search: true
 posts_in_search: true
+profiles_in_search: true
 # bib_search: true
 
 # Dimensions
@@ -80,7 +81,7 @@ google_site_verification: # your google-site-verification ID (Google Search Cons
 bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 
 # -----------------------------------------------------------------------------
-# Blog
+# Blog, now called Articles
 # -----------------------------------------------------------------------------
 
 blog_name: roc notes # blog_name will be displayed in your blog page
@@ -149,6 +150,8 @@ collections:
     output: true
   events:
     output: true
+  profiles:
+    output: true
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
@@ -189,6 +192,7 @@ exclude:
   - README.md
   - readme_preview/
   - vendor
+  - post_samples
 keep_files:
   - CNAME
   - .nojekyll
