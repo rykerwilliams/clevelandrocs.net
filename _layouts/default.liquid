@@ -16,7 +16,7 @@
   </head>
 
   <!-- Body -->
-  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %} {% if page.url contains '/profiles/' %}profile-page{% endif %}">
     <!-- Header -->
     {% include header.liquid %}
 
@@ -45,7 +45,7 @@
       {% else %}
         {{ content }}
       {% endif %}
-  </div>
+    </div>
 
     <!-- Footer removed site-wide -->
 

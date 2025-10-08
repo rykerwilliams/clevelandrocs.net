@@ -1,100 +1,70 @@
 ---
 layout: default
 ---
-{% comment %} Profile pages: show a larger image column and add next/previous links below the content {% endcomment %}
-{% assign has_profile_image = false %}
+{% comment %} Page layout with special profile mode. {% endcomment %}
+{% assign is_profile = false %}
 {% if page.url contains '/profiles/' %}
-  {% if page.img %}
-    {% assign img_path = page.img %}
-    {% assign has_profile_image = true %}
-  {% elsif page.image %}
-    {% assign img_path = page.image %}
-    {% assign has_profile_image = true %}
-  {% elsif page.img_path %}
-    {% assign img_path = page.img_path %}
-    {% assign has_profile_image = true %}
-  {% endif %}
+  {% assign is_profile = true %}
+{% endif %}
+{% assign has_profile_image = false %}
+{% if is_profile %}
+  {% assign img_path = page.img | default: page.image | default: page.img_path %}
+  {% if img_path %}{% assign has_profile_image = true %}{% endif %}
 {% endif %}
 
-{% if has_profile_image %}
-  <div class="row mb-4 align-items-start">
-    <div class="col-12 col-md-3">
-      {% comment %} Left sidebar TOC for profiles on medium+ screens {% endcomment %}
+{% if is_profile and has_profile_image %}
+  <div class="row mb-4 align-items-start profile-layout-row">
+    <div class="col-12 col-lg-2 col-md-3 d-none d-md-block">
       {% include profiles-toc.liquid %}
     </div>
-    <div class="col-12 col-md-3">
-      {% comment %} Use a larger hero image while preserving avatar styles {% endcomment %}
+    <div class="col-12 col-lg-3 col-md-4 mb-3 mb-md-0">
       {% include figure.liquid path=img_path class='img-fluid rounded mx-auto d-block profile-hero avatar' alt=page.title cache_bust=true width='480' %}
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-lg-7 col-md-8 profile-main-col">
       <article>
-        {% comment %} Avoid double-wrapping: if the content already includes a .profile container, render as-is {% endcomment %}
-        {% if content contains 'class="profile"' or content contains "class='profile'" %}
-          {%- assign processed = content -%}
-          {%- if processed contains 'markdown="1"' -%}
-            {%- assign processed = processed | replace: 'markdown="1"', '' -%}
-            {{ processed | markdownify }}
-          {%- else -%}
-            {{ content }}
-          {%- endif -%}
-        {% else %}
-          <div class="profile">
-            {{ content }}
-          </div>
-        {% endif %}
-
-        {%- comment -%} Previous/next navigation: only visible on small screens (when the sidebar TOC is hidden) {%- endcomment -%}
+        <div class="profile">
+          {{ content }}
+        </div>
         {% assign profiles = site.profiles | sort: 'title' %}
         {% assign idx = null %}
         {% for p in profiles %}
-          {% if p.url == page.url %}
-            {% assign idx = forloop.index0 %}
-          {% endif %}
+          {% if p.url == page.url %}{% assign idx = forloop.index0 %}{% endif %}
         {% endfor %}
-
         {% if idx != null %}
-          {% assign prev_index = idx | minus: 1 %}
-          {% assign next_index = idx | plus: 1 %}
           {% assign prev_profile = null %}
           {% assign next_profile = null %}
-          {% for p in profiles %}
-            {% if forloop.index0 == prev_index %}
-              {% assign prev_profile = p %}
-            {% endif %}
-            {% if forloop.index0 == next_index %}
-              {% assign next_profile = p %}
-            {% endif %}
-          {% endfor %}
+          {% if idx > 0 %}
+            {% assign prev_index = idx | minus: 1 %}
+            {% assign prev_profile = profiles[prev_index] %}
+          {% endif %}
+          {% assign last_index = profiles | size | minus: 1 %}
+          {% if idx < last_index %}
+            {% assign next_index = idx | plus: 1 %}
+            {% assign next_profile = profiles[next_index] %}
+          {% endif %}
         {% endif %}
-
         {% if prev_profile or next_profile %}
-          <nav class="profile-nav mt-4 d-flex justify-content-between d-block d-md-none">
-            {% if prev_profile %}
+          <nav class="profile-nav mt-4 d-flex justify-content-between d-md-none">
+            {% if prev_profile -%}
               <a class="btn btn-outline-primary" href="{{ prev_profile.url | relative_url }}">&larr; {{ prev_profile.title }}</a>
-            {% else %}
+            {%- else -%}
               <span></span>
-            {% endif %}
-
-            {% if next_profile %}
+            {%- endif %}
+            {% if next_profile -%}
               <a class="btn btn-outline-primary" href="{{ next_profile.url | relative_url }}">{{ next_profile.title }} &rarr;</a>
-            {% else %}
+            {%- else -%}
               <span></span>
-            {% endif %}
+            {%- endif %}
           </nav>
         {% endif %}
       </article>
     </div>
   </div>
 {% else %}
-  {% comment %} Not a profile page with a hero image: fall back to normal behavior {% endcomment %}
   {% if page.img %}
     {% include figure.liquid path=page.img class='img-fluid rounded mx-auto d-block' alt=page.title cache_bust=true %}
   {% endif %}
-  <article>
-    {{ content }}
-  </article>
+  <article>{{ content }}</article>
 {% endif %}
 
-{% if site.giscus and page.giscus_comments %}
-  {% include giscus.liquid %}
-{% endif %}
+{% if site.giscus and page.giscus_comments %}{% include giscus.liquid %}{% endif %}

@@ -31,6 +31,22 @@ body.sticky-bottom-footer {
   max-width: $max-content-width;
 }
 
+/* Wider content area specifically for profile pages */
+body.profile-page .container {
+  max-width: calc(#{$max-content-width} + 200px);
+}
+
+/* Adjust custom columns for profile layout */
+.profile-layout-row {
+  @media (min-width: 992px) {
+    /* lg */
+    .profile-main-col {
+      /* Slightly increase readable line length but keep from going too wide */
+      max-width: 75ch; /* approx optimal reading width */
+    }
+  }
+}
+
 // Profile
 .profile {
   img {
