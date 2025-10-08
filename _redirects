@@ -1,0 +1,6 @@
+# Redirect old /blog/* URLs to the new /articles/* paths
+# Netlify-style _redirects (path status target)
+/*/blog/*  /articles/:splat  301
+
+# Fallback: redirect legacy /blog root to /articles/
+/blog/    /articles/   301

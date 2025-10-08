@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: profile
 title: Boss Man
 permalink: /profiles/bossman/
 img: assets/img/5.jpg

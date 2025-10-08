@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: profiles
 title: profiles
 permalink: /profiles/
 description: Cleveland Rocs Player Profiles
