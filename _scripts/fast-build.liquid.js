@@ -1,0 +1,1 @@
+window.__FAST_BUILD__=!0;
