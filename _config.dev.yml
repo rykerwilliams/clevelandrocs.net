@@ -24,6 +24,7 @@ exclude:
   - README.md
   - readme_preview/
   - vendor
+  - profiles/unapproved/
 
 # Optionally limit imagemagick during dev for speed (smaller widths)
 imagemagick:

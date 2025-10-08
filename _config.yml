@@ -194,6 +194,7 @@ exclude:
   - readme_preview/
   - vendor
   - post_samples/
+  - profiles/unapproved/
 keep_files:
   - CNAME
   - .nojekyll
