@@ -43,7 +43,45 @@ layout: default
           </div>
         {% endif %}
 
-        {%- comment -%} Previous/next navigation removed per request {%- endcomment -%}
+        {%- comment -%} Previous/next navigation: only visible on small screens (when the sidebar TOC is hidden) {%- endcomment -%}
+        {% assign profiles = site.profiles | sort: 'title' %}
+        {% assign idx = null %}
+        {% for p in profiles %}
+          {% if p.url == page.url %}
+            {% assign idx = forloop.index0 %}
+          {% endif %}
+        {% endfor %}
+
+        {% if idx != null %}
+          {% assign prev_index = idx | minus: 1 %}
+          {% assign next_index = idx | plus: 1 %}
+          {% assign prev_profile = null %}
+          {% assign next_profile = null %}
+          {% for p in profiles %}
+            {% if forloop.index0 == prev_index %}
+              {% assign prev_profile = p %}
+            {% endif %}
+            {% if forloop.index0 == next_index %}
+              {% assign next_profile = p %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        {% if prev_profile or next_profile %}
+          <nav class="profile-nav mt-4 d-flex justify-content-between d-block d-md-none">
+            {% if prev_profile %}
+              <a class="btn btn-outline-primary" href="{{ prev_profile.url | relative_url }}">&larr; {{ prev_profile.title }}</a>
+            {% else %}
+              <span></span>
+            {% endif %}
+
+            {% if next_profile %}
+              <a class="btn btn-outline-primary" href="{{ next_profile.url | relative_url }}">{{ next_profile.title }} &rarr;</a>
+            {% else %}
+              <span></span>
+            {% endif %}
+          </nav>
+        {% endif %}
       </article>
     </div>
   </div>
