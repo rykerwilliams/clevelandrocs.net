@@ -1,8 +1,6 @@
 <div class="col mb-4 profile-card-col">
   <a class="profile-card-link" href="{{ include.profile.url }}">
     <div class="card hoverable profile-card">
-      {% comment %} image: prefer page.image front-matter, then profile.jpg/png by slug, then fallback {% endcomment %}
-      {% comment %} Resolve image path: prefer front-matter keys (image, img, img_path), then try slug-based filenames. Normalize to an absolute asset path. {% endcomment %}
       {% assign img = '' %}
       {% if include.profile.image %}
         {% assign img = include.profile.image %}

@@ -406,6 +406,11 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
+/* When the navbar has .hide-submenus, keep dropdown toggles but hide the menus visually */
+#navbar.hide-submenus .dropdown-menu {
+  display: none !important;
+}
+
 // Navbar customization
 
 .navbar {
