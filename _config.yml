@@ -225,6 +225,12 @@ defaults:
       path: "assets"
     values:
       sitemap: false
+  - scope:
+      path: "_profiles/unapproved"
+    values:
+      published: false
+      sitemap: false
+      profiles_in_search: false
 
 sass:
   style: compressed
