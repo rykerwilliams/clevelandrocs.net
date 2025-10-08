@@ -9,7 +9,7 @@ img: assets/img/5.jpg
 
 <div class="profile">
 
-BC Druid is a consistent top-performer in local Modern events, known for a measured playstyle and excellent sideboard plans.
+BC Druid aka towelie is a consistent top performer in local Modern events, known for a measured playstyle and excellent sideboard plans.
 
 - Location: Cleveland, OH
 - Handle: bc_druid

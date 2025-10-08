@@ -14,9 +14,47 @@ layout: default
     <p class="post-description">{{ page.description }}</p>
   </header>
 
-  <article>
-    {{ content }}
-  </article>
+  {% comment %} For profile pages, place image to the left and content to the right {% endcomment %}
+  {% assign skip_article = false %}
+  {% if page.img and page.url contains '/profiles/' %}
+    <div class="row mb-4 align-items-start">
+      <div class="col-12 col-md-1">
+        {% assign img_path = page.img %}
+        {% comment %} add avatar class so _profiles.scss .profile .avatar rules apply {% endcomment %}
+        {% include figure.liquid path=img_path class='img-fluid rounded float-start avatar' alt=page.title cache_bust=true width='160' %}
+      </div>
+      <div class="col-12 col-md-11">
+        <article>
+          {% comment %} Avoid double-wrapping: if the content already includes a .profile container, render as-is {% endcomment %}
+          {% if content contains 'class="profile"' or content contains "class='profile'" %}
+            {%- assign processed = content -%}
+            {%- if processed contains 'markdown="1"' -%}
+              {%- assign processed = processed | replace: 'markdown="1"', '' -%}
+              {{ processed | markdownify }}
+            {%- else -%}
+              {{ content }}
+            {%- endif -%}
+          {% else %}
+            <div class="profile">
+              {{ content }}
+            </div>
+          {% endif %}
+        </article>
+      </div>
+    </div>
+    {% assign skip_article = true %}
+  {% else %}
+    {% if page.img %}
+      {% assign img_path = page.img %}
+      {% include figure.liquid path=img_path class='img-fluid rounded mx-auto d-block' alt=page.title cache_bust=true %}
+    {% endif %}
+  {% endif %}
+
+  {% unless skip_article %}
+    <article>
+      {{ content }}
+    </article>
+  {% endunless %}
 
   {% if site.giscus and page.giscus_comments %}
     {% include giscus.liquid %}

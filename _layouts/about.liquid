@@ -19,6 +19,7 @@ layout: default
       <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+          {% assign dark_image_path = 'assets/img/rocslogo2.png' %}
           {% if page.profile.image_circular %}
             {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
           {% else %}
@@ -27,10 +28,39 @@ layout: default
           {% endif %}
           {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
       30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
+          <!-- Light/Dark logo swap: show the normal profile image in light mode and `rocslogo2` in dark mode. -->
+          <style>
+            /* default: show light logo, hide dark */
+            .about-logo-dark {
+              display: none;
+            }
+            .about-logo-light {
+              display: inline-block;
+            }
+
+            /* when document is in dark mode, swap visibility */
+            [data-theme='dark'] .about-logo-dark {
+              display: inline-block;
+            }
+            [data-theme='dark'] .about-logo-light {
+              display: none;
+            }
+
+            /* ensure images don't overflow their container */
+            .about-logo-light img,
+            .about-logo-dark img {
+              max-width: 100%;
+              height: auto;
+            }
+          </style>
+
+          <div class="about-logo-light">
+            {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image cache_bust=true %}
+          </div>
+
+          <div class="about-logo-dark">
+            {% include figure.liquid loading="eager" path=dark_image_path class=profile_image_class sizes=sizes alt="rocslogo2" cache_bust=true %}
+          </div>
         {% endif %}
         {% if page.profile.more_info %}
           <div class="more-info">{{ page.profile.more_info }}</div>
@@ -51,7 +81,7 @@ layout: default
     <!-- Latest posts -->
     {% if page.latest_posts and page.latest_posts.enabled %}
       <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
+        <a href="{{ '/articles/' | relative_url }}" style="color: inherit">latest posts</a>
       </h2>
       {% include latest_posts.liquid %}
     {% endif %}
