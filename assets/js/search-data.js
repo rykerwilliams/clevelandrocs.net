@@ -59,16 +59,22 @@ ninja.data = [{
             window.location.href = "/articles/2025/10/04/2019-Bottlehouse/";
           
         },
+      },{id: "post-fe40-world-championship-i",
+        
+          title: "FE40 World Championship I",
+        
+        description: "Inaugural Fallen Empires 40 World Championship",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2024/03/30/FEChamps1/";
+          
+        },
       },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "events-project-8",
-          title: 'project 8',
-          description: "an other project with a background image and giscus comments",
-          section: "Events",handler: () => {
-              window.location.href = "/events/8_project/";
             },},{id: "news-the-rocs-are-going-to-thrash-bash-4",
           title: 'The Rocs are going to Thrash Bash 4!',
           description: "",
@@ -80,6 +86,11 @@ ninja.data = [{
           description: "",
           section: "Profiles",handler: () => {
               window.location.href = "/profiles/the-kyle-wells/";
+            },},{id: "profiles-mike-klements",
+          title: 'Mike Klements',
+          description: "",
+          section: "Profiles",handler: () => {
+              window.location.href = "/profiles/firelights/";
             },},{
         id: 'social-email',
         title: 'email',
