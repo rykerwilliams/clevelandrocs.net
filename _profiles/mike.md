@@ -7,4 +7,4 @@ img: assets/img/profiles/mike.png
 
 ## Mike
 
-Mike plays FE40 because he invented the format. Fallen Empires is Richard Garfield's favorite set, so Mike is basically a PhD in format design.
+Mike plays FE40 because he facilitates the format. Fallen Empires is Richard Garfield's favorite set, so Mike is basically a PhD in format design.
