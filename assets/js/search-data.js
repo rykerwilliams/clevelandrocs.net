@@ -48,15 +48,15 @@ ninja.data = [{
             window.location.href = "/articles/2025/10/08/Thrash-Bash-4/";
           
         },
-      },{id: "post-2019-rocs-old-school-tournament",
+      },{id: "post-fe40-world-championship-ii",
         
-          title: "2019 Rocs Old School Tournament",
+          title: "FE40 World Championship II",
         
-        description: "2019 Rocs Old School Tournament",
+        description: "Second Fallen Empires 40 World Championship",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/articles/2025/10/04/2019-Bottlehouse/";
+            window.location.href = "/articles/2025/08/23/FEChamps2/";
           
         },
       },{id: "post-fe40-world-championship-i",
@@ -68,6 +68,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/articles/2024/03/30/FEChamps1/";
+          
+        },
+      },{id: "post-2019-rocs-old-school-tournament",
+        
+          title: "2019 Rocs Old School Tournament",
+        
+        description: "2019 Rocs Old School Tournament",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2019/02/25/2019-Bottlehouse/";
           
         },
       },{id: "books-the-godfather",
