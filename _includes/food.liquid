@@ -1,0 +1,13 @@
+<div class="col mb-4">
+  <a href="{% if event.redirect %}{{ event.redirect }}{% else %}{{ event.url | relative_url }}{% endif %}">
+    <div class="card h-100 hoverable">
+      {% if event.img %}
+        {% include figure.liquid loading="eager" path=event.img sizes="250px" alt="food thumbnail" class="card-img-top" %}
+      {% endif %}
+      <div class="card-body">
+        <h3 class="card-title">{{ event.title }}</h3>
+        <p class="card-text">{{ event.description }}</p>
+      </div>
+    </div>
+  </a>
+</div>

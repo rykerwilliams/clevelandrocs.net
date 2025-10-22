@@ -152,6 +152,9 @@ collections:
     output: true
   profiles:
     output: true
+  food:
+    output: true
+    permalink: /food/:name/
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
@@ -231,6 +234,12 @@ defaults:
       published: false
       sitemap: false
       profiles_in_search: false
+  - scope:
+      path: ""
+      type: food
+    values:
+      layout: page
+      category: food
 
 sass:
   style: compressed
