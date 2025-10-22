@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Old Order Meetup
+title: Old Order Wings
 date: 2023-05-21 16:20:00-0500
 featured: false
-description: Old Order Old School Tournament in Coraopolis, PA
+description: Wings after the Old Order Old School Tournament in Coraopolis, PA
 tags: OldOrder
 author: Kyle Wells
-categories: Tournaments OldSchool food
+categories: food
 thumbnail: assets/img/coraopolis/wingsmenu.jpg
 toc:
   sidebar: left
