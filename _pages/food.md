@@ -16,11 +16,7 @@ horizontal: false
   <a id="{{ category }}" href=".#{{ category }}">
     <h2 class="category">{{ category }}</h2>
   </a>
-  {% if site.food %}
-    {% assign all_food = site.food %}
-  {% else %}
-    {% assign all_food = "" | split: "," %}
-  {% endif %}
+  {% assign all_food = site.food | default: site.collections['food'].docs | default: empty %}
   {% assign categorized_food = all_food | where: "category", category %}
   {% assign sorted_food = categorized_food | sort: "importance" %}
   <!-- Generate cards for each event -->
@@ -45,11 +41,7 @@ horizontal: false
 
 <!-- Display food without categories -->
 
-{% if site.food %}
-{% assign all_food = site.food %}
-{% else %}
-{% assign all_food = "" | split: "," %}
-{% endif %}
+{% assign all_food = site.food | default: site.collections['food'].docs | default: empty %}
 {% assign sorted_food = all_food | sort: "importance" %}
 
   <!-- Generate cards for each event -->
