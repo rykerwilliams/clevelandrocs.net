@@ -90,7 +90,7 @@ ninja.data = [{
           title: 'Iron City Wings',
           description: "Wings after the Iron City Old School Tournament in Coraopolis, PA",
           section: "Food",handler: () => {
-              window.location.href = "/food/2023-05-21-coraopolis/";
+              window.location.href = "/food/2023/05/21/Coraopolis/";
             },},{id: "news-the-rocs-are-going-to-thrash-bash-4",
           title: 'The Rocs are going to Thrash Bash 4!',
           description: "",
