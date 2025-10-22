@@ -6,7 +6,7 @@ featured: false
 description: Old Order Old School Tournament in Coraopolis, PA
 tags: OldOrder
 author: Kyle Wells
-categories: Tournaments OldSchool Food
+categories: Tournaments OldSchool food
 thumbnail: assets/img/coraopolis/wingsmenu.jpg
 toc:
   sidebar: left
