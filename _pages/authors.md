@@ -32,6 +32,7 @@ title: Authors
 {% for name in authors %}
 {% if name != '' %}
 {% assign slug = name | slugify %}
+
 <section id="{{ slug }}" class="author-section">
 <h2>{{ name }}</h2>
 <ul>

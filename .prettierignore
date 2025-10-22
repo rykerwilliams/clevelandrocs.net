@@ -10,3 +10,15 @@ _sass/font-awesome/*.scss
 _sass/tabler-icons/*.scss
 _scripts/*
 post_samples/*
+_site/**
+.jekyll-cache/**
+.sass-cache/**
+node_modules/**
+vendor/**
+# Generated or third-party assets
+assets/css/**
+assets/html/**
+assets/json/**
+assets/js/**
+.sass_compile_quick.css
+.tmp_base.css
