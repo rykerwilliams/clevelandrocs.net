@@ -4,7 +4,7 @@ title: Thrash Bash 4
 date: 2025-10-08 16:20:00-0500
 featured: false
 description: Thrash Bash 4
-tags: ThrashBash food
+tags: ThrashBash
 author: Kyle Wells
 categories: Tournaments OldSchool
 thumbnail: assets/img/thrash4/studebaker.jpg
