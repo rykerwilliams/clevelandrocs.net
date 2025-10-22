@@ -4,7 +4,7 @@ title: Iron City Wings
 date: 2023-05-21 16:20:00-0500
 featured: false
 description: Wings after the Iron City Old School Tournament in Coraopolis, PA
-tags: OldOrder wings
+tags: IronCity wings
 author: Kyle Wells
 categories: food
 img: assets/img/coraopolis/wingsmenu.jpg

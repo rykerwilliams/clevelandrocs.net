@@ -5,6 +5,14 @@ layout: default
 {% assign tags = page.tags | join: '' %}
 {% assign categories = page.categories | join: '' %}
 {% assign url_beginning = page.url | slice: 0, 10 %}
+{%- comment -%}
+  Link tags/categories when rendering articles or food items.
+  We keep year linking only for articles archives to avoid confusing food with article year pages.
+{%- endcomment -%}
+{% assign link_meta = false %}
+{% if url_beginning == '/articles/' or page.collection == 'food' or page.url contains '/food/' %}
+  {% assign link_meta = true %}
+{% endif %}
 
 {% if page._styles %}
   <!-- Page/Post style -->
@@ -63,8 +71,9 @@ layout: default
       {% if tags != '' %}
         &nbsp; &middot; &nbsp;
         {% for tag in page.tags %}
-          {% if url_beginning == '/articles/' %}
-            <a href="{{ tag | slugify | prepend: '/articles/tag/' | relative_url }}"> <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
+          {% assign posts_with_tag = site.tags[tag] %}
+          {% if link_meta and posts_with_tag and posts_with_tag != empty %}
+            <a href="{{ tag | slugify | prepend: '/articles/tag/' | relative_url }}"> <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }} </a>
           {% else %}
             <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}
           {% endif %}
@@ -77,7 +86,8 @@ layout: default
       {% if categories != '' %}
         &nbsp; &middot; &nbsp;
         {% for category in page.categories %}
-          {% if url_beginning == '/articles/' %}
+          {% assign posts_in_category = site.categories[category] %}
+          {% if link_meta and posts_in_category and posts_in_category != empty %}
             <a href="{{ category | slugify | prepend: '/articles/category/' | relative_url }}">
               <i class="fa-solid fa-tag fa-sm"></i> {{ category -}}
             </a>

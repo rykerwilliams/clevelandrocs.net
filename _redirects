@@ -4,3 +4,8 @@
 
 # Fallback: redirect legacy /blog root to /articles/
 /blog/    /articles/   301
+
+# Food permalinks migrated from /food/:name/ to /food/:year/:month/:day/:title/
+# Add explicit redirect(s) for existing items.
+# good example of how to set up a redirect
+/food/2023-05-21-coraopolis/   /food/2023/05/21/Coraopolis/   301

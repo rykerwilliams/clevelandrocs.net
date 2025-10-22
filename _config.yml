@@ -154,7 +154,7 @@ collections:
     output: true
   food:
     output: true
-    permalink: /food/:name/
+    permalink: /food/:year/:month/:day/:title/
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
@@ -174,7 +174,10 @@ kramdown:
       start_line: 1
 
 # Includes & excludes
-include: ["_pages", "_scripts"]
+include:
+  - _pages
+  - _scripts
+  - _redirects
 exclude:
   - bin/
   - CONTRIBUTING.md
@@ -238,7 +241,7 @@ defaults:
       path: ""
       type: food
     values:
-      layout: page
+      layout: post
       category: food
 
 sass:
