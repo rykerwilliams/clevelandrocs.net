@@ -7,7 +7,7 @@ description: Wings after the Old Order Old School Tournament in Coraopolis, PA
 tags: OldOrder
 author: Kyle Wells
 categories: food
-thumbnail: assets/img/coraopolis/wingsmenu.jpg
+img: assets/img/coraopolis/wingsmenu.jpg
 toc:
   sidebar: left
 images:
