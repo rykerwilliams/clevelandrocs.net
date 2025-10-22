@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: clevelandrocs.net/sitemap.xml
+Sitemap: https://clevelandrocs.net/sitemap.xml
