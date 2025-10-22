@@ -4,7 +4,7 @@ title: Old Order Wings
 date: 2023-05-21 16:20:00-0500
 featured: false
 description: Wings after the Old Order Old School Tournament in Coraopolis, PA
-tags: OldOrder
+tags: OldOrder wings
 author: Kyle Wells
 categories: food
 img: assets/img/coraopolis/wingsmenu.jpg
