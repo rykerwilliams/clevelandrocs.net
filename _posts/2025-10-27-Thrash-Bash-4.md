@@ -24,6 +24,15 @@ giscus_comments: true
 
 22 wizards from Cleveland, Columbus, Cincinnati, and Nashville all joined together in a single rental which turned out to be 2 houses next to one-another in South Bend Indiana for the LA Massare that is THRASH BASH 4. I drove JBrns, Stoomie, Chad, and Kevin from Cleveland and we arrived at the house at exactly 4:20pm. We got settled, got ready and headed to CJ's pub like we do every year.
 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/thrash4/420.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/thrash4/champion.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+
 ## CJ's Pub
 
 Dave hosted and won the annual daggers spike event alongside the Ebon Hand sleevless ante draft. I lost 0-7 in the 7 point singleton tournament with my Goonies tribal deck (a nod to Josh Brolin's best movie and to the free Slum alter I won at Thrash Bash 3). I ordered the Four Horsemen burger mostly for its topical relevance, and it was excellent.
