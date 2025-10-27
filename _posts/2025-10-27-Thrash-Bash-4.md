@@ -143,9 +143,16 @@ I also enjoyed dread pirate Tim's pirate playmat turned into a skateboard.
 
 {% include figure.liquid loading="eager" path="assets/img/thrash4/tim.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-And big congratulations to Jon Revell for winning the grand prize and joining the order of the dagger along with fellow inductee Mike.
+And big congratulations to Jon Revell for winning the battle of the Jons and the grand prize and joining the order of the dagger along with fellow inductee Mike.
 
-{% include figure.liquid loading="eager" path="assets/img/thrash4/champ.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/thrash4/jons.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/thrash4/champ.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
 
 The event raised nearly $3k for charity.
 
