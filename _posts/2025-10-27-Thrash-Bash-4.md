@@ -22,7 +22,7 @@ giscus_comments: true
 
 ## The Houses
 
-22 wizards from Cleveland, Columbus, Cincinnati, and Nashville all joined together in a single rental which turned out to be 2 houses next to one-another in South Bend Indiana for the LA Massare that is THRASH BASH 4. I drove JBrns, Stoomie, Chad, and Kevin from Cleveland and we arrived at the house at exactly 4:20pm. We got settled, got ready and headed to CJ's pub like we do every year.
+22 wizards from Cleveland, Columbus, Cincinnati, and Nashville all joined together in a single rental which turned out to be 2 houses next to one-another in South Bend Indiana for the LA Massacre that is THRASH BASH 4. I drove JBrns, Stoomie, Chad, and Kevin from Cleveland and we arrived at the house at exactly 4:20pm. We got settled, got ready, and headed to CJ's pub like we do every year.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">

@@ -3,6 +3,7 @@
 # -----------------------------------------------------------------------------
 
 title: clevelandrocs.net # the website title (if blank, full name will be used instead)
+# trigger: redeploy 2025-10-27
 # first_name: You
 # middle_name: R.
 # last_name: Name
