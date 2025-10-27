@@ -45,7 +45,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/articles/2025/10/23/OhioHeroesXPoint/";
+            window.location.href = "/articles/2025/10/26/OhioHeroesXPoint/";
           
         },
       },{id: "post-thrash-bash-4",
