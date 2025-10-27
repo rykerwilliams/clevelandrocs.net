@@ -80,6 +80,10 @@ We had breakfast at Yellow Cat diner, just like last year, and enjoyed the hot s
 
 ## My Tournament Report
 
+I built a mono blue deck for this year. I played red for Thrash Bash 1, then mono black and last year mono green. Next year will be White. I don't know much about Swedish but I figured counterspell could be ok without strip mines floating around. Too bad I forgot that I already had Mana Drain in the list when I added Mana Drain to the list.
+
+{% include figure.liquid loading="eager" path="assets/img/thrash4/swedish.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
 Round 1 vs LoTP Shane 0-2
 Game 1 I played a tangle kelp on his Serra but it wasn’t enough. He used balance to kill my one creature and discard 3 of his own cards but had library so he was ok.
 Game 2 sided in my power and cast control magic on his Serra but got beat by erhnamgeddon. Did not see that coming at all. GGs Shane, a really cool guy.
@@ -98,6 +102,9 @@ Lost game 3 when he played his entire hand turn one to timetwister and then was 
 Round 4 vs (Thrash Bash 3 Champion) Eric W 2-1
 Game 1 he used balance to balance us out and killed me with tax edge. I stole his Serra but had to sac her to the diamond valley
 Game 2 he landed a wood elemental with an audience but I was able to unsummon it immediately and win using his own land's edge and boomeranging my own land to my hand for the final 2 damage.
+
+{% include figure.liquid loading="eager" path="assets/img/thrash4/woodelemental.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
 Game 3 went to orb flips with us both at 3 life and I got lucky
 
 Round 5 vs scotsworth 0-2
