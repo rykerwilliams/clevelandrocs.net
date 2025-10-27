@@ -18,8 +18,6 @@ pretty_table: true
 giscus_comments: true
 ---
 
-{% include figure.liquid loading="eager" path="assets/img/ohioheroes/october25xpoint/4.png" class="img-fluid rounded z-depth-1" zoomable=true %}
-
 ## The Tournament
 
 As I’ve been stumbling back onto the “live” gentleman’s format MtG scene a bit more recently, I wanted to highlight an outstanding OS event that I attended 10/26/25. The Ohio Heroes hosted an X-point 93/94 event (2nd “annual”) in Brookdale Ohio at the Sharon University Club – a cozy venue secluded in the woods near the OH/PA border.
