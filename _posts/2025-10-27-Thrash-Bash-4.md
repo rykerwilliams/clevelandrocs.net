@@ -84,22 +84,26 @@ I built a mono blue deck for this year. I played red for Thrash Bash 1, then mon
 
 {% include figure.liquid loading="eager" path="assets/img/thrash4/swedish.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Round 1 vs LoTP Shane 0-2
+Round 1 vs LoTP Shane 0-2 triple S erhnamgeddon?
+
 Game 1 I played a tangle kelp on his Serra but it wasn’t enough. He used balance to kill my one creature and discard 3 of his own cards but had library so he was ok.
 Game 2 sided in my power and cast control magic on his Serra but got beat by erhnamgeddon. Did not see that coming at all. GGs Shane, a really cool guy.
 
-Round 2 vs Haden 0-2
+Round 2 vs Haden 0-2 Black White
+
 Game 1 he dropped too many lions and white knights and su chi and serras. I cloned a su chi and he disenchanted it.
 Game 2 I sided in all my power and was able to clone a Serra but he eventually played Armageddon with one lion in play and beat me down with the lion. Hello from St Louis.
 
-Round 3 vs Kevin B 1-2
+Round 3 vs Kevin B 1-2 Candleflare
+
 I knew Kevin's entire list because I loaned him the cards. It didn't matter. His candleflare insanity was too overwhelming for my limited number of counterspells and too much creature interaction for a nearly creatureless deck.
 
 I won game 1 with a factory chipping in while he tried to assemble a lethal candle flare fireball. Luckily he missed an orb flip on that factory.
 Lost game 2 to a balance into a pair of fireballs and some factory damage.
 Lost game 3 when he played his entire hand turn one to timetwister and then was able to chip in with atog and land 3 mana flares on a single turn to fireball me for the win
 
-Round 4 vs (Thrash Bash 3 Champion) Eric W 2-1
+Round 4 vs (Thrash Bash 3 Champion) Eric W 2-1 Enchantress Tax Edge (so cool)
+
 Game 1 he used balance to balance us out and killed me with tax edge. I stole his Serra but had to sac her to the diamond valley
 Game 2 he landed a wood elemental with an audience but I was able to unsummon it immediately and win using his own land's edge and boomeranging my own land to my hand for the final 2 damage.
 
@@ -107,7 +111,8 @@ Game 2 he landed a wood elemental with an audience but I was able to unsummon it
 
 Game 3 went to orb flips with us both at 3 life and I got lucky
 
-Round 5 vs scotsworth 0-2
+Round 5 vs scotsworth 0-2 black red
+
 Game 1 I unsummoned and boomeranged his hippie 4 times but he still ripped enough cards from me to win with hippie and fireball
 
 Game 2 he had trolls and I had factories and a dib and we went back and forth. I had him down to 4 and tried to timetwister into a psi blast but missed then I cast ancestral recall and in response he double bolted me for the win.
