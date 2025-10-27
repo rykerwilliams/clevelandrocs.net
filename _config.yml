@@ -161,6 +161,7 @@ collections:
 # -----------------------------------------------------------------------------
 
 # Markdown and syntax highlight
+future: true # publish future-dated posts
 markdown: kramdown
 highlighter: rouge
 kramdown:

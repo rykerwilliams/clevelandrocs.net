@@ -3,6 +3,7 @@
 # Usage: bundle exec jekyll serve --config _config.yml,_config.dev.yml
 
 # Remove post_samples/ from exclusion list
+future: true # also publish future-dated posts during local dev
 exclude:
   - bin/
   - CONTRIBUTING.md
