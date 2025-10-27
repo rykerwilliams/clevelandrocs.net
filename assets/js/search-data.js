@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/food/";
           },
-        },{id: "post-thrash-bash-4",
+        },{id: "post-ohio-heroes-x-points",
+        
+          title: "Ohio Heroes X-Points",
+        
+        description: "Ohio Heroes X-Points Tournament",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2025/10/23/OhioHeroesXPoint/";
+          
+        },
+      },{id: "post-thrash-bash-4",
         
           title: "Thrash Bash 4",
         
