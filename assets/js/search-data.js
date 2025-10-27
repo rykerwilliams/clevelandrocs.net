@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/food/";
           },
-        },{id: "post-ohio-heroes-x-points",
+        },{id: "post-thrash-bash-4",
+        
+          title: "Thrash Bash 4",
+        
+        description: "Thrash Bash 4",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2025/10/27/Thrash-Bash-4/";
+          
+        },
+      },{id: "post-ohio-heroes-x-points",
         
           title: "Ohio Heroes X-Points",
         
@@ -46,17 +57,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/articles/2025/10/26/OhioHeroesXPoint/";
-          
-        },
-      },{id: "post-thrash-bash-4",
-        
-          title: "Thrash Bash 4",
-        
-        description: "Thrash Bash 4",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/articles/2025/10/08/Thrash-Bash-4/";
           
         },
       },{id: "post-fe40-world-championship-ii",
