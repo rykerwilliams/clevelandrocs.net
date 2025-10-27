@@ -35,14 +35,14 @@ giscus_comments: true
 
 ## CJ's Pub
 
-Dave hosted and won the annual daggers spike event alongside the Ebon Hand sleevless ante draft. I lost 0-7 in the 7 point singleton tournament with my Goonies tribal deck (a nod to Josh Brolin's best movie and to the free Slum alter I won at Thrash Bash 3). I ordered the Four Horsemen burger mostly for its topical relevance, and it was excellent.
+Dave hosted and won the annual daggers spike event alongside the Ebon Hand sleeveless ante draft. I lost 0-7 in the 7 point singleton tournament with my Goonies tribal deck (a nod to Josh Brolin's best movie and to the free Slum alter I won at Thrash Bash 3). I ordered the Four Horsemen burger mostly for its topical relevance, and it was excellent.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/thrash4/spikes.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/thrash4/CJs2.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/img/thrash4/CJs.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 
@@ -57,7 +57,7 @@ Dave hosted and won the annual daggers spike event alongside the Ebon Hand sleev
 
 {% include figure.liquid loading="eager" path="assets/img/thrash4/goonies.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-## My Tournament Report
+## Breakfast
 
 We had breakfast at Yellow Cat diner, just like last year, and enjoyed the hot sauce bar and unlimited coffee. Event check-in was at 11 and we wrapped up just in time to head to the Studebaker Mansion. We headed upstairs, checked in, dropped our prizes on the table, and we were off to the race.
 
@@ -77,6 +77,8 @@ We had breakfast at Yellow Cat diner, just like last year, and enjoyed the hot s
         {% include figure.liquid loading="eager" path="assets/img/thrash4/hippies.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
+
+## My Tournament Report
 
 Round 1 vs LoTP Shane 0-2
 Game 1 I played a tangle kelp on his Serra but it wasn’t enough. He used balance to kill my one creature and discard 3 of his own cards but had library so he was ok.
