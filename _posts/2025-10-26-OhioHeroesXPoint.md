@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ohio Heroes X-Points
-date: 2025-10-23 16:20:00-0500
+date: 2025-10-26 16:20:00-0500
 featured: true
 description: Ohio Heroes X-Points Tournament
 tags: XPoints
