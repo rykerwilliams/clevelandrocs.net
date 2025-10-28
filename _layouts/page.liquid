@@ -99,6 +99,56 @@ layout: default
       </article>
     </div>
   </div>
+{% elsif is_profile %}
+  <div class="row mb-4 align-items-start profile-layout-row">
+    <div class="col-12 col-lg-2 col-md-3 d-none d-md-block">
+      {% include profiles-toc.liquid %}
+    </div>
+    <div class="col-12 col-lg-10 col-md-9 profile-main-col">
+      <article>
+        <div class="profile">
+          {{ content }}
+        </div>
+        {%- comment -%}
+          Articles by this profile (no image variant)
+        {%- endcomment -%}
+        {% assign prof_slug = page.title | slugify %}
+        {% assign has_posts = false %}
+        <div class="mt-4">
+          <h3>Articles by {{ page.title }}</h3>
+          <ul class="list-unstyled">
+            {% for post in site.posts %}
+              {% assign author_list = null %}
+              {% if post.author %}
+                {% assign author_list = post.author | split: '||' %}
+              {% elsif post.authors %}
+                {% assign author_list = post.authors %}
+              {% endif %}
+              {% if author_list %}
+                {% assign matches_profile = false %}
+                {% for a in author_list %}
+                  {% assign a_slug = a | strip | slugify %}
+                  {% if a_slug == prof_slug %}
+                    {% assign matches_profile = true %}
+                  {% endif %}
+                {% endfor %}
+                {% if matches_profile %}
+                  {% assign has_posts = true %}
+                  <li class="mb-2">
+                    <span class="text-muted" style="width: 9rem; display: inline-block;">{{ post.date | date: '%b %d, %Y' }}</span>
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                  </li>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            {% if has_posts == false %}
+              <li class="text-muted">No articles yet.</li>
+            {% endif %}
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
 {% else %}
   {% if page.img %}
     {% include figure.liquid path=page.img class='img-fluid rounded mx-auto d-block' alt=page.title cache_bust=true %}
