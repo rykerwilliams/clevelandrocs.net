@@ -25,6 +25,45 @@ layout: default
         <div class="profile">
           {{ content }}
         </div>
+        {%- comment -%}
+          Articles by this profile
+          Match posts where any author slug equals this profile's title slug.
+        {%- endcomment -%}
+        {% assign prof_slug = page.title | slugify %}
+        {% assign posts_by_profile = '' %}
+        {% assign has_posts = false %}
+        <div class="mt-4">
+          <h3>Articles by {{ page.title }}</h3>
+          <ul class="list-unstyled">
+            {% for post in site.posts %}
+              {% assign author_list = null %}
+              {% if post.author %}
+                {% assign author_list = post.author | split: '||' %}
+              {% elsif post.authors %}
+                {% assign author_list = post.authors %}
+              {% endif %}
+              {% if author_list %}
+                {% assign matches_profile = false %}
+                {% for a in author_list %}
+                  {% assign a_slug = a | strip | slugify %}
+                  {% if a_slug == prof_slug %}
+                    {% assign matches_profile = true %}
+                  {% endif %}
+                {% endfor %}
+                {% if matches_profile %}
+                  {% assign has_posts = true %}
+                  <li class="mb-2">
+                    <span class="text-muted" style="width: 9rem; display: inline-block;">{{ post.date | date: '%b %d, %Y' }}</span>
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                  </li>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            {% if has_posts == false %}
+              <li class="text-muted">No articles yet.</li>
+            {% endif %}
+          </ul>
+        </div>
         {% assign profiles = site.profiles | sort: 'title' %}
         {% assign idx = null %}
         {% for p in profiles %}
