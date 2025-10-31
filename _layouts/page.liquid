@@ -3,7 +3,11 @@ layout: default
 ---
 {% comment %} Page layout with special profile mode. {% endcomment %}
 {% assign is_profile = false %}
-{% if page.url contains '/profiles/' %}
+{%- comment -%}
+  Treat as an individual profile page only when the URL is under /profiles/
+  but not the main index (/profiles/ or /profiles/index.html).
+{%- endcomment -%}
+{% if page.url contains '/profiles/' and page.url != '/profiles/' and page.url != '/profiles/index.html' %}
   {% assign is_profile = true %}
 {% endif %}
 {% assign has_profile_image = false %}
