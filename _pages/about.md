@@ -2,11 +2,12 @@
 layout: about
 title: about
 permalink: /
-subtitle: Playing and hosting Cleveland-area Old School magic since 2017.
+subtitle: Playing and hosting Cleveland-area Old School Magic since 2017.
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: whiteroc.png
+  image_dark: rocslogo2.png
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>Cleveland, OH</p>

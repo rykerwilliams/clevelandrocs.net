@@ -2,17 +2,60 @@
 layout: default
 ---
 {% assign hero_img = null %}
+{% assign hero_img_dark = null %}
 {% if page.profile and page.profile.image %}
-  {% assign hero_img = page.profile.image %}
-  {% unless hero_img contains '://' %}
-    {% assign hero_img = hero_img | prepend: 'assets/img/' %}
-  {% endunless %}
+  {%- assign hero_img = page.profile.image -%}
+  {%- unless hero_img contains '://' -%}
+    {%- assign hero_img = hero_img | prepend: 'assets/img/' -%}
+  {%- endunless -%}
+
+  {%- comment -%}
+    Dark-mode image resolution order:
+    1) page.profile.image_dark (explicit)
+    2) Try base + "_color" with original extension
+    3) Try base + "_color.png"
+    4) Try base + "_color.webp"
+  {%- endcomment -%}
+  {%- if page.profile.image_dark -%}
+    {%- assign hero_img_dark = page.profile.image_dark -%}
+    {%- unless hero_img_dark contains '://' -%}
+      {%- assign hero_img_dark = hero_img_dark | prepend: 'assets/img/' -%}
+    {%- endunless -%}
+  {%- else -%}
+    {%- assign orig = page.profile.image -%}
+    {%- assign parts = orig | split: '.' -%}
+    {%- assign base = parts | first -%}
+    {%- assign ext = parts | last -%}
+    {%- assign cand1 = base | append: '_color.' | append: ext -%}
+    {%- assign cand1_path = 'assets/img/' | append: cand1 -%}
+    {%- capture cand1_exists -%}{% file_exists {{ cand1_path }} %}{%- endcapture -%}
+    {%- if cand1_exists == 'true' -%}
+      {%- assign hero_img_dark = cand1_path -%}
+    {%- else -%}
+      {%- assign cand2 = base | append: '_color.png' -%}
+      {%- assign cand2_path = 'assets/img/' | append: cand2 -%}
+      {%- capture cand2_exists -%}{% file_exists {{ cand2_path }} %}{%- endcapture -%}
+      {%- if cand2_exists == 'true' -%}
+        {%- assign hero_img_dark = cand2_path -%}
+      {%- else -%}
+        {%- assign cand3 = base | append: '_color.webp' -%}
+        {%- assign cand3_path = 'assets/img/' | append: cand3 -%}
+        {%- capture cand3_exists -%}{% file_exists {{ cand3_path }} %}{%- endcapture -%}
+        {%- if cand3_exists == 'true' -%}
+          {%- assign hero_img_dark = cand3_path -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
 {% endif %}
 
 <div class="post">
   <div class="about-hero{% if hero_img == nil %} about-hero--noimg{% endif %}">
     {% if hero_img %}
-      <div class="about-hero-bg" style="background-image: url('{{ hero_img | relative_url }}')"></div>
+      <div
+        class="about-hero-bg"
+        style="--about-hero-img-light: url('{{ hero_img | relative_url }}');{% if hero_img_dark %} --about-hero-img-dark: url('{{ hero_img_dark | relative_url }}');{% endif %}"
+      ></div>
       <div class="about-hero-overlay"></div>
     {% endif %}
     <div class="container about-hero-inner">

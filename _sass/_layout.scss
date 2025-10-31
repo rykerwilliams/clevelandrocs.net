@@ -78,9 +78,15 @@ body.profile-page .container {
 .about-hero-bg {
   position: absolute;
   inset: 0;
+  background-image: var(--about-hero-img-light);
   background-size: cover;
   background-position: center;
   transform: scale(1.02); /* tiny scale to avoid edge gaps on zoom */
+}
+
+html[data-theme="dark"] .about-hero .about-hero-bg {
+  /* Use dark image if provided, else fall back to light */
+  background-image: var(--about-hero-img-dark, var(--about-hero-img-light));
 }
 
 .about-hero-overlay {
