@@ -57,6 +57,59 @@ body.profile-page .container {
   }
 }
 
+/* About (Home) hero background */
+.about-hero {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  min-height: 280px;
+
+  @media (min-width: 768px) {
+    min-height: 360px;
+  }
+}
+
+.about-hero--noimg {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+}
+
+.about-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02); /* tiny scale to avoid edge gaps on zoom */
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* semi-transparent dark overlay for readability */
+}
+
+.about-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem 1rem;
+
+  @media (min-width: 768px) {
+    padding: 4rem 2rem;
+  }
+
+  .post-title,
+  .desc {
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  }
+
+  .desc {
+    margin: 0.5rem 0 0;
+    font-size: 1.1rem;
+  }
+}
+
 // TODO: redefine content layout.
 
 /******************************************************************************

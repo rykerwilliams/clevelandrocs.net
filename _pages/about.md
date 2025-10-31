@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: Playing and hosting Cleveland-area Old School magic since 2017.
 
 profile:
   align: right
