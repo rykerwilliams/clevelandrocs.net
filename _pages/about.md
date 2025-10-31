@@ -6,7 +6,7 @@ subtitle: Playing and hosting Cleveland-area Old School Magic since 2017.
 
 profile:
   align: right
-  image: whiteroc.png
+  image: WhiteRoc.png
   image_dark: rocslogo2.png
   image_circular: false # crops the image to make it circular
   more_info: >
