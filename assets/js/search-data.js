@@ -81,6 +81,17 @@ ninja.data = [{
             window.location.href = "/articles/2024/03/30/FEChamps1/";
           
         },
+      },{id: "post-protect-the-queen",
+        
+          title: "Protect the Queen",
+        
+        description: "FE Champs I Troy Drinkard Deck Tech and Tournament Report",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2024/03/30/FEChamps1-Drinkard/";
+          
+        },
       },{id: "post-2019-rocs-old-school-tournament",
         
           title: "2019 Rocs Old School Tournament",
@@ -118,6 +129,11 @@ ninja.data = [{
           description: "",
           section: "Profiles",handler: () => {
               window.location.href = "/profiles/firelights/";
+            },},{id: "profiles-troy-drinkard",
+          title: 'Troy Drinkard',
+          description: "",
+          section: "Profiles",handler: () => {
+              window.location.href = "/profiles/drinkard/";
             },},{
         id: 'social-email',
         title: 'email',
