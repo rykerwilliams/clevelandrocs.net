@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Kyle Wells
+title: Troy Drinkard
 permalink: /profiles/drinkard/
 img: assets/img/profiles/troy.png
 ---
 
-Fallen Empires World Champion Troy @DrinkardBrews also has a YouTube Channel that you should check out <a href="https://www.youtube.com/@DrinkardBrews">here.</a>
+Fallen Empires World Champion Troy Drinkard also has a YouTube Channel that you should check out <a href="https://www.youtube.com/@DrinkardBrews">here.</a>

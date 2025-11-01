@@ -138,7 +138,7 @@ Game 3 started off tense. I kept a creature-light hand. He spent two resources t
 
 Meanwhile, a couple of yards behind me, the only other undefeated player besides Mitch and myself, John Ekleberry (the champion in all our hearts) lost his match to Jason, my round 2 opponent that was playing a deck very similar to mine. I was relieved; had John and I needed to play, the match could really go either way. His mono white aggro deck can get away from Dwarven Catapult and Order of the Ebon Hand. That being said, instead of pairings being announced for round 5, Mike Klements started his sentence with “After round four, our champion is,” and things got blurry. I was handed some really sweet prizes, and a number of pictures were taken. I think I had something like a runner’s high.
 
-# Conclusion-
+# Conclusion
 
 Rather than hiding behind stones like Ecuadorian ants, people can also choose to develop alliances among societies of their kind, something ants find impossible. It’s in the pursuit of peace that the brainpower of humans shows our species at its most impressive.
 Moffett, Smithsonian
