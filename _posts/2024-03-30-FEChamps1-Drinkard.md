@@ -18,26 +18,26 @@ pretty_table: true
 giscus_comments: true
 ---
 
-> This article was originally published at https://docs.google.com/document/d/18JhSvmEoZAl61pSGAMu3TEFhc37NkSpd6MF4fg-hMvA/edit?pli=1&tab=t.0
-
-# Protect the Queen
+> This article was originally published <a href="https://docs.google.com/document/d/18JhSvmEoZAl61pSGAMu3TEFhc37NkSpd6MF4fg-hMvA/edit?pli=1&tab=t.0">here</a>
 
 <i>A Fallen Empires 40 World Championship 2024 Report</i>
 
 # The Event
 
 > “Honeypot ants feast on foraging termites. Should two colonies come across the same cluster of these plump prey, the ants gather at a tournament site where the workers from each colony circle each other while standing high on their legs.”
-> Mark W. Moffett, Science Magazine
+>
+> -Mark W. Moffett, Science Magazine
 
 On March 30, 2024, the first Fallen Empires 40 World Championship tournament was held at The Shuffler’s Den in Willoughby Hills, Ohio. My family and I happened to be approximately 9 hours closer than we would have been, thanks to visiting family for the Easter holidays. I could not pass up the chance to meet many friends I have made since the pandemic playing with old cards over webcam, and a serialized 001/001 foil Ring of Renewal made for some plump prey as well.
 
 {% include figure.liquid loading="eager" path="assets/img/FE1Drinkard/the-ring.png" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-# The Deck
+## The Deck
 
 > “The mega-sized army ant forces are strategically coordinated so that the few Braveheart-caliber killers can sweep in and destroy, but only after expendable workers have rendered the enemy helpless.
 > In a move that's also known as "the death blow," a soldier ant – whose huge head is packed with muscles for gut-crushing obliteration – eventually advances from behind the front lines and takes out the termite adversary.”
-> Katie Drummond, Wired Magazine
+>
+> -Katie Drummond, Wired Magazine
 
 For three months in 2023, the Fallen Empires 40 league allowed varying amounts of Homelands cards, and the most uncomfortable of these for me to play against was the lowly Carapace. It cost me so many resources to remove an opponent’s creature, such as a Thallid Devourer or Thorn Thallid, and that creature was able to carry the opponent to victory.
 
@@ -46,38 +46,49 @@ In the absence of Carapace, and determined to brew something new, I started the 
 ## The Queens (also known as “the death blow”):
 
 > Queen ants will do whatever it takes to be the last one standing.
-> Jeanna Bryner, LiveScience
+>
+> -Jeanna Bryner, LiveScience
 
 4 Order of the Ebon Hand
+
 4 Thrull Champion
 
 ## The Protection (also known as “the expendable workers”):
 
 > The tiny “minor” workers move quickly to the front lines—the danger zone where competing ant colonies or prey are first encountered. A single minor has no more chance against the enemy than would an equally small scout of a lone-hunting species . . . Although some may die along the way, the minors slow or incapacitate the enemy until the larger workers . . . arrive to deliver the deathblow.
-> Moffett, The Scientific American
+>
+> -Moffett, The Scientific American
 
 4 Armor Thrull
+
 2 Soul Exchange
+
 4 Thrull Retainer
 
 ## The Removal
 
 > When a worker of certain Borneo ant species contacts an enemy she blows up by squeezing her body so hard that the cuticle ruptures, spewing out a toxic yellow glue from an internal gland.
-> Moffett, Smithsonian
+>
+> -Moffett, Smithsonian
 
 4 Aeolipile
+
 2 Dwarven Catapult
 
 ## Lands
 
 4 Ebon Stronghold
+
 4 Mountain
+
 8 Swamp
 
 ## Sideboard
 
 Sideboard:
+
 4 Basal Thrull
+
 1 Goblin Chirurgeon
 
 I played the Basal Thrulls to enable my early Thrull Champions. I did not think anything else mattered in the Thrull mirror matchup. The Goblin Chirurgeon is one other protective measure for Order of the Ebon Hand that further buys you one turn against a lethal Order of Leitbur.
@@ -144,11 +155,15 @@ Moffett, Smithsonian
 Thank you for indulging me. I wrote this mainly for myself, but I used to enjoy the tournament report section of the forum called themanadrain, during the Type 1 era (as it was known then) in the early 00’s. If anyone misses those, here is my offering to you. I will close with a list of cards I think “broke out” this tournament. As I type that, I realize it is wild to say, since our format has just over 100 cards and is over 2 years old. Still, the people brought the spice, and there were some jaws dropped when various cards and interactions hit the table.
 
 -Thrull Retainer
+
 -Elven Lyre
+
 -Farrel’s Zealot
+
 -Farrel’s Mantle
+
 -Goblin Kites
 
 > The last three were all from the same deck! Jason K, in addition to winning the 2023 North American Old School Magic Cup, you won a well-deserved spice prize!
-
-Troy Drinkard, unpublished
+>
+> -Troy Drinkard, unpublished
