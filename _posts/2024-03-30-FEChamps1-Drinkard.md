@@ -43,27 +43,24 @@ For three months in 2023, the Fallen Empires 40 league allowed varying amounts o
 
 In the absence of Carapace, and determined to brew something new, I started the deck with 4 Thrull Retainer. The next four creatures were those that could single-handedly do a lot of damage to the opponent, my “queens”: 4 Order of the Ebon Hand would dodge white removal and blockers (which I expected to face much); 4 Thrull Champions would defeat opposing Thrulls. Both of these creatures are also good against Orgg. If these 8 creatures were going to be good, I wanted them to be very good, so I played 10 pieces of protection and ways to make them stronger. As for a plan versus Deep Spawn or Thallids, well, I just hoped to draw and play well. Without further delay, the deck:
 
-## The Queens (also known as “the death blow”):
+## The Queens (also known as “the death blow”)
 
 > Queen ants will do whatever it takes to be the last one standing.
 >
 > -Jeanna Bryner, LiveScience
 
-4 Order of the Ebon Hand
+- 4 Order of the Ebon Hand
+- 4 Thrull Champion
 
-4 Thrull Champion
-
-## The Protection (also known as “the expendable workers”):
+## The Protection (also known as “the expendable workers”)
 
 > The tiny “minor” workers move quickly to the front lines—the danger zone where competing ant colonies or prey are first encountered. A single minor has no more chance against the enemy than would an equally small scout of a lone-hunting species . . . Although some may die along the way, the minors slow or incapacitate the enemy until the larger workers . . . arrive to deliver the deathblow.
 >
 > -Moffett, The Scientific American
 
-4 Armor Thrull
-
-2 Soul Exchange
-
-4 Thrull Retainer
+- 4 Armor Thrull
+- 2 Soul Exchange
+- 4 Thrull Retainer
 
 ## The Removal
 
@@ -71,25 +68,21 @@ In the absence of Carapace, and determined to brew something new, I started the 
 >
 > -Moffett, Smithsonian
 
-4 Aeolipile
-
-2 Dwarven Catapult
+- 4 Aeolipile
+- 2 Dwarven Catapult
 
 ## Lands
 
-4 Ebon Stronghold
-
-4 Mountain
-
-8 Swamp
+- 4 Ebon Stronghold
+- 4 Mountain
+- 8 Swamp
 
 ## Sideboard
 
 Sideboard:
 
-4 Basal Thrull
-
-1 Goblin Chirurgeon
+- 4 Basal Thrull
+- 1 Goblin Chirurgeon
 
 I played the Basal Thrulls to enable my early Thrull Champions. I did not think anything else mattered in the Thrull mirror matchup. The Goblin Chirurgeon is one other protective measure for Order of the Ebon Hand that further buys you one turn against a lethal Order of Leitbur.
 
@@ -154,15 +147,11 @@ Moffett, Smithsonian
 
 Thank you for indulging me. I wrote this mainly for myself, but I used to enjoy the tournament report section of the forum called themanadrain, during the Type 1 era (as it was known then) in the early 00’s. If anyone misses those, here is my offering to you. I will close with a list of cards I think “broke out” this tournament. As I type that, I realize it is wild to say, since our format has just over 100 cards and is over 2 years old. Still, the people brought the spice, and there were some jaws dropped when various cards and interactions hit the table.
 
--Thrull Retainer
-
--Elven Lyre
-
--Farrel’s Zealot
-
--Farrel’s Mantle
-
--Goblin Kites
+- Thrull Retainer
+- Elven Lyre
+- Farrel’s Zealot
+- Farrel’s Mantle
+- Goblin Kites
 
 > The last three were all from the same deck! Jason K, in addition to winning the 2023 North American Old School Magic Cup, you won a well-deserved spice prize!
 >
