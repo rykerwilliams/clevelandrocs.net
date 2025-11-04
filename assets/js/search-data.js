@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/food/";
           },
-        },{id: "post-thrash-bash-4",
+        },{id: "post-soup-on-sarpadia",
+        
+          title: "Soup on Sarpadia",
+        
+        description: "Sarpadian Cube Soup Party",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2025/11/04/Soup-on-Sarpadia/";
+          
+        },
+      },{id: "post-thrash-bash-4",
         
           title: "Thrash Bash 4",
         
