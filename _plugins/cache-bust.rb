@@ -57,7 +57,9 @@ module Jekyll
     end
 
     def bust_css_cache(file_name)
-      CacheDigester.new(file_name: file_name, directory: 'assets/_sass').digest!
+      # Hash all Sass partials to invalidate the compiled main.css cache when any partial changes.
+      # The Sass partials live in the root-level '_sass' directory for this site.
+      CacheDigester.new(file_name: file_name, directory: '_sass').digest!
     end
   end
 end
