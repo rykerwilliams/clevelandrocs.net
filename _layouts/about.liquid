@@ -52,10 +52,15 @@ layout: default
 <div class="post">
   <div class="about-hero{% if hero_img == nil %} about-hero--noimg{% endif %}">
     {% if hero_img %}
+      <!-- Light theme background -->
+      <div class="about-hero-bg about-hero-bg--light" style="background-image: url('{{ hero_img | relative_url }}');"></div>
+
+      <!-- Dark theme background (falls back to light if not provided) -->
       <div
-        class="about-hero-bg"
-        style="--about-hero-img-light: url('{{ hero_img | relative_url }}');{% if hero_img_dark %} --about-hero-img-dark: url('{{ hero_img_dark | relative_url }}');{% endif %}"
+        class="about-hero-bg about-hero-bg--dark"
+        style="background-image: url('{% if hero_img_dark %}{{ hero_img_dark | relative_url }}{% else %}{{ hero_img | relative_url }}{% endif %}');"
       ></div>
+
       <div class="about-hero-overlay"></div>
     {% endif %}
     <div class="container about-hero-inner">
