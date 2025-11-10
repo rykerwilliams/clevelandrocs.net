@@ -23,20 +23,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/articles/";
           },
-        },{id: "nav-events",
-          title: "events",
-          description: "A growing collection of cool events.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/events/";
-          },
-        },{id: "nav-food",
-          title: "food",
-          description: "A growing collection of gastronomic proportions.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/food/";
-          },
         },{id: "post-soup-on-sarpadia",
         
           title: "Soup on Sarpadia",
@@ -114,17 +100,7 @@ ninja.data = [{
             window.location.href = "/articles/2019/02/25/2019-Bottlehouse/";
           
         },
-      },{id: "books-the-godfather",
-          title: 'The Godfather',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/the_godfather/";
-            },},{id: "food-iron-city-wings",
-          title: 'Iron City Wings',
-          description: "Wings after the Iron City Old School Tournament in Coraopolis, PA",
-          section: "Food",handler: () => {
-              window.location.href = "/food/2023/05/21/Coraopolis/";
-            },},{id: "news-the-rocs-are-going-to-thrash-bash-4",
+      },{id: "news-the-rocs-are-going-to-thrash-bash-4",
           title: 'The Rocs are going to Thrash Bash 4!',
           description: "",
           section: "News",},{id: "news-the-rocs-are-going-to-bootleggers-ball-6",
