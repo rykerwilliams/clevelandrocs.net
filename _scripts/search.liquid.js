@@ -79,7 +79,7 @@ ninja.data = [
     {%- endfor -%}
   {%- endif -%}
   {%- for collection in site.collections -%}
-    {%- if collection.label != 'posts' -%}
+    {%- if collection.label != 'posts' and collection.label != 'events' and collection.label != 'food' and collection.label != 'books' -%}
       {%- for item in collection.docs -%}
         {
           {%- if item.inline -%}
