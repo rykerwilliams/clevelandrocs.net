@@ -89,6 +89,17 @@ ninja.data = [{
             window.location.href = "/articles/2024/03/30/FEChamps1-Drinkard/";
           
         },
+      },{id: "post-battle-for-ohio",
+        
+          title: "Battle for Ohio",
+        
+        description: "THE Inaugural Battle for Ohio",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2023/03/20/Battle-For-Ohio/";
+          
+        },
       },{id: "post-2019-rocs-old-school-tournament",
         
           title: "2019 Rocs Old School Tournament",
@@ -106,7 +117,12 @@ ninja.data = [{
           section: "News",},{id: "news-the-rocs-are-going-to-bootleggers-ball-6",
           title: 'The Rocs are going to Bootleggers Ball 6!',
           description: "",
-          section: "News",},{id: "profiles-kyle-wells",
+          section: "News",},{id: "profiles-bc-druid",
+          title: 'BC Druid',
+          description: "",
+          section: "Profiles",handler: () => {
+              window.location.href = "/profiles/bc-druid/";
+            },},{id: "profiles-kyle-wells",
           title: 'Kyle Wells',
           description: "",
           section: "Profiles",handler: () => {
