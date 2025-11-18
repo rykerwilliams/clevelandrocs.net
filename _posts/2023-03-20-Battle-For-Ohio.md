@@ -59,7 +59,7 @@ It was around this time Ben showed up and we got to eight players. Brian busted 
 
 At this point in the evening we added Rajah, our 9th man for the Green themed Tournament. The Ebon Hand dudes cooked up a wild format – for sake of ease, here’s the “emblem” we played with. Think commander rules, but for a leprechaun.
 
-{% include figure.liquid loading="eager" path="assets/img/BFO2023/emblem.webp" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/BFO2023/emblem.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 ## PLAY GREEN!
 
