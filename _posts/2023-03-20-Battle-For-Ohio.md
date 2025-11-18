@@ -30,12 +30,14 @@ I happened to be off on that Friday, but would not be able to participate in the
 
 When I rolled up, I arrived just a little before 5:00, the official start time. I met the Ebon Hand crew, who were not only wonderful hosts, but incredibly welcoming gentlemen as well. They handed me my SWAG pile and we got right down to gaming.
 
-Real nice swag piles!
+## Real nice swag piles!
+
 At this point I should mention that I only own one Old School deck and simply did not have time to brew anything else up, so I went in with that being my only cudgel for the weekend. I might have missed the spirit of the event without some janky brews of my own on tap, but hey, I like my aggro decks.
 
 {% include figure.liquid loading="eager" path="assets/img/BFO2023/decklist.webp" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 My only Old School deck, based on Charles’ Kird Ape Deck (the top left cards are Grizzly bears or Barbary Apes)
+
 I sat down with Brian for the first match of the event and slung some Old School – he was playing a very interesting red/white walls deck that relied on Diamond Valley to gain insane amounts of life off some cheap red walls that would later get animated to thump in once he’d stabilized. Spice level 1000. I ended up 2-1 vs. him in a real squeaker of a match, with game three going very long but no Diamond Valleys in sight to bail him out. First blood was had, the Cleveland Rocs were up 5-0
 
 I got to put 5 points on this bad boy and ring the gong. Yes there was a gong. Yes it was legit.
@@ -52,13 +54,15 @@ Brian requested the rematch (he switched decks) and I obliged. This time around 
 {% include figure.liquid loading="eager" path="assets/img/BFO2023/points.webp" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 This is one of three pictures I have of the scoreboard
+
 It was around this time Ben showed up and we got to eight players. Brian busted out the Mirage Cube and we drafted. I’ve always loved draft, especially weird formats like this so I was excited to check out the cube. As the cards were being passed, I could tell Brian spared no expense on the cube (I picked a Vampiric Tutor at some point!) but it was also well crafted with some clear strategies in the colors. Too bad I didn’t see them until too late- I focused on drafting playable creatures and removal and ended up mono-black aggro. I managed to outlast Brandon round one and Ben round two. For the finals I was playing Brian again for 60 points. I ended up taking it down and earning 60 more for the Rocs. I was feeling good and on a streak!
 
 At this point in the evening we added Rajah, our 9th man for the Green themed Tournament. The Ebon Hand dudes cooked up a wild format – for sake of ease, here’s the “emblem” we played with. Think commander rules, but for a leprechaun.
 
 {% include figure.liquid loading="eager" path="assets/img/BFO2023/emblem.webp" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-PLAY GREEN!
+## PLAY GREEN!
+
 As I mentioned above, I only had one OS deck, but lucky for me, it was mostly green and I felt like I could work around the negative side. As a side note, I don’t drink these days, so I had to get creative with the “take a drink” handicap, but I feel like most Old School players don’t need to be told to drink…
 
 First round I was paired up with Jonathan. He had a real sweet green-artifact deck brewed up and chose to not sleeve his deck, which I really appreciated. The emblem added a very interesting dynamic to the game, where the Leprechaun could be used as a green dark ritual or life gain in a pinch if your opponent was on non-green cards. Jonathan had played just enough artifacts to get me the mana for enough damage through his lifegain to squeak out the win in game three!
@@ -69,7 +73,8 @@ Round three I had the pleasure of facing Brian again for the points and prestige
 
 {% include figure.liquid loading="eager" path="assets/img/BFO2023/swag.webp" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Prizes and SWAG from the weekend
+## Prizes and SWAG from the weekend
+
 We finished the night off with one final event, the 1996 top 8 World Championship Decks. I proposed we take the same decks as our placement in the St. Patty’s event, because I know how hard the Michael Loconto deck can be to play with (and that it’s not really the best deck in that box set!). Round 1 I played Steve on the Bertrand Lestree deck and somehow pulled together the win. Round 2 I played Rajah on Shawn Hammer Reginer’s deck and won 2-0, and that set me up for Brian yet again, this time on Leon Lindback’s Necropotence deck. Once again, I drew exactly what I needed to take the match and earn 60 more points for the Cleveland Rocs.
 
 I had no idea I was going to roll into this thing and rack up the score for the team. I think we all get those weekends or events where we just catch fire and the decks provide and I am certainly lucky to have had that this past Friday! More importantly, I got to meet and play cards with a bunch of great guys from across the state. It was truly a pleasure to sit down with Brian, Jason, Steve, Brandon, Eric, and Jonathan and see the wild decks they all brought. Say what you want about the Ebon Hand, they brew some wild decks and I saw a lot of cool card interactions from those guys.
@@ -78,10 +83,12 @@ I had to peace out the next morning, so I can’t report on the events that occu
 
 {% include figure.liquid loading="eager" path="assets/img/BFO2023/finalpoints.webp" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Final scores!
+## Final scores!
+
 Most importantly, I want to say thanks to Brandon, Brian, and anyone else from the Ebon Hand who came up with the idea and made it all possible. We are looking forward to next year and any and all challengers that can make it (Dayton, where you at!?)
 
 {% include figure.liquid loading="eager" path="assets/img/BFO2023/winners.webp" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 Kyle, Rajah, (with upside down trophy) and Steven
-Until next time!
+
+## Until next time!
