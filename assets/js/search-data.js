@@ -117,8 +117,8 @@ ninja.data = [{
           section: "News",},{id: "news-the-rocs-are-going-to-bootleggers-ball-6",
           title: 'The Rocs are going to Bootleggers Ball 6!',
           description: "",
-          section: "News",},{id: "profiles-bc-druid",
-          title: 'BC Druid',
+          section: "News",},{id: "profiles-bcdruid",
+          title: 'BCDruid',
           description: "",
           section: "Profiles",handler: () => {
               window.location.href = "/profiles/bc-druid/";
