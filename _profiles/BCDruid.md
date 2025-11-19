@@ -1,6 +1,6 @@
 ---
 layout: page
-title: BC Druid
+title: BCDruid
 permalink: /profiles/bc-druid/
 img: assets/img/profiles/angelo.jpg
 ---
