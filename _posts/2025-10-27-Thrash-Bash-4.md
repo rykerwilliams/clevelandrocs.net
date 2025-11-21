@@ -231,8 +231,8 @@ I'm not sure I had ever played Swedish before this tournament. I didn't mind bei
         {% include figure.liquid loading="eager" path="assets/img/thrash4/elderstatesmen.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/thrash4/fuckjosh.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/img/thrash4/spencer.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 
-{% include figure.liquid loading="eager" path="assets/img/thrash4/spencer.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/thrash4/fuckjosh.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
