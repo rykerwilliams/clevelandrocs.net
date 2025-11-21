@@ -111,11 +111,11 @@ ninja.data = [{
             window.location.href = "/articles/2019/02/25/2019-Bottlehouse/";
           
         },
-      },{id: "news-the-rocs-are-going-to-thrash-bash-4",
-          title: 'The Rocs are going to Thrash Bash 4!',
-          description: "",
-          section: "News",},{id: "news-the-rocs-are-going-to-bootleggers-ball-6",
+      },{id: "news-the-rocs-are-going-to-bootleggers-ball-6",
           title: 'The Rocs are going to Bootleggers Ball 6!',
+          description: "",
+          section: "News",},{id: "news-the-rocs-are-going-to-kumite-ix",
+          title: 'The Rocs are going to Kumite IX!',
           description: "",
           section: "News",},{id: "profiles-bcdruid",
           title: 'BCDruid',
