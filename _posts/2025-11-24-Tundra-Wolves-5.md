@@ -27,7 +27,13 @@ In June of 2022 I was fortunate enough to tag along on my wife's work trip and a
 
 ## PLANES
 
-If you didn't travel internationally during or shortly after the COVID pandemic, you really missed out. We had seats on United going through one of the New York City area airports to Montréal-Pierre Elliott Trudeau International Airport and had to prove vaccination status and pass through several random and not so random screenings and swabbings. Luckily with the distraction brought about by the virus, nobody in airport security asked why I was carrying a box of cards into their country, and nobody questioned my deck list choices.
+{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/lotus.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+If you didn't travel internationally during or shortly after the COVID pandemic, you really missed out. We had seats on United going through one of the New York City area airports to Montréal-Pierre Elliott Trudeau International Airport and had to prove vaccination status and pass through several random and not so random screenings and swabbings. 
+
+{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/usembassy.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Luckily with the distraction brought about by the virus, nobody in airport security asked why I was carrying a box of cards into their country, and nobody questioned my deck list choices.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -98,6 +104,8 @@ I think it was the night before the tournament that we booked a <a href="https:/
 </div>
 
 ## CARDS
+
+{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/venue.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 On to the tournament! Imagine how excited I was to meet Foggie, Patrick, Guillaume, Martin, Yanick, Sebastien, Sebastien, Jean-Sebastien, Guillaume, Guillaume, Guillaume, and the crew. I had received some of the fanciest mail from these guys and they seemed really cool in Discord. 
 
