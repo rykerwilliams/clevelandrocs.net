@@ -2,7 +2,7 @@
 layout: post
 title: Thrash Bash 4
 date: 2025-10-27 16:20:00-0500
-featured: true
+featured: false
 description: Thrash Bash 4
 tags: Swedish
 author: Kyle Wells

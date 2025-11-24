@@ -2,7 +2,7 @@
 layout: post
 title: Ohio Heroes X-Points
 date: 2025-10-26 16:20:00-0500
-featured: true
+featured: false
 description: Ohio Heroes X-Points Tournament
 tags: XPoints
 author: Mike Klements
