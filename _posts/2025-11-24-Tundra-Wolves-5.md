@@ -22,13 +22,13 @@ giscus_comments: true
 
 {% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/stamp.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-In June of 2022 I was fortunate enough to tag along on my wife's work trip and attend the Tundra Wolves Challenge V. This is more of a travel report than a tournament report because I'm writing it 3.5 years later, and have forgotten all specifics. What I do remember, though, are great vibes from the Montreal crew. It was a fun tournament run by some of the most gracious and hospitable titans of old school magic on a beautiful Saturday in June in the largest city in the province of Quebec, the second-largest in Canada, and the eighth-largest in North America - Mount Royal, aka Montreal. What a place. My family and I can't wait to go back some day soon. 
+In June of 2022 I was fortunate enough to tag along on my wife's work trip and attend the Tundra Wolves Challenge V. This is more of a travel report than a tournament report because I'm writing it 3.5 years later, and have forgotten all specifics. What I do remember, though, are great vibes from the Montreal crew. It was a fun tournament run by some of the most gracious and hospitable titans of old school magic on a beautiful Saturday in June in the largest city in the province of Quebec, the second-largest in Canada, and the eighth-largest in North America - Mount Royal, aka Montreal. What a place. My family and I can't wait to go back some day soon.
 
 ## PLANES
 
 {% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/lotus.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-If you didn't travel internationally during or shortly after the COVID pandemic, you really missed out. We had seats on United going through one of the New York City area airports to Montréal-Pierre Elliott Trudeau International Airport and had to prove vaccination status and pass through several random and not so random screenings and swabbings. 
+If you didn't travel internationally during or shortly after the COVID pandemic, you really missed out. We had seats on United going through one of the New York City area airports to Montréal-Pierre Elliott Trudeau International Airport and had to prove vaccination status and pass through several random and not so random screenings and swabbings.
 
 {% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/usembassy.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
@@ -45,7 +45,7 @@ Luckily with the distraction brought about by the virus, nobody in airport secur
 
 ## HOTEL
 
-We arrived a few days before the tournament and my wife had to work, so my son and I were on our own for much of the trip. We stayed at Hotel Omni which was across the street from McGill University; a nice urban campus from what I can tell. McGill has many famous alumni, according to the Google search you can do yourself. We were also near the bottom of a very large hill, which turned out to be the namesake of the city. Mount Royal is 4,500 feet tall, which is about 38,000 meters when converted to beaver tails. We climbed to the top and it was really nice up there. Somehow a small lake exists at the top of the mountain and it's stocked with goldfish. Quirky! You can get snacks up there too, so definitely make the hike. 
+We arrived a few days before the tournament and my wife had to work, so my son and I were on our own for much of the trip. We stayed at Hotel Omni which was across the street from McGill University; a nice urban campus from what I can tell. McGill has many famous alumni, according to the Google search you can do yourself. We were also near the bottom of a very large hill, which turned out to be the namesake of the city. Mount Royal is 4,500 feet tall, which is about 38,000 meters when converted to beaver tails. We climbed to the top and it was really nice up there. Somehow a small lake exists at the top of the mountain and it's stocked with goldfish. Quirky! You can get snacks up there too, so definitely make the hike.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -56,13 +56,9 @@ We arrived a few days before the tournament and my wife had to work, so my son a
     </div>
 </div>
 
-The Tundra Wolves club at the time had a penchant for sharing the 'kit' they were bringing to the tournament, so I shared mine:
-
-{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/kit.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
-
 ## TRAINS and AUTOMOBILES and BUSES
 
-My son and I took the double decker bus tour and I couldn't hear the tour guide so I am making up these facts. But the bus ride was really fun, taking us all around the city up and down busy streets and near old buildings with interesting history and cool stories, and my kid only complained a couple times.  We also took a car to the <a href="https://parcolympique.qc.ca/en/">Montreal Olympic Park</a> and checked out the olympic sized pool. I remember the cabbie giving me his number and driving off. When we were done with our tour, I called his number and he said "yeah that's a bit far, just take the train" so we figured out the Montreal train system. I hope he's doing well.
+My son and I took the double decker bus tour and I couldn't hear the tour guide so I am making up these facts. But the bus ride was really fun, taking us all around the city up and down busy streets and near old buildings with interesting history and cool stories, and my kid only complained a couple times. We also took a car to the <a href="https://parcolympique.qc.ca/en/">Montreal Olympic Park</a> and checked out the olympic sized pool. I remember the cabbie giving me his number and driving off. When we were done with our tour, I called his number and he said "yeah that's a bit far, just take the train" so we figured out the Montreal train system. I hope he's doing well.
 
 > Caitlyn Jenner: The Montreal Olympics were in July 1976, the bicentennial, at the height of patriotism.
 
@@ -87,7 +83,7 @@ This place is cool. They have penguins, starfish, birds, fish, biomes, and a hug
 
 ## BOATS
 
-I think it was the night before the tournament that we booked a <a href="https://www.croisieresaml.com/en">river cruise boat ride</a> and I recommend you do the same when you visit Montreal. But, when you do, make sure that there isn't a prom or homecoming or wedding or bar mitzvah taking up the entire boat. Or if there is, dress accordingly. We wore jeans and hoodies to a black tie event on the water but luckily had the excuse that we were simple American tourists who didn't understand French Canadian customs.  We also walked there from our hotel which took a bit over an hour made our kid a bit cranky, so we tried to just go with the flow and everyone laughed with (at?) us and it was fine. Actually it was quite nice and we even got to join a class action lawsuit against the boat company for improper credit card charging or something to that effect. I invested our $3 check wisely in Chi-Chi's stock.
+I think it was the night before the tournament that we booked a <a href="https://www.croisieresaml.com/en">river cruise boat ride</a> and I recommend you do the same when you visit Montreal. But, when you do, make sure that there isn't a prom or homecoming or wedding or bar mitzvah taking up the entire boat. Or if there is, dress accordingly. We wore jeans and hoodies to a black tie event on the water but luckily had the excuse that we were simple American tourists who didn't understand French Canadian customs. We also walked there from our hotel which took a bit over an hour and made our kid a bit cranky, so we tried to just go with the flow and everyone laughed with (at?) us and it was fine. Actually it was quite nice and we even got to join a class action lawsuit against the boat company for improper credit card charging or something to that effect. I invested our $3 check wisely in Chi-Chi's stock.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -98,11 +94,15 @@ I think it was the night before the tournament that we booked a <a href="https:/
     </div>
 </div>
 
+The Tundra Wolves club at the time had a penchant for sharing the 'kit' they were bringing to the tournament, so I shared mine when we got back to the hotel:
+
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/kit.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
 ## CARDS
 
 {% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/venue.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-On to the tournament! Imagine how excited I was to meet Foggie, Patrick, Guillaume, Martin, Yanick, Sebastien, Sebastien, Jean-Sebastien, Guillaume, Guillaume, Guillaume, and the crew. I had received some of the fanciest mail from these guys and they seemed really cool in Discord. 
+On to the tournament! Imagine how excited I was to meet Foggie, Patrick, Guillaume, Martin, Yanick, Sebastien, Sebastien, Jean-Sebastien, Guillaume, Guillaume, Guillaume, and the crew. I had received some of the fanciest mail from these guys and they seemed really cool in Discord.
 
 {% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/foggie.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
@@ -118,7 +118,7 @@ I was afraid to bring all my real cards across the border so I made myself some 
 
 {% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/decklist.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-I'm quite sure I didn't win a match. I don't believe I won a game. I can only partially blame the prize pitcher for my losses. I got a view of the top tables when I arrived, sure that I would never see them again. But I do sort of recall that I played a match on stream at some point in the day. 
+I'm quite sure I didn't win a match. I don't believe I won a game. I can only partially blame the prize pitcher for my losses. I got a view of the top tables when I arrived, sure that I would never see them again. But I do sort of recall that I played a match on stream at some point in the day.
 
 Ok I guess it was round 1: <a href="https://youtu.be/kQf-Q9i4atc?si=0x51Ca8nyNrImGx9&t=680">watch me embarass myself in another country</a>
 
