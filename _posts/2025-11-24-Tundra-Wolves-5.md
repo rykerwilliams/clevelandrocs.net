@@ -37,7 +37,6 @@ Luckily with the distraction brought about by the virus, nobody in airport secur
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-            <div class="col-sm mt-3 mt-md-0">
 {% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/airport.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
@@ -51,7 +50,6 @@ We arrived a few days before the tournament and my wife had to work, so my son a
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-            <div class="col-sm mt-3 mt-md-0">
 {% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/topofthemountain.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
@@ -81,7 +79,6 @@ This place is cool. They have penguins, starfish, birds, fish, biomes, and a hug
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-            <div class="col-sm mt-3 mt-md-0">
 {% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/lobby.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
@@ -95,7 +92,6 @@ I think it was the night before the tournament that we booked a <a href="https:/
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-            <div class="col-sm mt-3 mt-md-0">
 {% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/ship.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
@@ -137,7 +133,6 @@ They had the classic cool swag such as signed cards, custom playmats, 3D printed
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-            <div class="col-sm mt-3 mt-md-0">
 {% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/swag.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
@@ -146,7 +141,6 @@ They had the classic cool swag such as signed cards, custom playmats, 3D printed
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-            <div class="col-sm mt-3 mt-md-0">
 {% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/signedcards.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
