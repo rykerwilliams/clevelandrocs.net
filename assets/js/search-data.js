@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/articles/";
           },
-        },{id: "post-soup-on-sarpadia",
+        },{id: "post-tundra-wolves-challenge-5",
+        
+          title: "Tundra Wolves Challenge 5",
+        
+        description: "Remembering Tundra Wolves Challenge 5 from 2022",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2025/11/24/Tundra-Wolves-5/";
+          
+        },
+      },{id: "post-soup-on-sarpadia",
         
           title: "Soup on Sarpadia",
         
