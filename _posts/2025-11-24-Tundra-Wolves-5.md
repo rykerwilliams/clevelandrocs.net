@@ -7,7 +7,7 @@ description: Remembering Tundra Wolves Challenge 5 from 2022
 tags: Boreal International Canada Montreal TundraWolves
 author: Kyle Wells
 categories: Tournaments OldSchool
-thumbnail: assets/img/tundrawolvesv/bouy.jpg
+thumbnail: assets/img/TundraWolvesV/bouy.jpg
 toc:
   sidebar: left
 images:
@@ -18,29 +18,28 @@ pretty_table: true
 giscus_comments: true
 ---
 
-> As we head into Thanksgiving 2025, I'm feeling nostalgic and thinking about Canada 2022, as one does. Here is my trip as I remember it. There is a much better tournament report available at the TWC website <a href="https://talesfromlatundra.home.blog/2022/06/13/twc5-t-o-report/">here
-</a>.
+> As we head into Thanksgiving 2025, I'm feeling nostalgic and thinking about Canada 2022, as one does. Here is my trip as I remember it. There is a much better tournament report available at the TWC website <a href="https://talesfromlatundra.home.blog/2022/06/13/twc5-t-o-report/">here</a>.
 
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/stamp.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/stamp.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 In June of 2022 I was fortunate enough to tag along on my wife's work trip and attend the Tundra Wolves Challenge V. This is more of a travel report than a tournament report because I'm writing it 3.5 years later, and have forgotten all specifics. What I do remember, though, are great vibes from the Montreal crew. It was a fun tournament run by some of the most gracious and hospitable titans of old school magic on a beautiful Saturday in June in the largest city in the province of Quebec, the second-largest in Canada, and the eighth-largest in North America - Mount Royal, aka Montreal. What a place. My family and I can't wait to go back some day soon. 
 
 ## PLANES
 
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/lotus.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/lotus.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 If you didn't travel internationally during or shortly after the COVID pandemic, you really missed out. We had seats on United going through one of the New York City area airports to Montréal-Pierre Elliott Trudeau International Airport and had to prove vaccination status and pass through several random and not so random screenings and swabbings. 
 
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/usembassy.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/usembassy.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 Luckily with the distraction brought about by the virus, nobody in airport security asked why I was carrying a box of cards into their country, and nobody questioned my deck list choices.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/airport.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/airport.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/airportcowboy.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/airportcowboy.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 
@@ -50,16 +49,16 @@ We arrived a few days before the tournament and my wife had to work, so my son a
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/topofthemountain.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/topofthemountain.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/poutine.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/poutine.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 
 The Tundra Wolves club at the time had a penchant for sharing the 'kit' they were bringing to the tournament, so I shared mine:
 
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/kit.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/kit.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 ## TRAINS and AUTOMOBILES and BUSES
 
@@ -67,7 +66,7 @@ My son and I took the double decker bus tour and I couldn't hear the tour guide 
 
 > Caitlyn Jenner: The Montreal Olympics were in July 1976, the bicentennial, at the height of patriotism.
 
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/olympicpool.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/olympicpool.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 ## NATURE
 
@@ -79,10 +78,10 @@ This place is cool. They have penguins, starfish, birds, fish, biomes, and a hug
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/lobby.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/lobby.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/penguins.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/penguins.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 
@@ -92,59 +91,59 @@ I think it was the night before the tournament that we booked a <a href="https:/
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/ship.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/ship.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/pointing.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/pointing.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 
 ## CARDS
 
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/venue.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/venue.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 On to the tournament! Imagine how excited I was to meet Foggie, Patrick, Guillaume, Martin, Yanick, Sebastien, Sebastien, Jean-Sebastien, Guillaume, Guillaume, Guillaume, and the crew. I had received some of the fanciest mail from these guys and they seemed really cool in Discord. 
 
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/foggie.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/foggie.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 It's no surprise that in person they are even nicer, given their Canadianness and their awesomeness. It was a bit strange walking into a bar in another country while not really knowing anyone, but they were so hospitable that there was no reason to be nervous. They even gave me a prize pitcher of local beer for being the person who traveled the farthest! Rich Borque and Pez were also there and might have been the rightful winners, but they didn't object at the time. Nice guys.
 
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/farthesttraveled.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/farthesttraveled.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 While designing my deck list, my only real ideas were that I wanted to play Tundra Wolves and I wanted the name of the deck to be "Timmy's Trip to Canada" - and without any better ideas, this is what I came up with:
 
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/timmystrip.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/timmystrip.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 I was afraid to bring all my real cards across the border so I made myself some proxies for the list I actually played that day.
 
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/decklist.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/decklist.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 I'm quite sure I didn't win a match. I don't believe I won a game. I can only partially blame the prize pitcher for my losses. I got a view of the top tables when I arrived, sure that I would never see them again. But I do sort of recall that I played a match on stream at some point in the day. 
 
 Ok I guess it was round 1: <a href="https://youtu.be/kQf-Q9i4atc?si=0x51Ca8nyNrImGx9&t=680">watch me embarass myself in another country</a>
 
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/stream.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/stream.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 And as it turns out, I did manage a few wins! According to the final results anyway:
 
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/results.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/results.png" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 They had the classic cool swag such as signed cards, custom playmats, 3D printed d20 dice, you know - the usual stuff. I also picked up a fun souvenir copy of Diamond Valley that has nothing to do with anything, but I still have this card and think about my trip every time I see it.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/swag.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/swag.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/misprint.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/misprint.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/signedcards.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/signedcards.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/toptable.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/toptable.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 
@@ -154,4 +153,4 @@ So there you have it. A trip down memory lane and a call for all old school wiza
 
 Hell yeah!
 
-{% include figure.liquid loading="eager" path="assets/img/tundrawolvesv/united.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/TundraWolvesV/united.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
