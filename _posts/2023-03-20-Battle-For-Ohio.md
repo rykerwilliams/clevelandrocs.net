@@ -2,7 +2,7 @@
 layout: post
 title: Battle for Ohio
 date: 2023-03-20 16:20:00-0500
-featured: true
+featured: false
 description: THE Inaugural Battle for Ohio
 tags: BFO
 author: BCDruid

@@ -2,7 +2,7 @@
 layout: post
 title: Tundra Wolves Challenge 5
 date: 2025-11-24 16:20:00-0500
-featured: true
+featured: false
 description: Remembering Tundra Wolves Challenge 5 from 2022
 tags: Boreal International Canada Montreal TundraWolves
 author: Kyle Wells
