@@ -35,6 +35,8 @@ The plan is as always – get there before they get there. Resource denial.
 
 Herb has (ironically) been a classic elves player in Legacy for years. I don’t know if it was the friendly rivalry or just the variance, but his go-to deck has been Goblins in MS. He also chose a similar list (RG) as he previously found success with in the middle school format. I’ll circle back to Herb’s experience in a bit.
 
+# Tournament Report
+
 ## Game 1: Enchantress (2-0)
 
 My pointy eared friends made quite an entrance. Game one was a hot start for me that involved a lucky mulligan into the perfect ramp-to-geddeon lineup. Unfortunately, my opponent had a tough mulligan game 2 and this matchup was over very quickly.
