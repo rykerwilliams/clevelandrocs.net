@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/articles/";
           },
-        },{id: "post-tundra-wolves-challenge-5",
+        },{id: "post-full-grip-premodern-feb-2026",
+        
+          title: "Full Grip Premodern Feb 2026",
+        
+        description: "Taking down the tournament",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2026/02/13/Full-Grip-Premodern/";
+          
+        },
+      },{id: "post-tundra-wolves-challenge-5",
         
           title: "Tundra Wolves Challenge 5",
         
