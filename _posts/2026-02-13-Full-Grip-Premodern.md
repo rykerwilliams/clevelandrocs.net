@@ -65,7 +65,7 @@ Sideboard: +3 Naturalize, +1 Swords, +2 Meekstone, -2 Plow under, -2 Armageddon,
 
 The opportunity was taken to explore the Green Dragon Inn as the remainder of the top 8 was formulated. Famous local Butcher + Brewer Albino stout on draft, and a 40 min break, this definitely counted as a win.
 
-{% include figure.liquid loading="eager" path="assets/img/FGPM226/1.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/FGPM226/4.png" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 ## Top 8 Landstill (2-0)
 
@@ -93,11 +93,12 @@ As a teenager, I kept up with current MtG, but I really did not care for the “
 
 {% include figure.liquid loading="eager" path="assets/img/FGPM226/7.png" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-#Post mortem
+# Post mortem
 
 This was a longer writeup – if you made it this far, thanks for humoring me. A couple changes I might make to my deck: more swords to plowshares. I felt like Nantuko vigilante didn’t pull weight off the side and while exciting, caller of the claw feels real heavy. Mainboard, City of brass could potentially be a different weird non-basic. Gemstone mine potentially or undiscovered paradise. I’ll be back to Full Grip, if for no other reason than to get some more of that awesome albino stout. The TLDR of it is, premodern is fun and feels like a great part of the future. I think it fits well in the vibe of the “gentleman’s formats” of the last decade, and I’ll continue to cover events as able.
 
-https://mtgtop8.com/event?e=80137&d=809248&f=PREM (for whatever reason a naturalize is listed mainboard for me, this is incorrect)
+Here is the <a href="https://mtgtop8.com/event?e=80137&d=809248&f=PREM">deck list at mtgtop8</a>
+(for whatever reason a naturalize is listed mainboard for me, this is incorrect)
 
 Until next time.
 (RIP Kai Budde)
