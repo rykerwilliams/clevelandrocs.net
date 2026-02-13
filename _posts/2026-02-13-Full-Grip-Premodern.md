@@ -18,8 +18,9 @@ pretty_table: true
 giscus_comments: true
 ---
 
-> Late to the party: I guess I’m a Premodern guy now.
-> Fellow Roc, Herb Wilson and I have been playing/grinding eternal formats regularly together for 15 or so years. Honestly, we really both just enjoy dumb old cards, and constructed formats with whimsey. We’ve both been quite active in the Middle School (EC) format since early 2022, but it was not until recently that either of us really turned our attention to the growing pre-modern format.
+Late to the party: I guess I’m a Premodern guy now.
+
+Fellow Roc, Herb Wilson and I have been playing/grinding eternal formats regularly together for 15 or so years. Honestly, we really both just enjoy dumb old cards, and constructed formats with whimsey. We’ve both been quite active in the Middle School (EC) format since early 2022, but it was not until recently that either of us really turned our attention to the growing pre-modern format.
 
 {% include figure.liquid loading="eager" path="assets/img/FGPM226/1.png" class="img-fluid rounded z-depth-1" zoomable=true %}
 
