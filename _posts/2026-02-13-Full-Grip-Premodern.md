@@ -7,7 +7,7 @@ description: Taking down the tournament
 tags: FullGrip
 author: Mike Klements
 categories: Tournaments Premodern
-thumbnail: assets/img/FGPM226/3.png
+thumbnail: assets/img/FGPM226/6.png
 toc:
   sidebar: left
 images:
