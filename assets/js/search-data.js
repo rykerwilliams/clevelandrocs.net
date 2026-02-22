@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/articles/";
           },
-        },{id: "post-full-grip-premodern-feb-2026",
+        },{id: "post-the-buckeye-brawl",
+        
+          title: "THE Buckeye Brawl",
+        
+        description: "Stoomie&#39;s Premodern Black Buckeye Magic",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2026/02/21/Buckeye-Brawl-2026/";
+          
+        },
+      },{id: "post-full-grip-premodern-feb-2026",
         
           title: "Full Grip Premodern Feb 2026",
         
@@ -154,6 +165,11 @@ ninja.data = [{
           description: "",
           section: "Profiles",handler: () => {
               window.location.href = "/profiles/firelights/";
+            },},{id: "profiles-stoomie",
+          title: 'Stoomie',
+          description: "",
+          section: "Profiles",handler: () => {
+              window.location.href = "/profiles/stoomie/";
             },},{id: "profiles-troy-drinkard",
           title: 'Troy Drinkard',
           description: "",
