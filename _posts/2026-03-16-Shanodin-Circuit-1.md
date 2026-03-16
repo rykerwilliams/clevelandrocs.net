@@ -33,6 +33,7 @@ I often go off on tangents, but we’ll keep this report short and objective, as
 ## Final Standings
 
 <table
+  id="shanodin-standings"
   data-toggle="table"
   data-url="{{ '/assets/json/ShanodinCircuit1.json' | relative_url }}">
   <thead>
@@ -45,6 +46,116 @@ I often go off on tangents, but we’ll keep this report short and objective, as
     </tr>
   </thead>
 </table>
+
+<div
+  id="shanodin-hover-preview"
+  hidden
+  style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate3d(0, 0, 0);
+    z-index: 1000;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 8px;
+    border-radius: 8px;
+    max-width: 320px;
+  ">
+  <img
+    id="shanodin-hover-image"
+    class="img-fluid rounded z-depth-1"
+    alt="Rank preview image"
+    style="display: block; max-width: 100%; width: 100%;" />
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const standingsTable = document.getElementById('shanodin-standings');
+    const preview = document.getElementById('shanodin-hover-preview');
+    const previewImage = document.getElementById('shanodin-hover-image');
+
+    if (!standingsTable || !preview || !previewImage) {
+      return;
+    }
+
+    const imageBasePath = "{{ '/assets/img/ShanodinCircuit1/' | relative_url }}";
+    const cursorOffset = 16;
+
+    const movePreview = function (x, y) {
+      const previewRect = preview.getBoundingClientRect();
+      const maxX = window.innerWidth - previewRect.width - 8;
+      const maxY = window.innerHeight - previewRect.height - 8;
+      const nextX = Math.max(8, Math.min(x + cursorOffset, maxX));
+      const nextY = Math.max(8, Math.min(y + cursorOffset, maxY));
+
+      preview.style.transform = 'translate3d(' + nextX + 'px, ' + nextY + 'px, 0)';
+    };
+
+    const getRankFromRow = function (row) {
+      const firstCell = row.querySelector('td');
+      if (!firstCell) {
+        return null;
+      }
+
+      const rank = Number.parseInt(firstCell.textContent.trim(), 10);
+      return Number.isNaN(rank) ? null : rank;
+    };
+
+    standingsTable.addEventListener(
+      'mouseover',
+      function (event) {
+        const row = event.target.closest('tbody tr');
+        if (!row || !standingsTable.contains(row)) {
+          return;
+        }
+
+        const rank = getRankFromRow(row);
+        if (rank === null) {
+          return;
+        }
+
+        const imageNumber = rank + 4;
+        previewImage.src = imageBasePath + imageNumber + '.jpg';
+        previewImage.alt = 'Rank ' + rank + ' preview image';
+        preview.hidden = false;
+        movePreview(event.clientX, event.clientY);
+      },
+      true
+    );
+
+    standingsTable.addEventListener(
+      'mousemove',
+      function (event) {
+        const row = event.target.closest('tbody tr');
+        if (!row || !standingsTable.contains(row) || preview.hidden) {
+          return;
+        }
+
+        movePreview(event.clientX, event.clientY);
+      },
+      true
+    );
+
+    standingsTable.addEventListener(
+      'mouseout',
+      function (event) {
+        const row = event.target.closest('tbody tr');
+        if (!row || !standingsTable.contains(row)) {
+          return;
+        }
+
+        if (event.relatedTarget && row.contains(event.relatedTarget)) {
+          return;
+        }
+
+        preview.hidden = true;
+        previewImage.removeAttribute('src');
+      },
+      true
+    );
+  });
+</script>
 
 ## The Winner
 
