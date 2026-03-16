@@ -11,7 +11,7 @@
     "Name": "Jason Ensler",
     "Record": "4-1",
     "Deck": "Mono Black",
-    "ClubAffiliation": null
+    "ClubAffiliation": "n/a"
   },
   {
     "Finish": 3,
@@ -66,21 +66,21 @@
     "Finish": 10,
     "Name": "Mike Klements",
     "Record": "3-2",
-    "Deck": "Angel Food Burbon Chirurgeon",
+    "Deck": "Angel Food",
     "ClubAffiliation": "Cleveland Rocs, FE40"
   },
   {
     "Finish": 11,
     "Name": "Craig Snook",
     "Record": "3-2",
-    "Deck": "Vice 'em + Dice 'em",
+    "Deck": "Burbon Chirugeon",
     "ClubAffiliation": "Cleveland Rocs, FE40"
   },
   {
     "Finish": 12,
     "Name": "Matt Shields",
     "Record": "3-2",
-    "Deck": "Mono Black Dreams",
+    "Deck": "Vice 'em + Dice 'em",
     "ClubAffiliation": "Akron Legionnaires"
   },
   {
@@ -95,7 +95,7 @@
     "Name": "Dylan DeCicco",
     "Record": "3-2",
     "Deck": "Mono Black Dreams",
-    "ClubAffiliation": null
+    "ClubAffiliation": "n/a"
   },
   {
     "Finish": 15,
@@ -109,7 +109,7 @@
     "Name": "Sean Revell",
     "Record": "2-3",
     "Deck": "Tax Edge",
-    "ClubAffiliation": null
+    "ClubAffiliation": "n/a"
   },
   {
     "Finish": 17,
@@ -129,22 +129,22 @@
     "Finish": 19,
     "Name": "Jim Demko",
     "Record": "2-3",
-    "Deck": "Erhnamgeddon Underworld Dreams",
+    "Deck": "Erhnmageddon",
     "ClubAffiliation": "Akron Legionnaires"
   },
   {
     "Finish": 20,
     "Name": "Paul Deegan",
     "Record": "2-3",
-    "Deck": "Ooze! (Most Creative)",
-    "ClubAffiliation": null
+    "Deck": "Underworld Dreams",
+    "ClubAffiliation": "Akron Legionnaires"
   },
   {
     "Finish": 21,
     "Name": "Jay Brunstetter",
     "Record": "2-3",
-    "Deck": null,
-    "ClubAffiliation": null
+    "Deck": "Ooze! (Most Creative)",
+    "ClubAffiliation": "n/a"
   },
   {
     "Finish": 22,
@@ -179,13 +179,13 @@
     "Name": "Brendon Adams",
     "Record": "0-4",
     "Deck": "Bant",
-    "ClubAffiliation": null
+    "ClubAffiliation": "n/a"
   },
   {
     "Finish": 27,
     "Name": "Bob Holland",
     "Record": "0-2",
-    "Deck": null,
-    "ClubAffiliation": null
+    "Deck": "Unknown",
+    "ClubAffiliation": "n/a"
   }
 ]

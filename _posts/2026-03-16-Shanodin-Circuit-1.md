@@ -82,13 +82,13 @@ Tom Jarvis - Pink Weenie
 James (Stoomie) - Discard Troll
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/13.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Mike Klements - Angel Food Burbon Chirurgeon
+Mike Klements - Angel Food
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/14.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Craig Snook - Vice 'em + Dice 'em
+Craig Snook - Burbon Chirugeon
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/15.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Matt Shields - Mono Black Dreams
+Matt Shields - Vice 'em + Dice 'em
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/16.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 Paul Blakely - Merfolk Fliers
@@ -109,13 +109,13 @@ Pat Hlafesak - Mono Black
 Jason Hallman - Mono Black
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/22.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Jim Demko - Erhnamgeddon Underworld Dreams
+Jim Demko - Erhnmageddon
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/23.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Paul Deegan - Ooze! (Most Creative)
+Paul Deegan - Underworld Dreams
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/24.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Jay Brunstetter - Unknown Deck
+Jay Brunstetter - Ooze! (Most Creative)
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/25.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 Collin Headley - UR
