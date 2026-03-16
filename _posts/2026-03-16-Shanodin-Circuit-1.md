@@ -1,13 +1,13 @@
 ---
 layout: post
-title: 2026 Shanodin Cup
+title: 2026 Shanodin Circuit
 date: 2026-03-16 16:20:00-0500
 featured: false
-description: Shanodin Cup I
+description: Shanodin Circuit I
 tags: EternalCentral
 author: Mike Klements
 categories: Tournaments OldSchool
-thumbnail: assets/img/ShanodinCup1/1.jpg
+thumbnail: assets/img/ShanodinCircuit1/1.jpg
 toc:
   sidebar: left
 images:
@@ -20,28 +20,28 @@ giscus_comments: true
 
 Pi day, 2026 marked the first Cleveland Rocs Old School Shanodin Circuit!
 
-{% include figure.liquid loading="eager" path="assets/img/ShanodinCup1/1.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/1.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 The 2026 Shanodin Circuit was a cozy shop tournament at the Shuffler’s Den in (appropriately woodsy) Willoughby Hills, Ohio. 27 old schoolers showed up to battle for an outstanding trophy, and the vibe was awesome. The format was 93/94 EC and we had a great representation of area clubs show up! It was awesome to see so many familiar faces (and some new ones!), and to all be “Rocs” for the day!
 
-{% include figure.liquid loading="eager" path="assets/img/ShanodinCup1/2.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/2.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 I often go off on tangents, but we’ll keep this report short and objective, as to focus on a visual tour of the tournament and meta! See for yourself! (For this event, to lower the barrier to entry and emphasize “the gathering”, a 15 card proxy allowance was in place.)
 
-{% include figure.liquid loading="eager" path="assets/img/ShanodinCup1/3.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/3.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 ## Final Standings
 
 <table
   data-toggle="table"
-  data-url="{{ '/assets/json/ShanodinCup1.json' | relative_url }}">
+  data-url="{{ '/assets/json/ShanodinCircuit1.json' | relative_url }}">
   <thead>
     <tr>
       <th data-field="Finish">Rank</th>
       <th data-field="Name">Player</th>
       <th data-field="Record">Record</th>
       <th data-field="Deck">Deck</th>
-      <th data-field="Club">Club</th>
+      <th data-field="ClubAffiliation">Club</th>
     </tr>
   </thead>
 </table>
