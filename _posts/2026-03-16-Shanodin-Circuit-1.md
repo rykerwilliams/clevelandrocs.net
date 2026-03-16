@@ -47,116 +47,6 @@ I often go off on tangents, but we’ll keep this report short and objective, as
   </thead>
 </table>
 
-<div
-  id="shanodin-hover-preview"
-  hidden
-  style="
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate3d(0, 0, 0);
-    z-index: 1000;
-    pointer-events: none;
-    background: rgba(0, 0, 0, 0.85);
-    padding: 8px;
-    border-radius: 8px;
-    max-width: 320px;
-  ">
-  <img
-    id="shanodin-hover-image"
-    class="img-fluid rounded z-depth-1"
-    alt="Rank preview image"
-    style="display: block; max-width: 100%; width: 100%;" />
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const standingsTable = document.getElementById('shanodin-standings');
-    const preview = document.getElementById('shanodin-hover-preview');
-    const previewImage = document.getElementById('shanodin-hover-image');
-
-    if (!standingsTable || !preview || !previewImage) {
-      return;
-    }
-
-    const imageBasePath = "{{ '/assets/img/ShanodinCircuit1/' | relative_url }}";
-    const cursorOffset = 16;
-
-    const movePreview = function (x, y) {
-      const previewRect = preview.getBoundingClientRect();
-      const maxX = window.innerWidth - previewRect.width - 8;
-      const maxY = window.innerHeight - previewRect.height - 8;
-      const nextX = Math.max(8, Math.min(x + cursorOffset, maxX));
-      const nextY = Math.max(8, Math.min(y + cursorOffset, maxY));
-
-      preview.style.transform = 'translate3d(' + nextX + 'px, ' + nextY + 'px, 0)';
-    };
-
-    const getRankFromRow = function (row) {
-      const firstCell = row.querySelector('td');
-      if (!firstCell) {
-        return null;
-      }
-
-      const rank = Number.parseInt(firstCell.textContent.trim(), 10);
-      return Number.isNaN(rank) ? null : rank;
-    };
-
-    standingsTable.addEventListener(
-      'mouseover',
-      function (event) {
-        const row = event.target.closest('tbody tr');
-        if (!row || !standingsTable.contains(row)) {
-          return;
-        }
-
-        const rank = getRankFromRow(row);
-        if (rank === null) {
-          return;
-        }
-
-        const imageNumber = rank + 4;
-        previewImage.src = imageBasePath + imageNumber + '.jpg';
-        previewImage.alt = 'Rank ' + rank + ' preview image';
-        preview.hidden = false;
-        movePreview(event.clientX, event.clientY);
-      },
-      true
-    );
-
-    standingsTable.addEventListener(
-      'mousemove',
-      function (event) {
-        const row = event.target.closest('tbody tr');
-        if (!row || !standingsTable.contains(row) || preview.hidden) {
-          return;
-        }
-
-        movePreview(event.clientX, event.clientY);
-      },
-      true
-    );
-
-    standingsTable.addEventListener(
-      'mouseout',
-      function (event) {
-        const row = event.target.closest('tbody tr');
-        if (!row || !standingsTable.contains(row)) {
-          return;
-        }
-
-        if (event.relatedTarget && row.contains(event.relatedTarget)) {
-          return;
-        }
-
-        preview.hidden = true;
-        previewImage.removeAttribute('src');
-      },
-      true
-    );
-  });
-</script>
-
 ## The Winner
 
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/4.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
@@ -165,11 +55,86 @@ Top 8 was determined by record after rounds. Congrats to Andy Heiszler for 1st p
 
 ## The Decks
 
-Chris Carmichael – Mono Black Nether Void (Most Creative 07 Place)
-{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019ChrisCarmichaelDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+Andy Heiszler - WU Meekstone
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/5.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Anthony Carosone – Workshop Aggro Mono Green (Most Creative 08 Place)
-{% include figure.liquid loading="eager" path="assets/img/2019rocsos/MFCleveland022019AnthonyCarosoneDeck.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+Jason Ensler - Mono Black
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/6.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Ben Revell - Reanimator
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/7.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Chris (Giant Marsupials) - WUR Control
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/8.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Robert B - WUB
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/9.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Garret Demko - Grixis
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/10.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Daniel Anschutz - Goblins
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/11.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Tom Jarvis - Pink Weenie
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/12.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+James (Stoomie) - Discard Troll
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/13.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Mike Klements - Angel Food Burbon Chirurgeon
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/14.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Craig Snook - Vice 'em + Dice 'em
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/15.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Matt Shields - Mono Black Dreams
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/16.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Paul Blakely - Merfolk Fliers
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/17.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Dylan DeCicco - Mono Black Dreams
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/18.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Adam Carder - Voids + Roids
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/19.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Sean Revell - Tax Edge
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/20.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Pat Hlafesak - Mono Black
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/21.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Jason Hallman - Mono Black
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/22.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Jim Demko - Erhnamgeddon Underworld Dreams
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/23.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Paul Deegan - Ooze! (Most Creative)
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/24.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Jay Brunstetter - Unknown Deck
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/25.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Collin Headley - UR
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/26.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Herb Wilson - Team USA
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/27.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Jaret Wright - UR
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/28.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Nick Morgan - WB
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/29.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Brendon Adams - Bant
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/30.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Bob Holland - Unknown Deck
+{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/31.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 ## The Prizes
 
