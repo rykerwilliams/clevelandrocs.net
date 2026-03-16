@@ -86,55 +86,55 @@ Mike Klements - Angel Food
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/14.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 Craig Snook - Burbon Chirugeon
-{% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/15.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
-
-Matt Shields - Vice 'em + Dice 'em
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/16.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Paul Blakely - Merfolk Fliers
+Matt Shields - Vice 'em + Dice 'em
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/17.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Dylan DeCicco - Mono Black Dreams
+Paul Blakely - Merfolk Fliers
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/18.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Adam Carder - Voids + Roids
+Dylan DeCicco - Mono Black Dreams
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/19.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Sean Revell - Tax Edge
+Adam Carder - Voids + Roids
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/20.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Pat Hlafesak - Mono Black
+Sean Revell - Tax Edge
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/21.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Jason Hallman - Mono Black
+Pat Hlafesak - Mono Black
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/22.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Jim Demko - Erhnmageddon
+Jason Hallman - Mono Black
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/23.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Paul Deegan - Underworld Dreams
+Jim Demko - Erhnmageddon
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/24.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Jay Brunstetter - Ooze! (Most Creative)
+Paul Deegan - Underworld Dreams
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/25.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Collin Headley - UR
+Jay Brunstetter - Ooze! (Most Creative)
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/26.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Herb Wilson - Team USA
+Collin Headley - UR
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/27.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Jaret Wright - UR
+Herb Wilson - Team USA
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/28.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Nick Morgan - WB
+Jaret Wright - UR
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/29.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Brendon Adams - Bant
+Nick Morgan - WB
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/30.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-Bob Holland - Unknown Deck
+Brendon Adams - Bant
 {% include figure.liquid loading="eager" path="assets/img/ShanodinCircuit1/31.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+Bob Holland - Unknown Deck
+{% include figure.liquid loading="eager" path="assets/img/rocslogo1.png" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 ## The Prizes
 
