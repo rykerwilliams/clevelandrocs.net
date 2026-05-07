@@ -166,8 +166,14 @@ ninja.data = [{
             window.location.href = "/articles/2019/02/25/2019-Bottlehouse/";
           
         },
-      },{id: "news-the-rocs-are-going-to-kumite-ix",
-          title: 'The Rocs are going to Kumite IX!',
+      },{id: "news-eternal-weekend-2026-dates-are-set-https-www-magic-gg-news-eternal-weekend-returns-in-2026-featuring-legacy-and-vintage",
+          title: 'Eternal Weekend 2026 dates are set: https://www.magic.gg/news/eternal-weekend-returns-in-2026-featuring-legacy-and-vintage',
+          description: "",
+          section: "News",},{id: "news-ornithoptoberfest-is-october-4th",
+          title: 'Ornithoptoberfest is October 4th!',
+          description: "",
+          section: "News",},{id: "news-join-us-for-the-2026-fallen-empires-world-champs-sept-19th",
+          title: 'Join us for the 2026 Fallen Empires World champs Sept 19th',
           description: "",
           section: "News",},{id: "profiles-bcdruid",
           title: 'BCDruid',
