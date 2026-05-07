@@ -2,7 +2,7 @@
 layout: post
 title: Soup on Sarpadia
 date: 2025-11-04 16:20:00-0500
-featured: true
+featured: false
 description: Sarpadian Cube Soup Party
 tags: FE40
 author: Mike Klements

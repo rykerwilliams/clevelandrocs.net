@@ -2,7 +2,7 @@
 layout: post
 title: Full Grip Premodern Feb 2026
 date: 2026-02-13 16:20:00-0500
-featured: true
+featured: false
 description: Taking down the tournament
 tags: FullGrip
 author: Mike Klements
