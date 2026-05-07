@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/articles/";
           },
-        },{id: "post-2026-shanodin-circuit",
+        },{id: "post-kumite-ix",
+        
+          title: "Kumite IX",
+        
+        description: "Kumite IX",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2026/05/06/KumiteIX/";
+          
+        },
+      },{id: "post-2026-shanodin-circuit",
         
           title: "2026 Shanodin Circuit",
         
