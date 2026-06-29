@@ -6,6 +6,26 @@ import { Button } from "@/components/ui/button";
 export default function Home() {
   return (
     <div className="min-h-screen bg-stone-950 text-stone-200">
+      <div className="border-b border-stone-800/80 bg-stone-950/95 backdrop-blur-sm">
+        <div className="max-w-5xl mx-auto px-6 h-11 flex items-center justify-center text-xs tracking-wide text-stone-400">
+          <a href="/about/" className="hover:text-amber-400 transition-colors">
+            about
+          </a>
+          <span className="mx-2 text-stone-600">|</span>
+          <a href="/profiles/" className="hover:text-amber-400 transition-colors">
+            profiles
+          </a>
+          <span className="mx-2 text-stone-600">|</span>
+          <a href="/articles/" className="hover:text-amber-400 transition-colors">
+            articles
+          </a>
+          <span className="mx-2 text-stone-600">|</span>
+          <Link to="/build" className="hover:text-amber-400 transition-colors">
+            deck builder
+          </Link>
+        </div>
+      </div>
+
       {/* Hero */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/10 via-transparent to-stone-950" />
@@ -24,17 +44,12 @@ export default function Home() {
           </h1>
 
           <p className="mt-6 text-stone-400 text-lg max-w-xl mx-auto leading-relaxed">
-            Build decks using only cards from Magic's first two years.
-            Alpha through Fallen Empires — the way the game was meant to be
-            played.
+            Build decks using only cards from Magic's first two years. Alpha through Fallen Empires — the way the game was meant to be played.
           </p>
 
           <div className="mt-10 flex items-center justify-center gap-4">
             <Link to="/build">
-              <Button
-                size="lg"
-                className="bg-amber-600 hover:bg-amber-500 text-stone-950 font-semibold px-8 h-12 text-base"
-              >
+              <Button size="lg" className="bg-amber-600 hover:bg-amber-500 text-stone-950 font-semibold px-8 h-12 text-base">
                 Build a Deck
               </Button>
             </Link>
@@ -62,10 +77,7 @@ export default function Home() {
               desc: "Visualize your mana curve, color distribution, and card type breakdown as you build.",
             },
           ].map((f) => (
-            <div
-              key={f.title}
-              className="bg-stone-900/50 border border-stone-800 rounded-2xl p-6 hover:border-amber-900/40 transition-colors"
-            >
+            <div key={f.title} className="bg-stone-900/50 border border-stone-800 rounded-2xl p-6 hover:border-amber-900/40 transition-colors">
               <div className="w-10 h-10 rounded-xl bg-amber-900/20 flex items-center justify-center mb-4">
                 <f.icon className="w-5 h-5 text-amber-500" />
               </div>
@@ -79,12 +91,8 @@ export default function Home() {
       {/* Legal Sets */}
       <div className="max-w-5xl mx-auto px-6 pb-24">
         <div className="text-center mb-10">
-          <h2 className="text-2xl font-heading font-bold text-stone-200 mb-2">
-            Legal Sets
-          </h2>
-          <p className="text-stone-500 text-sm">
-            Cards from these 1993–1994 printings are legal
-          </p>
+          <h2 className="text-2xl font-heading font-bold text-stone-200 mb-2">Legal Sets</h2>
+          <p className="text-stone-500 text-sm">Cards from these 1993–1994 printings are legal</p>
         </div>
         <div className="flex flex-wrap justify-center gap-3">
           {[
@@ -100,10 +108,7 @@ export default function Home() {
             "The Dark",
             "Fallen Empires",
           ].map((name) => (
-            <div
-              key={name}
-              className="px-4 py-2 rounded-lg bg-stone-900/50 border border-stone-800 text-stone-400 text-sm"
-            >
+            <div key={name} className="px-4 py-2 rounded-lg bg-stone-900/50 border border-stone-800 text-stone-400 text-sm">
               {name}
             </div>
           ))}

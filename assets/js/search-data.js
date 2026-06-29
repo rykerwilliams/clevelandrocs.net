@@ -23,6 +23,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/articles/";
           },
+        },{id: "nav-deck-builder",
+          title: "deck builder",
+          description: "Old School 93/94 deck builder",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/builder/";
+          },
         },{id: "post-kumite-ix",
         
           title: "Kumite IX",
