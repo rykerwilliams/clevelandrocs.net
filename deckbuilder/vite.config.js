@@ -1,0 +1,1 @@
+import base44 from"@base44/vite-plugin";import react from"@vitejs/plugin-react";import{defineConfig}from"vite";export default defineConfig({plugins:[base44({legacySDKImports:"true"===process.env.BASE44_LEGACY_SDK_IMPORTS,hmrNotifier:!0,navigationNotifier:!0,analyticsTracker:!0,visualEditAgent:!0}),react()]});
