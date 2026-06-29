@@ -1,23 +1,11 @@
 import React, { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
-import {
-  ArrowLeft,
-  BarChart3,
-  BookOpen,
-  List,
-  Search,
-  Check,
-  AlertTriangle,
-} from "lucide-react";
+import { ArrowLeft, BarChart3, BookOpen, List, Search, Check, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/components/ui/use-toast";
-import {
-  isBanned,
-  isRestricted,
-  getMaxCopies,
-} from "@/lib/oldSchoolData";
+import { isBanned, isRestricted, getMaxCopies } from "@/lib/oldSchoolData";
 import CardSearch from "@/components/deck-builder/CardSearch";
 import DeckList from "@/components/deck-builder/DeckList";
 import DeckStats from "@/components/deck-builder/DeckStats";
@@ -85,11 +73,7 @@ export default function DeckBuilder() {
         setSideboard((prev) => {
           const existing = prev.find((e) => e.card_name === cardName);
           if (existing) {
-            return prev.map((e) =>
-              e.card_name === cardName
-                ? { ...e, quantity: e.quantity + 1 }
-                : e
-            );
+            return prev.map((e) => (e.card_name === cardName ? { ...e, quantity: e.quantity + 1 } : e));
           }
           return [...prev, newEntry];
         });
@@ -97,11 +81,7 @@ export default function DeckBuilder() {
         setMainDeck((prev) => {
           const existing = prev.find((e) => e.card_name === cardName);
           if (existing) {
-            return prev.map((e) =>
-              e.card_name === cardName
-                ? { ...e, quantity: e.quantity + 1 }
-                : e
-            );
+            return prev.map((e) => (e.card_name === cardName ? { ...e, quantity: e.quantity + 1 } : e));
           }
           return [...prev, newEntry];
         });
@@ -117,9 +97,7 @@ export default function DeckBuilder() {
 
       if (totalCopies >= maxCopies) {
         toast({
-          title: isRestricted(entry.card_name)
-            ? "Restricted to 1 copy"
-            : "Maximum copies reached",
+          title: isRestricted(entry.card_name) ? "Restricted to 1 copy" : "Maximum copies reached",
           description: `${entry.card_name}: max ${maxCopies} across main + sideboard.`,
           variant: "destructive",
         });
@@ -127,13 +105,7 @@ export default function DeckBuilder() {
       }
 
       const setter = section === "sideboard" ? setSideboard : setMainDeck;
-      setter((prev) =>
-        prev.map((e) =>
-          e.card_name === entry.card_name
-            ? { ...e, quantity: e.quantity + 1 }
-            : e
-        )
-      );
+      setter((prev) => prev.map((e) => (e.card_name === entry.card_name ? { ...e, quantity: e.quantity + 1 } : e)));
     },
     [getTotalCopies, toast]
   );
@@ -145,11 +117,7 @@ export default function DeckBuilder() {
       if (existing && existing.quantity <= 1) {
         return prev.filter((e) => e.card_name !== entry.card_name);
       }
-      return prev.map((e) =>
-        e.card_name === entry.card_name
-          ? { ...e, quantity: e.quantity - 1 }
-          : e
-      );
+      return prev.map((e) => (e.card_name === entry.card_name ? { ...e, quantity: e.quantity - 1 } : e));
     });
   }, []);
 
@@ -164,12 +132,29 @@ export default function DeckBuilder() {
 
   return (
     <div className="min-h-screen bg-stone-950 flex flex-col">
+      <div className="border-b border-stone-800/80 bg-stone-950/95 backdrop-blur-sm">
+        <div className="px-4 h-10 flex items-center justify-center text-xs tracking-wide text-stone-400">
+          <a href="/about/" className="hover:text-amber-400 transition-colors">
+            about
+          </a>
+          <span className="mx-2 text-stone-600">|</span>
+          <a href="/profiles/" className="hover:text-amber-400 transition-colors">
+            profiles
+          </a>
+          <span className="mx-2 text-stone-600">|</span>
+          <a href="/articles/" className="hover:text-amber-400 transition-colors">
+            articles
+          </a>
+          <span className="mx-2 text-stone-600">|</span>
+          <Link to="/build" className="hover:text-amber-400 transition-colors">
+            deck builder
+          </Link>
+        </div>
+      </div>
+
       {/* Top Bar */}
       <header className="h-14 border-b border-stone-800 bg-stone-950/95 backdrop-blur-sm flex items-center px-4 gap-3 shrink-0 sticky top-0 z-30">
-        <Link
-          to="/"
-          className="text-stone-500 hover:text-stone-300 transition-colors"
-        >
+        <Link to="/" className="text-stone-500 hover:text-stone-300 transition-colors">
           <ArrowLeft className="w-5 h-5" />
         </Link>
 
@@ -183,24 +168,14 @@ export default function DeckBuilder() {
           {/* Validity indicator */}
           <div
             className={`hidden sm:flex items-center gap-1.5 text-xs font-mono px-2 py-1 rounded ${
-              isValid
-                ? "text-emerald-400 bg-emerald-900/20"
-                : "text-amber-400 bg-amber-900/20"
+              isValid ? "text-emerald-400 bg-emerald-900/20" : "text-amber-400 bg-amber-900/20"
             }`}
           >
-            {isValid ? (
-              <Check className="w-3.5 h-3.5" />
-            ) : (
-              <AlertTriangle className="w-3.5 h-3.5" />
-            )}
+            {isValid ? <Check className="w-3.5 h-3.5" /> : <AlertTriangle className="w-3.5 h-3.5" />}
             {mainCount}/60
           </div>
 
-          <ExportDeck
-            deckName={deckName}
-            mainDeck={mainDeck}
-            sideboard={sideboard}
-          />
+          <ExportDeck deckName={deckName} mainDeck={mainDeck} sideboard={sideboard} />
 
           {/* Sideboard toggle */}
           <Button
@@ -230,9 +205,7 @@ export default function DeckBuilder() {
             key={tab.key}
             onClick={() => setMobileTab(tab.key)}
             className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 text-xs font-medium transition-colors ${
-              mobileTab === tab.key
-                ? "text-amber-400 border-b-2 border-amber-400"
-                : "text-stone-500"
+              mobileTab === tab.key ? "text-amber-400 border-b-2 border-amber-400" : "text-stone-500"
             }`}
           >
             <tab.icon className="w-3.5 h-3.5" />
@@ -252,30 +225,18 @@ export default function DeckBuilder() {
 
           {/* Deck Panel */}
           <div className="flex-1 flex flex-col min-w-0">
-            <DeckList
-              mainDeck={mainDeck}
-              sideboard={sideboard}
-              onAdd={incrementCard}
-              onRemove={decrementCard}
-              onDelete={deleteCard}
-            />
+            <DeckList mainDeck={mainDeck} sideboard={sideboard} onAdd={incrementCard} onRemove={decrementCard} onDelete={deleteCard} />
           </div>
 
           {/* Stats / Rules Panel */}
           <div className="w-72 lg:w-80 border-l border-stone-800 shrink-0">
             <Tabs defaultValue="stats" className="h-full flex flex-col">
               <TabsList className="bg-stone-900 mx-2 mt-2 h-8">
-                <TabsTrigger
-                  value="stats"
-                  className="text-xs data-[state=active]:bg-stone-800 data-[state=active]:text-amber-400"
-                >
+                <TabsTrigger value="stats" className="text-xs data-[state=active]:bg-stone-800 data-[state=active]:text-amber-400">
                   <BarChart3 className="w-3.5 h-3.5 mr-1" />
                   Stats
                 </TabsTrigger>
-                <TabsTrigger
-                  value="rules"
-                  className="text-xs data-[state=active]:bg-stone-800 data-[state=active]:text-amber-400"
-                >
+                <TabsTrigger value="rules" className="text-xs data-[state=active]:bg-stone-800 data-[state=active]:text-amber-400">
                   <BookOpen className="w-3.5 h-3.5 mr-1" />
                   Rules
                 </TabsTrigger>
@@ -294,13 +255,7 @@ export default function DeckBuilder() {
         <div className="sm:hidden flex-1 flex flex-col overflow-hidden">
           {mobileTab === "search" && <CardSearch onAddCard={addCard} />}
           {mobileTab === "deck" && (
-            <DeckList
-              mainDeck={mainDeck}
-              sideboard={sideboard}
-              onAdd={incrementCard}
-              onRemove={decrementCard}
-              onDelete={deleteCard}
-            />
+            <DeckList mainDeck={mainDeck} sideboard={sideboard} onAdd={incrementCard} onRemove={decrementCard} onDelete={deleteCard} />
           )}
           {mobileTab === "stats" && (
             <div className="flex-1 overflow-y-auto">
