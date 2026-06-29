@@ -2,31 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Sparkles, BookOpen, Layers, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SiteHeader from "@/components/SiteHeader";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-stone-950 text-stone-200">
-      <div className="border-b border-stone-200 bg-white text-stone-700">
-        <div className="max-w-6xl mx-auto h-12 px-4 flex items-center gap-4">
-          <a href="/" className="text-sm sm:text-base font-light tracking-tight text-stone-900">
-            clevelandrocs.net
-          </a>
-          <div className="ml-auto flex items-center gap-2 sm:gap-4 text-xs sm:text-sm">
-            <a href="/" className="hover:text-stone-900 transition-colors">
-              About
-            </a>
-            <a href="/profiles/" className="hover:text-stone-900 transition-colors">
-              Profiles
-            </a>
-            <a href="/articles/" className="hover:text-stone-900 transition-colors">
-              Articles
-            </a>
-            <a href="/builder/" className="text-stone-900 font-semibold">
-              Deck Builder
-            </a>
-          </div>
-        </div>
-      </div>
+      <SiteHeader active="Deck Builder" />
 
       {/* Hero */}
       <div className="relative overflow-hidden">

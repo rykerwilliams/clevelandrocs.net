@@ -11,6 +11,7 @@ import DeckList from "@/components/deck-builder/DeckList";
 import DeckStats from "@/components/deck-builder/DeckStats";
 import RulesReference from "@/components/deck-builder/RulesReference";
 import ExportDeck from "@/components/deck-builder/ExportDeck";
+import SiteHeader from "@/components/SiteHeader";
 
 export default function DeckBuilder() {
   const { toast } = useToast();
@@ -132,27 +133,7 @@ export default function DeckBuilder() {
 
   return (
     <div className="h-screen overflow-hidden bg-stone-950 flex flex-col">
-      <div className="border-b border-stone-200 bg-white text-stone-700">
-        <div className="max-w-6xl mx-auto h-12 px-4 flex items-center gap-4">
-          <a href="/" className="text-sm sm:text-base font-light tracking-tight text-stone-900">
-            clevelandrocs.net
-          </a>
-          <div className="ml-auto flex items-center gap-2 sm:gap-4 text-xs sm:text-sm">
-            <a href="/" className="hover:text-stone-900 transition-colors">
-              About
-            </a>
-            <a href="/profiles/" className="hover:text-stone-900 transition-colors">
-              Profiles
-            </a>
-            <a href="/articles/" className="hover:text-stone-900 transition-colors">
-              Articles
-            </a>
-            <a href="/builder/" className="text-stone-900 font-semibold">
-              Deck Builder
-            </a>
-          </div>
-        </div>
-      </div>
+      <SiteHeader active="Deck Builder" />
 
       {/* Top Bar */}
       <header className="h-14 border-b border-stone-800 bg-stone-950/95 backdrop-blur-sm flex items-center px-4 gap-3 shrink-0 sticky top-0 z-30">
