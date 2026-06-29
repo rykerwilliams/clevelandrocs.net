@@ -132,23 +132,25 @@ export default function DeckBuilder() {
 
   return (
     <div className="h-screen overflow-hidden bg-stone-950 flex flex-col">
-      <div className="border-b border-stone-800/80 bg-stone-950/95 backdrop-blur-sm">
-        <div className="px-4 h-10 flex items-center justify-center text-xs tracking-wide text-stone-400">
-          <a href="/about/" className="hover:text-amber-400 transition-colors">
-            about
+      <div className="border-b border-stone-200 bg-white text-stone-700">
+        <div className="max-w-6xl mx-auto h-12 px-4 flex items-center gap-4">
+          <a href="/" className="text-sm sm:text-base font-light tracking-tight text-stone-900">
+            clevelandrocs.net
           </a>
-          <span className="mx-2 text-stone-600">|</span>
-          <a href="/profiles/" className="hover:text-amber-400 transition-colors">
-            profiles
-          </a>
-          <span className="mx-2 text-stone-600">|</span>
-          <a href="/articles/" className="hover:text-amber-400 transition-colors">
-            articles
-          </a>
-          <span className="mx-2 text-stone-600">|</span>
-          <Link to="/build" className="hover:text-amber-400 transition-colors">
-            deck builder
-          </Link>
+          <div className="ml-auto flex items-center gap-2 sm:gap-4 text-xs sm:text-sm">
+            <a href="/" className="hover:text-stone-900 transition-colors">
+              About
+            </a>
+            <a href="/profiles/" className="hover:text-stone-900 transition-colors">
+              Profiles
+            </a>
+            <a href="/articles/" className="hover:text-stone-900 transition-colors">
+              Articles
+            </a>
+            <a href="/builder/" className="text-stone-900 font-semibold">
+              Deck Builder
+            </a>
+          </div>
         </div>
       </div>
 
