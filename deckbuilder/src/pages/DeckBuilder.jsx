@@ -131,7 +131,7 @@ export default function DeckBuilder() {
   const isValid = mainCount >= 60 && sideCount <= 15;
 
   return (
-    <div className="min-h-screen bg-stone-950 flex flex-col">
+    <div className="h-screen overflow-hidden bg-stone-950 flex flex-col">
       <div className="border-b border-stone-800/80 bg-stone-950/95 backdrop-blur-sm">
         <div className="px-4 h-10 flex items-center justify-center text-xs tracking-wide text-stone-400">
           <a href="/about/" className="hover:text-amber-400 transition-colors">

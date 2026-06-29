@@ -6,6 +6,10 @@
 future: true # also publish future-dated posts during local dev
 exclude:
   - bin/
+  - deckbuilder/
+  - post_samples/
+  - assets/jupyter/
+  - "**/*.ipynb"
   - CONTRIBUTING.md
   - CUSTOMIZE.md
   - Dockerfile
@@ -29,5 +33,22 @@ exclude:
 
 # Optionally limit imagemagick during dev for speed (smaller widths)
 imagemagick:
-  enabled: true
+  enabled: false
   widths: [480]
+
+# Keep local dev fast by skipping heavyweight converters.
+plugins:
+  - jekyll-archives-v2
+  - jekyll-email-protect
+  - jekyll-feed
+  - jekyll-get-json
+  - jekyll-link-attributes
+  - jekyll-minifier
+  - jekyll-paginate-v2
+  - jekyll-regex-replace
+  - jekyll-sitemap
+  - jekyll-tabs
+  - jekyll-terser
+  - jekyll-toc
+  - jekyll-twitter-plugin
+  - jemoji

@@ -3,21 +3,8 @@ import { Search, Filter, X, ChevronDown, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  LEGAL_SETS,
-  COLOR_FILTERS,
-  TYPE_FILTERS,
-  buildScryfallQuery,
-  isBanned,
-  isRestricted,
-} from "@/lib/oldSchoolData";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { LEGAL_SETS, COLOR_FILTERS, TYPE_FILTERS, buildScryfallQuery, isBanned, isRestricted } from "@/lib/oldSchoolData";
 import CardImage from "@/components/deck-builder/CardImage";
 import debounce from "lodash/debounce";
 
@@ -33,41 +20,70 @@ export default function CardSearch({ onAddCard }) {
   const [nextPage, setNextPage] = useState(null);
   const [showFilters, setShowFilters] = useState(false);
   const [totalCards, setTotalCards] = useState(0);
+  const [hoverPreview, setHoverPreview] = useState(null);
   const scrollRef = useRef(null);
 
-  const fetchCards = useCallback(
-    async (query, page = null) => {
-      setLoading(true);
-      try {
-        const url = page
-          ? page
-          : `https://api.scryfall.com/cards/search?q=${encodeURIComponent(query)}&unique=cards&order=name`;
+  const getPreviewPosition = (clientX, clientY) => {
+    const previewWidth = 260;
+    const previewHeight = 364;
+    const margin = 12;
+    const x = Math.min(clientX + 20, window.innerWidth - previewWidth - margin);
+    const y = Math.max(margin, Math.min(clientY - previewHeight / 2, window.innerHeight - previewHeight - margin));
+    return { x, y };
+  };
 
-        const res = await fetch(url);
-        if (!res.ok) {
-          setCards(page ? (prev) => prev : []);
-          setHasMore(false);
-          setLoading(false);
-          return;
-        }
-        const data = await res.json();
-        const newCards = data.data || [];
+  const handleCardHoverStart = (card, event) => {
+    const imageUri = card.image_uris?.normal || card.image_uris?.small || card.image_uri || "";
+    if (!imageUri) return;
+    const { x, y } = getPreviewPosition(event.clientX, event.clientY);
+    setHoverPreview({
+      imageUri,
+      cardName: card.name,
+      x,
+      y,
+    });
+  };
 
-        if (page) {
-          setCards((prev) => [...prev, ...newCards]);
-        } else {
-          setCards(newCards);
-          setTotalCards(data.total_cards || 0);
-        }
-        setHasMore(data.has_more || false);
-        setNextPage(data.next_page || null);
-      } catch {
-        if (!page) setCards([]);
+  const handleCardHoverMove = (event) => {
+    setHoverPreview((prev) => {
+      if (!prev) return prev;
+      const { x, y } = getPreviewPosition(event.clientX, event.clientY);
+      return { ...prev, x, y };
+    });
+  };
+
+  const handleCardHoverEnd = () => {
+    setHoverPreview(null);
+  };
+
+  const fetchCards = useCallback(async (query, page = null) => {
+    setLoading(true);
+    try {
+      const url = page ? page : `https://api.scryfall.com/cards/search?q=${encodeURIComponent(query)}&unique=cards&order=name`;
+
+      const res = await fetch(url);
+      if (!res.ok) {
+        setCards(page ? (prev) => prev : []);
+        setHasMore(false);
+        setLoading(false);
+        return;
       }
-      setLoading(false);
-    },
-    []
-  );
+      const data = await res.json();
+      const newCards = data.data || [];
+
+      if (page) {
+        setCards((prev) => [...prev, ...newCards]);
+      } else {
+        setCards(newCards);
+        setTotalCards(data.total_cards || 0);
+      }
+      setHasMore(data.has_more || false);
+      setNextPage(data.next_page || null);
+    } catch {
+      if (!page) setCards([]);
+    }
+    setLoading(false);
+  }, []);
 
   const debouncedSearch = useCallback(
     debounce((s, c, t, st, cm) => {
@@ -89,9 +105,7 @@ export default function CardSearch({ onAddCard }) {
   }, [search, colors, type, set, cmc, debouncedSearch]);
 
   const toggleColor = (val) => {
-    setColors((prev) =>
-      prev.includes(val) ? prev.filter((c) => c !== val) : [...prev, val]
-    );
+    setColors((prev) => (prev.includes(val) ? prev.filter((c) => c !== val) : [...prev, val]));
   };
 
   const clearFilters = () => {
@@ -117,10 +131,7 @@ export default function CardSearch({ onAddCard }) {
             className="pl-10 bg-stone-900 border-stone-700 text-stone-200 placeholder:text-stone-500 focus-visible:ring-amber-600/50"
           />
           {search && (
-            <button
-              onClick={() => setSearch("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-500 hover:text-stone-300"
-            >
+            <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-500 hover:text-stone-300">
               <X className="w-4 h-4" />
             </button>
           )}
@@ -135,25 +146,14 @@ export default function CardSearch({ onAddCard }) {
           >
             <Filter className="w-3.5 h-3.5 mr-1.5" />
             Filters
-            <ChevronDown
-              className={`w-3.5 h-3.5 ml-1 transition-transform ${showFilters ? "rotate-180" : ""}`}
-            />
+            <ChevronDown className={`w-3.5 h-3.5 ml-1 transition-transform ${showFilters ? "rotate-180" : ""}`} />
           </Button>
           {hasActiveFilters && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={clearFilters}
-              className="text-stone-500 hover:text-stone-300 text-xs"
-            >
+            <Button variant="ghost" size="sm" onClick={clearFilters} className="text-stone-500 hover:text-stone-300 text-xs">
               Clear all
             </Button>
           )}
-          {!loading && totalCards > 0 && (
-            <span className="text-stone-500 text-xs ml-auto">
-              {totalCards} cards
-            </span>
-          )}
+          {!loading && totalCards > 0 && <span className="text-stone-500 text-xs ml-auto">{totalCards} cards</span>}
         </div>
 
         {/* Filters */}
@@ -166,17 +166,11 @@ export default function CardSearch({ onAddCard }) {
                   key={c.value}
                   onClick={() => toggleColor(c.value)}
                   className={`w-7 h-7 rounded-full border-2 transition-all flex items-center justify-center text-xs font-bold ${
-                    colors.includes(c.value)
-                      ? "border-amber-500 ring-2 ring-amber-500/30 scale-110"
-                      : "border-stone-600 hover:border-stone-400"
+                    colors.includes(c.value) ? "border-amber-500 ring-2 ring-amber-500/30 scale-110" : "border-stone-600 hover:border-stone-400"
                   }`}
                   style={{
-                    backgroundColor:
-                      c.value === "C" ? "#888" : c.hex,
-                    color:
-                      c.value === "W" || c.value === "C"
-                        ? "#333"
-                        : "#fff",
+                    backgroundColor: c.value === "C" ? "#888" : c.hex,
+                    color: c.value === "W" || c.value === "C" ? "#333" : "#fff",
                   }}
                   title={c.label}
                 >
@@ -191,7 +185,9 @@ export default function CardSearch({ onAddCard }) {
                 <SelectValue placeholder="Card Type" />
               </SelectTrigger>
               <SelectContent className="bg-stone-900 border-stone-700">
-                <SelectItem value="all" className="text-stone-300">All Types</SelectItem>
+                <SelectItem value="all" className="text-stone-300">
+                  All Types
+                </SelectItem>
                 {TYPE_FILTERS.map((t) => (
                   <SelectItem key={t} value={t.toLowerCase()} className="text-stone-300">
                     {t}
@@ -206,7 +202,9 @@ export default function CardSearch({ onAddCard }) {
                 <SelectValue placeholder="Set" />
               </SelectTrigger>
               <SelectContent className="bg-stone-900 border-stone-700">
-                <SelectItem value="all" className="text-stone-300">All Sets</SelectItem>
+                <SelectItem value="all" className="text-stone-300">
+                  All Sets
+                </SelectItem>
                 {LEGAL_SETS.map((s) => (
                   <SelectItem key={s.code} value={s.code} className="text-stone-300">
                     {s.name}
@@ -221,7 +219,9 @@ export default function CardSearch({ onAddCard }) {
                 <SelectValue placeholder="Mana Cost" />
               </SelectTrigger>
               <SelectContent className="bg-stone-900 border-stone-700">
-                <SelectItem value="any" className="text-stone-300">Any Cost</SelectItem>
+                <SelectItem value="any" className="text-stone-300">
+                  Any Cost
+                </SelectItem>
                 {[0, 1, 2, 3, 4, 5, 6, 7].map((n) => (
                   <SelectItem key={n} value={String(n)} className="text-stone-300">
                     {n === 7 ? "7+" : String(n)}
@@ -240,33 +240,23 @@ export default function CardSearch({ onAddCard }) {
             <Loader2 className="w-6 h-6 text-amber-500 animate-spin" />
           </div>
         ) : cards.length === 0 ? (
-          <div className="text-center text-stone-500 py-16 text-sm">
-            No cards found. Try a different search.
-          </div>
+          <div className="text-center text-stone-500 py-16 text-sm">No cards found. Try a different search.</div>
         ) : (
           <>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {cards.map((card) => (
-                <div key={card.id} className="relative group">
-                  <CardImage
-                    card={card}
-                    size="small"
-                    onClick={() => onAddCard(card)}
-                  />
-                  {isRestricted(card.name) && (
-                    <Badge className="absolute top-1 right-1 bg-amber-600/90 text-white text-[9px] px-1 py-0">
-                      R
-                    </Badge>
-                  )}
-                  {isBanned(card.name) && (
-                    <Badge className="absolute top-1 right-1 bg-red-700/90 text-white text-[9px] px-1 py-0">
-                      BANNED
-                    </Badge>
-                  )}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-2 pt-6 opacity-0 group-hover:opacity-100 transition-opacity rounded-b-lg pointer-events-none">
-                    <p className="text-white text-[10px] font-medium leading-tight truncate">
-                      {card.name}
-                    </p>
+                <div
+                  key={card.id}
+                  className="relative group isolate"
+                  onMouseEnter={(e) => handleCardHoverStart(card, e)}
+                  onMouseMove={handleCardHoverMove}
+                  onMouseLeave={handleCardHoverEnd}
+                >
+                  <CardImage card={card} size="small" onClick={() => onAddCard(card)} />
+                  {isRestricted(card.name) && <Badge className="absolute top-1 right-1 bg-amber-600/90 text-white text-[9px] px-1 py-0">R</Badge>}
+                  {isBanned(card.name) && <Badge className="absolute top-1 right-1 bg-red-700/90 text-white text-[9px] px-1 py-0">BANNED</Badge>}
+                  <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-2 pt-6 opacity-0 group-hover:opacity-100 transition-opacity rounded-b-lg pointer-events-none">
+                    <p className="text-white text-[10px] font-medium leading-tight truncate">{card.name}</p>
                   </div>
                 </div>
               ))}
@@ -280,9 +270,7 @@ export default function CardSearch({ onAddCard }) {
                   disabled={loading}
                   className="text-amber-500 hover:text-amber-400 hover:bg-stone-800 text-xs"
                 >
-                  {loading ? (
-                    <Loader2 className="w-4 h-4 animate-spin mr-1" />
-                  ) : null}
+                  {loading ? <Loader2 className="w-4 h-4 animate-spin mr-1" /> : null}
                   Load more
                 </Button>
               </div>
@@ -290,6 +278,16 @@ export default function CardSearch({ onAddCard }) {
           </>
         )}
       </div>
+
+      {hoverPreview && (
+        <div
+          className="fixed z-50 pointer-events-none rounded-xl border border-stone-700/80 bg-stone-900/95 p-1 shadow-2xl"
+          style={{ left: `${hoverPreview.x}px`, top: `${hoverPreview.y}px`, width: "260px" }}
+          aria-hidden="true"
+        >
+          <img src={hoverPreview.imageUri} alt={hoverPreview.cardName} className="w-full rounded-lg" loading="lazy" />
+        </div>
+      )}
     </div>
   );
 }
