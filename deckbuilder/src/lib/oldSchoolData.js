@@ -408,6 +408,7 @@ export function getRarityCount(entries = []) {
 export function buildScryfallQuery({ search = "", colors = [], type = "", set = "", cmc = "", rulesetId = DEFAULT_RULESET_ID }) {
   const ruleset = getRuleset(rulesetId);
   const setCodes = ruleset.legalSets.map((s) => s.code);
+  const normalizedSearch = search.trim().toLowerCase();
 
   let setQuery;
   if (set) {
@@ -419,8 +420,11 @@ export function buildScryfallQuery({ search = "", colors = [], type = "", set = 
       setTerms.push("e:lea");
     }
 
-    if (ruleset.allowedOffFormatCards?.length) {
-      setTerms.push(...ruleset.allowedOffFormatCards.map((name) => `name:\"${name}\"`));
+    if (ruleset.allowedOffFormatCards?.length && normalizedSearch) {
+      const exactMatch = ruleset.allowedOffFormatCards.find((name) => name.toLowerCase() === normalizedSearch);
+      if (exactMatch) {
+        setTerms.push(`name:"${exactMatch}"`);
+      }
     }
 
     setQuery = `(${setTerms.join(" or ")})`;
