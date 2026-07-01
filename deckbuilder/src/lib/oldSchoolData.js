@@ -27,6 +27,32 @@ const ETERNAL_CENTRAL_RESTRICTED = [
   "Wheel of Fortune",
 ];
 
+const ATLANTIC_RESTRICTED = [
+  "Ancestral Recall",
+  "Balance",
+  "Black Lotus",
+  "Braingeyser",
+  "Chaos Orb",
+  "Channel",
+  "Demonic Tutor",
+  "Library of Alexandria",
+  "Mana Drain",
+  "Mind Twist",
+  "Mox Emerald",
+  "Mox Jet",
+  "Mox Pearl",
+  "Mox Ruby",
+  "Mox Sapphire",
+  "Regrowth",
+  "Sol Ring",
+  "Strip Mine",
+  "Time Walk",
+  "Timetwister",
+  "Wheel of Fortune",
+];
+
+const ATLANTIC_BANNED = ["Bronze Tablet", "Contract from Below", "Darkpact", "Demonic Attorney", "Jeweled Bird", "Rebirth", "Tempest Efreet"];
+
 const A2A_RESTRICTED = [
   "Ancestral Recall",
   "Balance",
@@ -124,6 +150,36 @@ export const RULESETS = {
     maxSideboardSize: 15,
     defaultMaxCopies: 4,
     notes: ["Mana burn is in effect", "London Mulligan rule", "Chaos Orb uses EC flip rules", "No intentional draws in EC tournaments"],
+  },
+  "x-points": {
+    id: "x-points",
+    label: "X-Points",
+    shortLabel: "X-Points",
+    description: "Atlantic 93/94 with the X-Points 2026 point system.",
+    sourceLabel: "X-point Old School",
+    sourceUrl: "https://xpointoldschool.com/rules-points/",
+    legalSets: [
+      { code: "lea", name: "Alpha" },
+      { code: "leb", name: "Beta" },
+      { code: "arn", name: "Arabian Nights" },
+      { code: "atq", name: "Antiquities" },
+      { code: "leg", name: "Legends" },
+      { code: "drk", name: "The Dark" },
+      { code: "fem", name: "Fallen Empires" },
+    ],
+    bannedCards: ATLANTIC_BANNED,
+    restrictedCards: ATLANTIC_RESTRICTED,
+    minMainDeckSize: 60,
+    maxMainDeckSize: null,
+    maxSideboardSize: 15,
+    defaultMaxCopies: 4,
+    notes: [
+      "Uses Atlantic 93/94 rules and B&R list",
+      "You may play up to 10 points across main deck and sideboard (X-Points 2026)",
+      "Regular constructed format (not singleton)",
+      "Reprint policy: same art, same frame, all languages, including AP, CE/IE, WCD, and M30",
+      "No proxies",
+    ],
   },
   alpha40: {
     id: "alpha40",
