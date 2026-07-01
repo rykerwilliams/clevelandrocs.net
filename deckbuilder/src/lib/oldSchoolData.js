@@ -53,6 +53,37 @@ const ATLANTIC_RESTRICTED = [
 
 const ATLANTIC_BANNED = ["Bronze Tablet", "Contract from Below", "Darkpact", "Demonic Attorney", "Jeweled Bird", "Rebirth", "Tempest Efreet"];
 
+const X_POINTS_2026 = {
+  "Ancestral Recall": 6,
+  "Mind Twist": 4,
+  "Black Lotus": 3,
+  "Demonic Tutor": 3,
+  "Library of Alexandria": 3,
+  Balance: 2,
+  Braingeyser: 2,
+  "Hymn to Tourach": 2,
+  "Land Tax": 2,
+  "Mox Emerald": 2,
+  "Mox Jet": 2,
+  "Mox Pearl": 2,
+  "Mox Ruby": 2,
+  "Mox Sapphire": 2,
+  "Sol Ring": 2,
+  "Mana Vault": 2,
+  "Time Walk": 2,
+  Timetwister: 2,
+  "Wheel of Fortune": 2,
+  Armageddon: 1,
+  "Mana Drain": 1,
+  "Maze of Ith": 1,
+  "Icy Manipulator": 1,
+  "Mishra's Workshop": 1,
+  Moat: 1,
+  Recall: 1,
+  Regrowth: 1,
+  "The Abyss": 1,
+};
+
 const A2A_RESTRICTED = [
   "Ancestral Recall",
   "Balance",
@@ -173,6 +204,8 @@ export const RULESETS = {
     maxMainDeckSize: null,
     maxSideboardSize: 15,
     defaultMaxCopies: 4,
+    maxPointsTotal: 10,
+    pointsByCardName: X_POINTS_2026,
     notes: [
       "Uses Atlantic 93/94 rules and B&R list",
       "You may play up to 10 points across main deck and sideboard (X-Points 2026)",
@@ -547,6 +580,19 @@ export function getAllowedOffFormatCardsCount(entries = [], rulesetId = DEFAULT_
 
 export function getRarityCaps(rulesetId = DEFAULT_RULESET_ID) {
   return getRuleset(rulesetId).rarityCaps || null;
+}
+
+export function getPointsLimit(rulesetId = DEFAULT_RULESET_ID) {
+  return getRuleset(rulesetId).maxPointsTotal ?? null;
+}
+
+export function getCardPointValue(cardName, rulesetId = DEFAULT_RULESET_ID) {
+  const pointsMap = getRuleset(rulesetId).pointsByCardName || {};
+  return pointsMap[cardName] || 0;
+}
+
+export function getDeckPointsTotal(entries = [], rulesetId = DEFAULT_RULESET_ID) {
+  return entries.reduce((sum, entry) => sum + getCardPointValue(entry.card_name, rulesetId) * (entry.quantity || 0), 0);
 }
 
 export function getRarityCount(entries = []) {

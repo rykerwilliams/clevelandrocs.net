@@ -1,13 +1,15 @@
 import React from "react";
-import { getRuleset, getAllowedOffFormatCardsCount, getAllowedOffFormatCardsLimit } from "@/lib/oldSchoolData";
+import { getRuleset, getAllowedOffFormatCardsCount, getAllowedOffFormatCardsLimit, getDeckPointsTotal, getPointsLimit } from "@/lib/oldSchoolData";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-export default function RulesReference({ rulesetId, mainDeck = [] }) {
+export default function RulesReference({ rulesetId, mainDeck = [], sideboard = [] }) {
   const ruleset = getRuleset(rulesetId);
   const hasRarityCaps = Boolean(ruleset.rarityCaps);
   const exceptionLimit = getAllowedOffFormatCardsLimit(rulesetId);
   const exceptionCount = getAllowedOffFormatCardsCount(mainDeck, rulesetId);
+  const pointsLimit = getPointsLimit(rulesetId);
+  const pointsTotal = getDeckPointsTotal([...mainDeck, ...sideboard], rulesetId);
 
   return (
     <ScrollArea className="h-full">
@@ -39,6 +41,11 @@ export default function RulesReference({ rulesetId, mainDeck = [] }) {
             {exceptionLimit != null ? (
               <li>
                 Exception-list cards: {exceptionCount}/{exceptionLimit}
+              </li>
+            ) : null}
+            {pointsLimit != null ? (
+              <li>
+                Points (main + sideboard): {pointsTotal}/{pointsLimit}
               </li>
             ) : null}
           </ul>

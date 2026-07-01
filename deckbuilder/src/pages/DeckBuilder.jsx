@@ -11,6 +11,9 @@ import {
   getMaxCopies,
   getRarityCaps,
   getRarityCount,
+  getDeckPointsTotal,
+  getCardPointValue,
+  getPointsLimit,
   isCardLegal,
   getAllowedOffFormatCardsLimit,
   getAllowedOffFormatCardsCount,
@@ -38,6 +41,7 @@ export default function DeckBuilder() {
   const ruleset = getRuleset(rulesetId);
   const rarityCaps = getRarityCaps(rulesetId);
   const offFormatLimit = getAllowedOffFormatCardsLimit(rulesetId);
+  const pointsLimit = getPointsLimit(rulesetId);
 
   const getTotalCopies = useCallback(
     (cardName) => {
@@ -56,6 +60,7 @@ export default function DeckBuilder() {
       const cardName = card.card_name || card.name;
       const cardSetCode = (card.set_code || card.set || "").toLowerCase();
       const cardRarity = (card.rarity || "").toLowerCase();
+      const cardPoints = getCardPointValue(cardName, rulesetId);
 
       if (isBanned(cardName, rulesetId)) {
         toast({
@@ -150,6 +155,18 @@ export default function DeckBuilder() {
         }
       }
 
+      if (pointsLimit != null) {
+        const currentPoints = getDeckPointsTotal([...mainDeck, ...sideboard], rulesetId);
+        if (currentPoints + cardPoints > pointsLimit) {
+          toast({
+            title: "Points limit reached",
+            description: `${ruleset.shortLabel} allows up to ${pointsLimit} points (main + sideboard).`,
+            variant: "destructive",
+          });
+          return;
+        }
+      }
+
       const newEntry = {
         card_name: cardName,
         scryfall_id: card.scryfall_id || card.id,
@@ -181,7 +198,7 @@ export default function DeckBuilder() {
         });
       }
     },
-    [addingToSideboard, getTotalCopies, mainDeck, offFormatLimit, rarityCaps, ruleset, rulesetId, sideboard, toast]
+    [addingToSideboard, getTotalCopies, mainDeck, offFormatLimit, pointsLimit, rarityCaps, ruleset, rulesetId, sideboard, toast]
   );
 
   const incrementCard = useCallback(
@@ -274,10 +291,23 @@ export default function DeckBuilder() {
         }
       }
 
+      if (pointsLimit != null) {
+        const entryPoints = getCardPointValue(entry.card_name, rulesetId);
+        const currentPoints = getDeckPointsTotal([...mainDeck, ...sideboard], rulesetId);
+        if (currentPoints + entryPoints > pointsLimit) {
+          toast({
+            title: "Points limit reached",
+            description: `${ruleset.shortLabel} allows up to ${pointsLimit} points (main + sideboard).`,
+            variant: "destructive",
+          });
+          return;
+        }
+      }
+
       const setter = section === "sideboard" ? setSideboard : setMainDeck;
       setter((prev) => prev.map((e) => (e.card_name === entry.card_name ? { ...e, quantity: e.quantity + 1 } : e)));
     },
-    [getTotalCopies, mainDeck, offFormatLimit, rarityCaps, ruleset, rulesetId, sideboard, toast]
+    [getTotalCopies, mainDeck, offFormatLimit, pointsLimit, rarityCaps, ruleset, rulesetId, sideboard, toast]
   );
 
   const decrementCard = useCallback((entry, section) => {
@@ -311,6 +341,8 @@ export default function DeckBuilder() {
   const sideSizeValid = sideCount <= ruleset.maxSideboardSize;
   const offFormatCount = getAllowedOffFormatCardsCount(mainDeck, rulesetId);
   const offFormatValid = offFormatLimit == null || offFormatCount <= offFormatLimit;
+  const pointsTotal = getDeckPointsTotal(allEntries, rulesetId);
+  const pointsValid = pointsLimit == null || pointsTotal <= pointsLimit;
 
   const totalCopiesByCard = allEntries.reduce((acc, entry) => {
     acc[entry.card_name] = (acc[entry.card_name] || 0) + entry.quantity;
@@ -323,7 +355,7 @@ export default function DeckBuilder() {
   const copyLimitViolations = Object.entries(totalCopiesByCard).filter(([cardName, totalCopies]) => totalCopies > getMaxCopies(cardName, rulesetId));
   const copyLimitsValid = copyLimitViolations.length === 0;
 
-  const isValid = mainSizeValid && sideSizeValid && rarityValid && setsValid && bannedValid && copyLimitsValid && offFormatValid;
+  const isValid = mainSizeValid && sideSizeValid && rarityValid && setsValid && bannedValid && copyLimitsValid && offFormatValid && pointsValid;
 
   const validityLabel = ruleset.maxMainDeckSize ? `${mainCount}/${ruleset.maxMainDeckSize}` : `${mainCount}/${ruleset.minMainDeckSize}`;
 
@@ -362,6 +394,16 @@ export default function DeckBuilder() {
             {isValid ? <Check className="w-3.5 h-3.5" /> : <AlertTriangle className="w-3.5 h-3.5" />}
             {validityLabel}
           </div>
+
+          {pointsLimit != null ? (
+            <div
+              className={`hidden sm:flex items-center gap-1.5 text-xs font-mono px-2 py-1 rounded ${
+                pointsValid ? "text-sky-300 bg-sky-900/20" : "text-red-300 bg-red-900/20"
+              }`}
+            >
+              PTS {pointsTotal}/{pointsLimit}
+            </div>
+          ) : null}
 
           <ExportDeck deckName={deckName} mainDeck={mainDeck} sideboard={sideboard} rulesetLabel={ruleset.label} />
 
@@ -441,7 +483,7 @@ export default function DeckBuilder() {
                 <DeckStats mainDeck={mainDeck} />
               </TabsContent>
               <TabsContent value="rules" className="flex-1 overflow-hidden mt-0">
-                <RulesReference rulesetId={rulesetId} mainDeck={mainDeck} />
+                <RulesReference rulesetId={rulesetId} mainDeck={mainDeck} sideboard={sideboard} />
               </TabsContent>
             </Tabs>
           </div>
@@ -467,7 +509,7 @@ export default function DeckBuilder() {
           )}
           {mobileTab === "rules" && (
             <div className="flex-1 overflow-hidden">
-              <RulesReference rulesetId={rulesetId} mainDeck={mainDeck} />
+              <RulesReference rulesetId={rulesetId} mainDeck={mainDeck} sideboard={sideboard} />
             </div>
           )}
         </div>
