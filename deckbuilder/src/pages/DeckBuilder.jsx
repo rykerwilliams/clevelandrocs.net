@@ -17,6 +17,7 @@ import {
   isCardLegal,
   getAllowedOffFormatCardsLimit,
   getAllowedOffFormatCardsCount,
+  getQuantityGroupViolations,
   getRuleset,
   RULESET_OPTIONS,
   DEFAULT_RULESET_ID,
@@ -80,7 +81,7 @@ export default function DeckBuilder() {
         return;
       }
 
-      const maxCopies = getMaxCopies(cardName, rulesetId);
+      const maxCopies = getMaxCopies(cardName, rulesetId, { rarity: cardRarity });
       const totalCopies = getTotalCopies(cardName);
 
       if (totalCopies >= maxCopies) {
@@ -167,6 +168,39 @@ export default function DeckBuilder() {
         }
       }
 
+      const prospectiveMain = addingToSideboard
+        ? mainDeck
+        : mainDeck.some((e) => e.card_name === cardName)
+          ? mainDeck.map((e) => (e.card_name === cardName ? { ...e, quantity: e.quantity + 1 } : e))
+          : [
+              ...mainDeck,
+              {
+                card_name: cardName,
+                quantity: 1,
+              },
+            ];
+      const prospectiveSide = addingToSideboard
+        ? sideboard.some((e) => e.card_name === cardName)
+          ? sideboard.map((e) => (e.card_name === cardName ? { ...e, quantity: e.quantity + 1 } : e))
+          : [
+              ...sideboard,
+              {
+                card_name: cardName,
+                quantity: 1,
+              },
+            ]
+        : sideboard;
+      const groupViolations = getQuantityGroupViolations([...prospectiveMain, ...prospectiveSide], rulesetId);
+      if (groupViolations.length > 0) {
+        const violation = groupViolations[0];
+        toast({
+          title: `${violation.label} limit reached`,
+          description: `${ruleset.shortLabel} allows up to ${violation.maxTotal} ${violation.label} card${violation.maxTotal === 1 ? "" : "s"}.`,
+          variant: "destructive",
+        });
+        return;
+      }
+
       const newEntry = {
         card_name: cardName,
         scryfall_id: card.scryfall_id || card.id,
@@ -203,7 +237,7 @@ export default function DeckBuilder() {
 
   const incrementCard = useCallback(
     (entry, section) => {
-      const maxCopies = getMaxCopies(entry.card_name, rulesetId);
+      const maxCopies = getMaxCopies(entry.card_name, rulesetId, { rarity: entry.rarity });
       const totalCopies = getTotalCopies(entry.card_name);
 
       if (totalCopies >= maxCopies) {
@@ -304,6 +338,21 @@ export default function DeckBuilder() {
         }
       }
 
+      const prospectiveMain =
+        section === "main" ? mainDeck.map((e) => (e.card_name === entry.card_name ? { ...e, quantity: e.quantity + 1 } : e)) : mainDeck;
+      const prospectiveSide =
+        section === "sideboard" ? sideboard.map((e) => (e.card_name === entry.card_name ? { ...e, quantity: e.quantity + 1 } : e)) : sideboard;
+      const groupViolations = getQuantityGroupViolations([...prospectiveMain, ...prospectiveSide], rulesetId);
+      if (groupViolations.length > 0) {
+        const violation = groupViolations[0];
+        toast({
+          title: `${violation.label} limit reached`,
+          description: `${ruleset.shortLabel} allows up to ${violation.maxTotal} ${violation.label} card${violation.maxTotal === 1 ? "" : "s"}.`,
+          variant: "destructive",
+        });
+        return;
+      }
+
       const setter = section === "sideboard" ? setSideboard : setMainDeck;
       setter((prev) => prev.map((e) => (e.card_name === entry.card_name ? { ...e, quantity: e.quantity + 1 } : e)));
     },
@@ -352,10 +401,30 @@ export default function DeckBuilder() {
   const bannedCardsInDeck = Object.keys(totalCopiesByCard).filter((cardName) => isBanned(cardName, rulesetId));
   const bannedValid = bannedCardsInDeck.length === 0;
 
-  const copyLimitViolations = Object.entries(totalCopiesByCard).filter(([cardName, totalCopies]) => totalCopies > getMaxCopies(cardName, rulesetId));
-  const copyLimitsValid = copyLimitViolations.length === 0;
+  const rarityByCard = allEntries.reduce((acc, entry) => {
+    if (!acc[entry.card_name]) {
+      acc[entry.card_name] = entry.rarity;
+    }
+    return acc;
+  }, {});
 
-  const isValid = mainSizeValid && sideSizeValid && rarityValid && setsValid && bannedValid && copyLimitsValid && offFormatValid && pointsValid;
+  const copyLimitViolations = Object.entries(totalCopiesByCard).filter(
+    ([cardName, totalCopies]) => totalCopies > getMaxCopies(cardName, rulesetId, { rarity: rarityByCard[cardName] })
+  );
+  const copyLimitsValid = copyLimitViolations.length === 0;
+  const quantityGroupViolations = getQuantityGroupViolations(allEntries, rulesetId);
+  const quantityGroupsValid = quantityGroupViolations.length === 0;
+
+  const isValid =
+    mainSizeValid &&
+    sideSizeValid &&
+    rarityValid &&
+    setsValid &&
+    bannedValid &&
+    copyLimitsValid &&
+    quantityGroupsValid &&
+    offFormatValid &&
+    pointsValid;
 
   const validityLabel = ruleset.maxMainDeckSize ? `${mainCount}/${ruleset.maxMainDeckSize}` : `${mainCount}/${ruleset.minMainDeckSize}`;
 

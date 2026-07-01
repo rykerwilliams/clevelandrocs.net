@@ -6,7 +6,7 @@ import { isRestricted, isBasicLand, getMaxCopies, getCardPointValue, getPointsLi
 export default function DeckGalleryCard({ entry, onAdd, onRemove, onDelete, section, rulesetId }) {
   const [imgError, setImgError] = useState(false);
   const restricted = isRestricted(entry.card_name, rulesetId);
-  const maxCopies = getMaxCopies(entry.card_name, rulesetId);
+  const maxCopies = getMaxCopies(entry.card_name, rulesetId, { rarity: entry.rarity });
   const overLimit = !isBasicLand(entry.card_name) && entry.quantity > maxCopies;
   const pointsLimit = getPointsLimit(rulesetId);
   const cardPointValue = getCardPointValue(entry.card_name, rulesetId);

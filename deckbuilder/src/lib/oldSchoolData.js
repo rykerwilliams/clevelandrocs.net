@@ -53,6 +53,30 @@ const ATLANTIC_RESTRICTED = [
 
 const ATLANTIC_BANNED = ["Bronze Tablet", "Contract from Below", "Darkpact", "Demonic Attorney", "Jeweled Bird", "Rebirth", "Tempest Efreet"];
 
+const ALPHA40_MODERATED = [
+  "Berserk",
+  "Black Vise",
+  "Copper Tablet",
+  "Counterspell",
+  "Hurricane",
+  "Hypnotic Specter",
+  "Ice Storm",
+  "Icy Manipulator",
+  "Juggernaut",
+  "Lightning Bolt",
+  "Orcish Oriflamme",
+  "Psionic Blast",
+  "Sinkhole",
+  "Stone Rain",
+  "Swords to Plowshares",
+];
+
+const ALPHA40_FAST_MANA = ["Black Lotus", "Mana Vault", "Mox Emerald", "Mox Jet", "Mox Pearl", "Mox Ruby", "Mox Sapphire", "Sol Ring"];
+const ALPHA40_POWER = ["Ancestral Recall", "Fastbond", "Time Vault", "Time Walk", "Timetwister", "Wheel of Fortune"];
+const ALPHA40_DRAW = ["Ancestral Recall", "Braingeyser", "Demonic Tutor", "Howling Mine", "Jayemdae Tome", "Regrowth"];
+const ALPHA40_DESTRUCTION = ["Armageddon", "Balance", "Chaos Orb", "Nevinyrral's Disk"];
+const ALPHA40_CHARMS = ["Crystal Rod", "Iron Star", "Ivory Cup", "Soul Net", "Throne of Bone", "Wooden Sphere"];
+
 const X_POINTS_2026 = {
   "Ancestral Recall": 6,
   "Mind Twist": 4,
@@ -218,22 +242,38 @@ export const RULESETS = {
     id: "alpha40",
     label: "Alpha 40",
     shortLabel: "Alpha 40",
-    description: "Decks are built from Alpha only with rarity caps.",
+    description: "Alpha-only format with per-card rarity limits and restricted card groups.",
     sourceLabel: "MT Goldframe",
     sourceUrl: "https://mtgoldframe.com/alpha-40/",
     legalSets: [{ code: "lea", name: "Alpha" }],
     bannedCards: [],
     restrictedCards: [],
     minMainDeckSize: 40,
-    maxMainDeckSize: 40,
+    maxMainDeckSize: null,
     maxSideboardSize: 0,
     defaultMaxCopies: 4,
-    rarityCaps: {
-      rare: 3,
+    maxCopiesByRarity: {
+      common: 99,
       uncommon: 6,
+      rare: 3,
     },
-    rarityCapsScope: "main",
-    notes: ["Exactly 40 cards in main deck", "Alpha cards only", "Up to 3 rares and 6 uncommons"],
+    maxCopiesByCardName: Object.fromEntries(ALPHA40_MODERATED.map((name) => [name, 3])),
+    quantityGroups: [
+      { id: "alpha40-fast-mana", label: "Fast Mana", maxTotal: 1, cards: ALPHA40_FAST_MANA },
+      { id: "alpha40-power", label: "Power", maxTotal: 1, cards: ALPHA40_POWER },
+      { id: "alpha40-draw", label: "Draw", maxTotal: 1, cards: ALPHA40_DRAW },
+      { id: "alpha40-destruction", label: "Destruction", maxTotal: 1, cards: ALPHA40_DESTRUCTION },
+      { id: "alpha40-charms", label: "Charm", maxTotal: 1, cards: ALPHA40_CHARMS },
+    ],
+    notes: [
+      "Minimum 40 cards in main deck",
+      "No sideboards",
+      "Alpha cards only",
+      "Commons unlimited, uncommons max 6 each, rares max 3 each",
+      "Moderated cards are max 3 each",
+      "At most one total card from each category: Fast Mana, Power, Draw, Destruction, Charm",
+      "Ancestral Recall counts toward both Power and Draw categories",
+    ],
   },
   "fallen-empires-40": {
     id: "fallen-empires-40",
@@ -518,13 +558,17 @@ export function isBasicLand(cardName) {
   return BASIC_LANDS.includes(cardName);
 }
 
-export function getMaxCopies(cardName, rulesetId = DEFAULT_RULESET_ID) {
+export function getMaxCopies(cardName, rulesetId = DEFAULT_RULESET_ID, context = {}) {
   const ruleset = getRuleset(rulesetId);
+  const rarity = (context.rarity || "").toLowerCase();
 
   if (ruleset.unlimitedCardsByName?.includes(cardName)) return 99;
 
   const override = ruleset.maxCopiesByCardName?.[cardName];
   if (typeof override === "number") return override;
+
+  const rarityLimit = ruleset.maxCopiesByRarity?.[rarity];
+  if (typeof rarityLimit === "number") return rarityLimit;
 
   if (ruleset.allowedOffFormatCards?.includes(cardName) && typeof ruleset.allowedOffFormatCardsEachMaxCopies === "number") {
     return ruleset.allowedOffFormatCardsEachMaxCopies;
@@ -576,6 +620,28 @@ export function getAllowedOffFormatCardsCount(entries = [], rulesetId = DEFAULT_
     }
     return sum;
   }, 0);
+}
+
+export function getQuantityGroupViolations(entries = [], rulesetId = DEFAULT_RULESET_ID) {
+  const groups = getRuleset(rulesetId).quantityGroups || [];
+  return groups
+    .map((group) => {
+      const names = new Set(group.cards || []);
+      const total = entries.reduce((sum, entry) => {
+        if (names.has(entry.card_name)) {
+          return sum + (entry.quantity || 0);
+        }
+        return sum;
+      }, 0);
+
+      return {
+        id: group.id,
+        label: group.label,
+        total,
+        maxTotal: group.maxTotal,
+      };
+    })
+    .filter((group) => group.total > group.maxTotal);
 }
 
 export function getRarityCaps(rulesetId = DEFAULT_RULESET_ID) {

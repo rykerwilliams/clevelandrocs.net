@@ -6,7 +6,7 @@ import DeckGalleryCard from "@/components/deck-builder/DeckGalleryCard";
 
 function DeckEntry({ entry, onAdd, onRemove, onDelete, section, onNameHoverStart, onNameHoverMove, onNameHoverEnd, rulesetId }) {
   const restricted = isRestricted(entry.card_name, rulesetId);
-  const maxCopies = getMaxCopies(entry.card_name, rulesetId);
+  const maxCopies = getMaxCopies(entry.card_name, rulesetId, { rarity: entry.rarity });
   const overLimit = !isBasicLand(entry.card_name) && entry.quantity > maxCopies;
   const pointsLimit = getPointsLimit(rulesetId);
   const cardPointValue = getCardPointValue(entry.card_name, rulesetId);
