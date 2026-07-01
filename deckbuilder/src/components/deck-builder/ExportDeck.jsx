@@ -26,10 +26,10 @@ function groupByType(entries) {
   return sorted;
 }
 
-function formatDeckText(deckName, mainDeck, sideboard) {
+function formatDeckText(deckName, mainDeck, sideboard, rulesetLabel) {
   const mainCount = mainDeck.reduce((s, e) => s + e.quantity, 0);
   const sideCount = sideboard.reduce((s, e) => s + e.quantity, 0);
-  let text = `// ${deckName}\n// Old School 93/94 — Eternal Central Rules\n// ${mainCount} main, ${sideCount} sideboard\n\n`;
+  let text = `// ${deckName}\n// ${rulesetLabel}\n// ${mainCount} main, ${sideCount} sideboard\n\n`;
 
   const mainGroups = groupByType(mainDeck);
   Object.entries(mainGroups).forEach(([category, entries]) => {
@@ -51,12 +51,12 @@ function formatDeckText(deckName, mainDeck, sideboard) {
   return text;
 }
 
-export default function ExportDeck({ deckName, mainDeck, sideboard }) {
+export default function ExportDeck({ deckName, mainDeck, sideboard, rulesetLabel }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
 
-  const deckText = formatDeckText(deckName, mainDeck, sideboard);
+  const deckText = formatDeckText(deckName, mainDeck, sideboard, rulesetLabel);
 
   const handleCopy = async () => {
     try {

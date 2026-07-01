@@ -4,11 +4,11 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { LEGAL_SETS, COLOR_FILTERS, TYPE_FILTERS, buildScryfallQuery, isBanned, isRestricted } from "@/lib/oldSchoolData";
+import { COLOR_FILTERS, TYPE_FILTERS, buildScryfallQuery, isBanned, isRestricted, getLegalSets } from "@/lib/oldSchoolData";
 import CardImage from "@/components/deck-builder/CardImage";
 import debounce from "lodash/debounce";
 
-export default function CardSearch({ onAddCard }) {
+export default function CardSearch({ onAddCard, rulesetId }) {
   const [search, setSearch] = useState("");
   const [colors, setColors] = useState([]);
   const [type, setType] = useState("");
@@ -22,6 +22,7 @@ export default function CardSearch({ onAddCard }) {
   const [totalCards, setTotalCards] = useState(0);
   const [hoverPreview, setHoverPreview] = useState(null);
   const scrollRef = useRef(null);
+  const legalSets = getLegalSets(rulesetId);
 
   const getPreviewPosition = (clientX, clientY) => {
     const previewWidth = 260;
@@ -93,16 +94,21 @@ export default function CardSearch({ onAddCard }) {
         type: t,
         set: st,
         cmc: cm,
+        rulesetId,
       });
       fetchCards(q);
     }, 400),
-    [fetchCards]
+    [fetchCards, rulesetId]
   );
 
   useEffect(() => {
     debouncedSearch(search, colors, type, set, cmc);
     return () => debouncedSearch.cancel();
   }, [search, colors, type, set, cmc, debouncedSearch]);
+
+  useEffect(() => {
+    setSet("");
+  }, [rulesetId]);
 
   const toggleColor = (val) => {
     setColors((prev) => (prev.includes(val) ? prev.filter((c) => c !== val) : [...prev, val]));
@@ -205,7 +211,7 @@ export default function CardSearch({ onAddCard }) {
                 <SelectItem value="all" className="text-stone-300">
                   All Sets
                 </SelectItem>
-                {LEGAL_SETS.map((s) => (
+                {legalSets.map((s) => (
                   <SelectItem key={s.code} value={s.code} className="text-stone-300">
                     {s.name}
                   </SelectItem>
@@ -253,8 +259,12 @@ export default function CardSearch({ onAddCard }) {
                   onMouseLeave={handleCardHoverEnd}
                 >
                   <CardImage card={card} size="small" onClick={() => onAddCard(card)} />
-                  {isRestricted(card.name) && <Badge className="absolute top-1 right-1 bg-amber-600/90 text-white text-[9px] px-1 py-0">R</Badge>}
-                  {isBanned(card.name) && <Badge className="absolute top-1 right-1 bg-red-700/90 text-white text-[9px] px-1 py-0">BANNED</Badge>}
+                  {isRestricted(card.name, rulesetId) && (
+                    <Badge className="absolute top-1 right-1 bg-amber-600/90 text-white text-[9px] px-1 py-0">R</Badge>
+                  )}
+                  {isBanned(card.name, rulesetId) && (
+                    <Badge className="absolute top-1 right-1 bg-red-700/90 text-white text-[9px] px-1 py-0">BANNED</Badge>
+                  )}
                   <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-2 pt-6 opacity-0 group-hover:opacity-100 transition-opacity rounded-b-lg pointer-events-none">
                     <p className="text-white text-[10px] font-medium leading-tight truncate">{card.name}</p>
                   </div>

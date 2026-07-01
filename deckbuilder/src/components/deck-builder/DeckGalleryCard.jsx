@@ -3,10 +3,10 @@ import { Minus, Plus, X, AlertTriangle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { isRestricted, isBasicLand, getMaxCopies } from "@/lib/oldSchoolData";
 
-export default function DeckGalleryCard({ entry, onAdd, onRemove, onDelete, section }) {
+export default function DeckGalleryCard({ entry, onAdd, onRemove, onDelete, section, rulesetId }) {
   const [imgError, setImgError] = useState(false);
-  const restricted = isRestricted(entry.card_name);
-  const maxCopies = getMaxCopies(entry.card_name);
+  const restricted = isRestricted(entry.card_name, rulesetId);
+  const maxCopies = getMaxCopies(entry.card_name, rulesetId);
   const overLimit = !isBasicLand(entry.card_name) && entry.quantity > maxCopies;
 
   return (
@@ -32,11 +32,7 @@ export default function DeckGalleryCard({ entry, onAdd, onRemove, onDelete, sect
         </div>
 
         {/* Restricted badge */}
-        {restricted && (
-          <Badge className="absolute top-1.5 right-1.5 bg-amber-600/90 text-white text-[9px] px-1 py-0">
-            R
-          </Badge>
-        )}
+        {restricted && <Badge className="absolute top-1.5 right-1.5 bg-amber-600/90 text-white text-[9px] px-1 py-0">R</Badge>}
 
         {/* Hover controls */}
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-2 pt-8 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1">

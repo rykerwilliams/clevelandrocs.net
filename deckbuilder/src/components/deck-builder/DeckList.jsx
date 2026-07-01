@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Minus, Plus, X, AlertTriangle, LayoutGrid, List as ListIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { isRestricted, isBasicLand, getMaxCopies } from "@/lib/oldSchoolData";
+import { isRestricted, isBasicLand, getMaxCopies, getRuleset } from "@/lib/oldSchoolData";
 import DeckGalleryCard from "@/components/deck-builder/DeckGalleryCard";
 
-function DeckEntry({ entry, onAdd, onRemove, onDelete, section, onNameHoverStart, onNameHoverMove, onNameHoverEnd }) {
-  const restricted = isRestricted(entry.card_name);
-  const maxCopies = getMaxCopies(entry.card_name);
+function DeckEntry({ entry, onAdd, onRemove, onDelete, section, onNameHoverStart, onNameHoverMove, onNameHoverEnd, rulesetId }) {
+  const restricted = isRestricted(entry.card_name, rulesetId);
+  const maxCopies = getMaxCopies(entry.card_name, rulesetId);
   const overLimit = !isBasicLand(entry.card_name) && entry.quantity > maxCopies;
 
   return (
@@ -76,9 +76,10 @@ function groupByType(entries) {
   return sorted;
 }
 
-export default function DeckList({ mainDeck, sideboard, onAdd, onRemove, onDelete }) {
+export default function DeckList({ mainDeck, sideboard, onAdd, onRemove, onDelete, rulesetId }) {
   const [view, setView] = useState("list");
   const [hoverPreview, setHoverPreview] = useState(null);
+  const ruleset = getRuleset(rulesetId);
 
   const getPreviewPosition = (clientX, clientY) => {
     const previewWidth = 240;
@@ -114,6 +115,7 @@ export default function DeckList({ mainDeck, sideboard, onAdd, onRemove, onDelet
 
   const mainCount = mainDeck.reduce((s, e) => s + e.quantity, 0);
   const sideCount = sideboard.reduce((s, e) => s + e.quantity, 0);
+  const mainTarget = ruleset.maxMainDeckSize || ruleset.minMainDeckSize;
   const mainGroups = groupByType(mainDeck);
   const sideGroups = groupByType(sideboard);
 
@@ -144,7 +146,15 @@ export default function DeckList({ mainDeck, sideboard, onAdd, onRemove, onDelet
               <LayoutGrid className="w-3.5 h-3.5" />
             </button>
           </div>
-          <span className={`text-xs font-mono ${mainCount >= 60 ? "text-emerald-400" : "text-amber-400"}`}>{mainCount} / 60</span>
+          <span
+            className={`text-xs font-mono ${
+              mainCount >= ruleset.minMainDeckSize && (ruleset.maxMainDeckSize == null || mainCount <= ruleset.maxMainDeckSize)
+                ? "text-emerald-400"
+                : "text-amber-400"
+            }`}
+          >
+            {mainCount} / {mainTarget}
+          </span>
         </div>
       </div>
 
@@ -168,6 +178,7 @@ export default function DeckList({ mainDeck, sideboard, onAdd, onRemove, onDelet
                   onNameHoverStart={handleNameHoverStart}
                   onNameHoverMove={handleNameHoverMove}
                   onNameHoverEnd={handleNameHoverEnd}
+                  rulesetId={rulesetId}
                 />
               ))}
             </div>
@@ -180,7 +191,15 @@ export default function DeckList({ mainDeck, sideboard, onAdd, onRemove, onDelet
               </p>
               <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-2 px-2">
                 {entries.map((entry) => (
-                  <DeckGalleryCard key={entry.card_name} entry={entry} onAdd={onAdd} onRemove={onRemove} onDelete={onDelete} section="main" />
+                  <DeckGalleryCard
+                    key={entry.card_name}
+                    entry={entry}
+                    onAdd={onAdd}
+                    onRemove={onRemove}
+                    onDelete={onDelete}
+                    section="main"
+                    rulesetId={rulesetId}
+                  />
                 ))}
               </div>
             </div>
@@ -191,7 +210,9 @@ export default function DeckList({ mainDeck, sideboard, onAdd, onRemove, onDelet
       {/* Sideboard */}
       <div className="px-4 py-3 border-t border-b border-stone-800 flex items-center justify-between">
         <h3 className="text-stone-200 font-semibold text-sm tracking-wide uppercase">Sideboard</h3>
-        <span className={`text-xs font-mono ${sideCount <= 15 ? "text-emerald-400" : "text-red-400"}`}>{sideCount} / 15</span>
+        <span className={`text-xs font-mono ${sideCount <= ruleset.maxSideboardSize ? "text-emerald-400" : "text-red-400"}`}>
+          {sideCount} / {ruleset.maxSideboardSize}
+        </span>
       </div>
 
       <div className="px-1 py-2">
@@ -209,12 +230,21 @@ export default function DeckList({ mainDeck, sideboard, onAdd, onRemove, onDelet
               onNameHoverStart={handleNameHoverStart}
               onNameHoverMove={handleNameHoverMove}
               onNameHoverEnd={handleNameHoverEnd}
+              rulesetId={rulesetId}
             />
           ))
         ) : (
           <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-2 px-2">
             {sideboard.map((entry) => (
-              <DeckGalleryCard key={entry.card_name} entry={entry} onAdd={onAdd} onRemove={onRemove} onDelete={onDelete} section="sideboard" />
+              <DeckGalleryCard
+                key={entry.card_name}
+                entry={entry}
+                onAdd={onAdd}
+                onRemove={onRemove}
+                onDelete={onDelete}
+                section="sideboard"
+                rulesetId={rulesetId}
+              />
             ))}
           </div>
         )}

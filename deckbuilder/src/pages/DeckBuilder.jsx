@@ -3,9 +3,20 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, BarChart3, BookOpen, List, Search, Check, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/components/ui/use-toast";
-import { isBanned, isRestricted, getMaxCopies } from "@/lib/oldSchoolData";
+import {
+  isBanned,
+  isRestricted,
+  getMaxCopies,
+  getRarityCaps,
+  getRarityCount,
+  isSetLegal,
+  getRuleset,
+  RULESET_OPTIONS,
+  DEFAULT_RULESET_ID,
+} from "@/lib/oldSchoolData";
 import CardSearch from "@/components/deck-builder/CardSearch";
 import DeckList from "@/components/deck-builder/DeckList";
 import DeckStats from "@/components/deck-builder/DeckStats";
@@ -21,6 +32,10 @@ export default function DeckBuilder() {
   const [sideboard, setSideboard] = useState([]);
   const [addingToSideboard, setAddingToSideboard] = useState(false);
   const [mobileTab, setMobileTab] = useState("search");
+  const [rulesetId, setRulesetId] = useState(DEFAULT_RULESET_ID);
+
+  const ruleset = getRuleset(rulesetId);
+  const rarityCaps = getRarityCaps(rulesetId);
 
   const getTotalCopies = useCallback(
     (cardName) => {
@@ -37,26 +52,88 @@ export default function DeckBuilder() {
   const addCard = useCallback(
     (card) => {
       const cardName = card.card_name || card.name;
+      const cardSetCode = (card.set_code || card.set || "").toLowerCase();
+      const cardRarity = (card.rarity || "").toLowerCase();
 
-      if (isBanned(cardName)) {
+      if (isBanned(cardName, rulesetId)) {
         toast({
           title: "Card is banned",
-          description: `${cardName} is banned in 93/94.`,
+          description: `${cardName} is banned in ${ruleset.shortLabel}.`,
           variant: "destructive",
         });
         return;
       }
 
-      const maxCopies = getMaxCopies(cardName);
+      if (!isSetLegal(cardSetCode, rulesetId)) {
+        toast({
+          title: "Set is not legal",
+          description: `${cardName} is not legal in ${ruleset.shortLabel} due to printing set.`,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      const maxCopies = getMaxCopies(cardName, rulesetId);
       const totalCopies = getTotalCopies(cardName);
 
       if (totalCopies >= maxCopies) {
         toast({
-          title: isRestricted(cardName) ? "Restricted to 1 copy" : "Maximum copies reached",
+          title: isRestricted(cardName, rulesetId) ? "Restricted to 1 copy" : "Maximum copies reached",
           description: `${cardName}: max ${maxCopies} across main deck and sideboard.`,
           variant: "destructive",
         });
         return;
+      }
+
+      if (addingToSideboard && ruleset.maxSideboardSize === 0) {
+        toast({
+          title: "No sideboard in this ruleset",
+          description: `${ruleset.shortLabel} does not allow sideboards.`,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (addingToSideboard && sideboard.reduce((s, e) => s + e.quantity, 0) >= ruleset.maxSideboardSize) {
+        toast({
+          title: "Sideboard limit reached",
+          description: `${ruleset.shortLabel} allows up to ${ruleset.maxSideboardSize} sideboard cards.`,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (!addingToSideboard && ruleset.maxMainDeckSize != null) {
+        const mainCount = mainDeck.reduce((s, e) => s + e.quantity, 0);
+        if (mainCount >= ruleset.maxMainDeckSize) {
+          toast({
+            title: "Deck size limit reached",
+            description: `${ruleset.shortLabel} requires exactly ${ruleset.maxMainDeckSize} cards in the main deck.`,
+            variant: "destructive",
+          });
+          return;
+        }
+      }
+
+      if (!addingToSideboard && rarityCaps) {
+        const rarityScopeEntries = ruleset.rarityCapsScope === "main" ? mainDeck : [...mainDeck, ...sideboard];
+        const rarityCounts = getRarityCount(rarityScopeEntries);
+        if (cardRarity === "rare" && rarityCounts.rare >= rarityCaps.rare) {
+          toast({
+            title: "Rare limit reached",
+            description: `${ruleset.shortLabel} allows up to ${rarityCaps.rare} rares.`,
+            variant: "destructive",
+          });
+          return;
+        }
+        if (cardRarity === "uncommon" && rarityCounts.uncommon >= rarityCaps.uncommon) {
+          toast({
+            title: "Uncommon limit reached",
+            description: `${ruleset.shortLabel} allows up to ${rarityCaps.uncommon} uncommons.`,
+            variant: "destructive",
+          });
+          return;
+        }
       }
 
       const newEntry = {
@@ -67,6 +144,8 @@ export default function DeckBuilder() {
         mana_cost: card.mana_cost || "",
         type_line: card.type_line || "",
         set_name: card.set_name || "",
+        set_code: cardSetCode,
+        rarity: cardRarity,
         colors: card.colors || [],
       };
 
@@ -88,27 +167,91 @@ export default function DeckBuilder() {
         });
       }
     },
-    [addingToSideboard, getTotalCopies, toast]
+    [addingToSideboard, getTotalCopies, mainDeck, rarityCaps, ruleset, rulesetId, sideboard, toast]
   );
 
   const incrementCard = useCallback(
     (entry, section) => {
-      const maxCopies = getMaxCopies(entry.card_name);
+      const maxCopies = getMaxCopies(entry.card_name, rulesetId);
       const totalCopies = getTotalCopies(entry.card_name);
 
       if (totalCopies >= maxCopies) {
         toast({
-          title: isRestricted(entry.card_name) ? "Restricted to 1 copy" : "Maximum copies reached",
+          title: isRestricted(entry.card_name, rulesetId) ? "Restricted to 1 copy" : "Maximum copies reached",
           description: `${entry.card_name}: max ${maxCopies} across main + sideboard.`,
           variant: "destructive",
         });
         return;
       }
 
+      if (!isSetLegal(entry.set_code, rulesetId)) {
+        toast({
+          title: "Set is not legal",
+          description: `${entry.card_name} is not legal in ${ruleset.shortLabel}.`,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (section === "sideboard") {
+        if (ruleset.maxSideboardSize === 0) {
+          toast({
+            title: "No sideboard in this ruleset",
+            description: `${ruleset.shortLabel} does not allow sideboards.`,
+            variant: "destructive",
+          });
+          return;
+        }
+        const sideCount = sideboard.reduce((s, e) => s + e.quantity, 0);
+        if (sideCount >= ruleset.maxSideboardSize) {
+          toast({
+            title: "Sideboard limit reached",
+            description: `${ruleset.shortLabel} allows up to ${ruleset.maxSideboardSize} sideboard cards.`,
+            variant: "destructive",
+          });
+          return;
+        }
+      }
+
+      if (section === "main" && ruleset.maxMainDeckSize != null) {
+        const mainCount = mainDeck.reduce((s, e) => s + e.quantity, 0);
+        if (mainCount >= ruleset.maxMainDeckSize) {
+          toast({
+            title: "Deck size limit reached",
+            description: `${ruleset.shortLabel} requires exactly ${ruleset.maxMainDeckSize} cards in the main deck.`,
+            variant: "destructive",
+          });
+          return;
+        }
+      }
+
+      if (section === "main" && rarityCaps) {
+        const rarityScopeEntries = ruleset.rarityCapsScope === "main" ? mainDeck : [...mainDeck, ...sideboard];
+        const rarityCounts = getRarityCount(rarityScopeEntries);
+        const rarity = (entry.rarity || "").toLowerCase();
+
+        if (rarity === "rare" && rarityCounts.rare >= rarityCaps.rare) {
+          toast({
+            title: "Rare limit reached",
+            description: `${ruleset.shortLabel} allows up to ${rarityCaps.rare} rares.`,
+            variant: "destructive",
+          });
+          return;
+        }
+        if (rarity === "uncommon" && rarityCounts.uncommon >= rarityCaps.uncommon) {
+          toast({
+            title: "Uncommon limit reached",
+            description: `${ruleset.shortLabel} allows up to ${rarityCaps.uncommon} uncommons.`,
+            variant: "destructive",
+          });
+          return;
+        }
+      }
+
       const setter = section === "sideboard" ? setSideboard : setMainDeck;
       setter((prev) => prev.map((e) => (e.card_name === entry.card_name ? { ...e, quantity: e.quantity + 1 } : e)));
     },
-    [getTotalCopies, toast]
+    [getTotalCopies, mainDeck, rarityCaps, ruleset, rulesetId, sideboard, toast]
   );
 
   const decrementCard = useCallback((entry, section) => {
@@ -129,7 +272,18 @@ export default function DeckBuilder() {
 
   const mainCount = mainDeck.reduce((s, e) => s + e.quantity, 0);
   const sideCount = sideboard.reduce((s, e) => s + e.quantity, 0);
-  const isValid = mainCount >= 60 && sideCount <= 15;
+  const rarityScopeEntries = ruleset.rarityCapsScope === "main" ? mainDeck : [...mainDeck, ...sideboard];
+  const rarityCounts = getRarityCount(rarityScopeEntries);
+  const rarityValid =
+    !rarityCaps ||
+    (rarityCounts.rare <= (rarityCaps.rare ?? Number.POSITIVE_INFINITY) &&
+      rarityCounts.uncommon <= (rarityCaps.uncommon ?? Number.POSITIVE_INFINITY));
+  const setsValid = [...mainDeck, ...sideboard].every((entry) => isSetLegal(entry.set_code, rulesetId));
+  const mainSizeValid = mainCount >= ruleset.minMainDeckSize && (ruleset.maxMainDeckSize == null || mainCount <= ruleset.maxMainDeckSize);
+  const sideSizeValid = sideCount <= ruleset.maxSideboardSize;
+  const isValid = mainSizeValid && sideSizeValid && rarityValid && setsValid;
+
+  const validityLabel = ruleset.maxMainDeckSize ? `${mainCount}/${ruleset.maxMainDeckSize}` : `${mainCount}/${ruleset.minMainDeckSize}`;
 
   return (
     <div className="deckbuilder-theme h-screen overflow-hidden bg-stone-950 flex flex-col">
@@ -147,6 +301,19 @@ export default function DeckBuilder() {
           className="bg-transparent border-none text-stone-200 font-semibold text-base focus-visible:ring-0 focus-visible:ring-offset-0 max-w-xs px-2 h-9"
         />
 
+        <Select value={rulesetId} onValueChange={setRulesetId}>
+          <SelectTrigger className="w-52 h-8 bg-stone-900 border-stone-700 text-stone-300 text-xs">
+            <SelectValue placeholder="Ruleset" />
+          </SelectTrigger>
+          <SelectContent className="bg-stone-900 border-stone-700">
+            {RULESET_OPTIONS.map((option) => (
+              <SelectItem key={option.value} value={option.value} className="text-stone-300">
+                {option.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+
         <div className="flex items-center gap-2 ml-auto">
           {/* Validity indicator */}
           <div
@@ -155,16 +322,17 @@ export default function DeckBuilder() {
             }`}
           >
             {isValid ? <Check className="w-3.5 h-3.5" /> : <AlertTriangle className="w-3.5 h-3.5" />}
-            {mainCount}/60
+            {validityLabel}
           </div>
 
-          <ExportDeck deckName={deckName} mainDeck={mainDeck} sideboard={sideboard} />
+          <ExportDeck deckName={deckName} mainDeck={mainDeck} sideboard={sideboard} rulesetLabel={ruleset.label} />
 
           {/* Sideboard toggle */}
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setAddingToSideboard(!addingToSideboard)}
+            disabled={ruleset.maxSideboardSize === 0}
             className={`text-xs h-8 ${
               addingToSideboard
                 ? "text-amber-400 bg-amber-900/20 hover:bg-amber-900/30 hover:text-amber-300"
@@ -203,12 +371,19 @@ export default function DeckBuilder() {
         <div className="hidden sm:flex flex-1">
           {/* Card Search Panel */}
           <div className="w-80 lg:w-96 border-r border-stone-800 flex flex-col shrink-0">
-            <CardSearch onAddCard={addCard} />
+            <CardSearch onAddCard={addCard} rulesetId={rulesetId} />
           </div>
 
           {/* Deck Panel */}
           <div className="flex-1 flex flex-col min-w-0">
-            <DeckList mainDeck={mainDeck} sideboard={sideboard} onAdd={incrementCard} onRemove={decrementCard} onDelete={deleteCard} />
+            <DeckList
+              mainDeck={mainDeck}
+              sideboard={sideboard}
+              onAdd={incrementCard}
+              onRemove={decrementCard}
+              onDelete={deleteCard}
+              rulesetId={rulesetId}
+            />
           </div>
 
           {/* Stats / Rules Panel */}
@@ -228,7 +403,7 @@ export default function DeckBuilder() {
                 <DeckStats mainDeck={mainDeck} />
               </TabsContent>
               <TabsContent value="rules" className="flex-1 overflow-hidden mt-0">
-                <RulesReference />
+                <RulesReference rulesetId={rulesetId} />
               </TabsContent>
             </Tabs>
           </div>
@@ -236,9 +411,16 @@ export default function DeckBuilder() {
 
         {/* Mobile Layout */}
         <div className="sm:hidden flex-1 flex flex-col overflow-hidden">
-          {mobileTab === "search" && <CardSearch onAddCard={addCard} />}
+          {mobileTab === "search" && <CardSearch onAddCard={addCard} rulesetId={rulesetId} />}
           {mobileTab === "deck" && (
-            <DeckList mainDeck={mainDeck} sideboard={sideboard} onAdd={incrementCard} onRemove={decrementCard} onDelete={deleteCard} />
+            <DeckList
+              mainDeck={mainDeck}
+              sideboard={sideboard}
+              onAdd={incrementCard}
+              onRemove={decrementCard}
+              onDelete={deleteCard}
+              rulesetId={rulesetId}
+            />
           )}
           {mobileTab === "stats" && (
             <div className="flex-1 overflow-y-auto">
@@ -247,7 +429,7 @@ export default function DeckBuilder() {
           )}
           {mobileTab === "rules" && (
             <div className="flex-1 overflow-hidden">
-              <RulesReference />
+              <RulesReference rulesetId={rulesetId} />
             </div>
           )}
         </div>
