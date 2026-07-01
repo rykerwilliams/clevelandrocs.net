@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Minus, Plus, X, AlertTriangle, LayoutGrid, List as ListIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { isRestricted, isBasicLand, getMaxCopies, getRuleset } from "@/lib/oldSchoolData";
+import { isRestricted, isBasicLand, getMaxCopies, getRuleset, getCardPointValue, getPointsLimit } from "@/lib/oldSchoolData";
 import DeckGalleryCard from "@/components/deck-builder/DeckGalleryCard";
 
 function DeckEntry({ entry, onAdd, onRemove, onDelete, section, onNameHoverStart, onNameHoverMove, onNameHoverEnd, rulesetId }) {
   const restricted = isRestricted(entry.card_name, rulesetId);
   const maxCopies = getMaxCopies(entry.card_name, rulesetId);
   const overLimit = !isBasicLand(entry.card_name) && entry.quantity > maxCopies;
+  const pointsLimit = getPointsLimit(rulesetId);
+  const cardPointValue = getCardPointValue(entry.card_name, rulesetId);
+  const cardPointsTotal = cardPointValue * entry.quantity;
 
   return (
     <div
@@ -27,6 +30,15 @@ function DeckEntry({ entry, onAdd, onRemove, onDelete, section, onNameHoverStart
           R
         </Badge>
       )}
+      {pointsLimit != null && cardPointsTotal > 0 ? (
+        <Badge
+          variant="outline"
+          className="border-sky-500/70 text-sky-300 text-[9px] px-1 py-0 shrink-0"
+          title={`${entry.quantity} x ${cardPointValue} point${cardPointValue === 1 ? "" : "s"}`}
+        >
+          {cardPointsTotal} pt
+        </Badge>
+      ) : null}
       {overLimit && <AlertTriangle className="w-3.5 h-3.5 text-red-400 shrink-0" />}
       <div className="flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
         <button
