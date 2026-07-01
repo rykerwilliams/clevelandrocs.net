@@ -27,6 +27,45 @@ const ETERNAL_CENTRAL_RESTRICTED = [
   "Wheel of Fortune",
 ];
 
+const A2A_RESTRICTED = [
+  "Ancestral Recall",
+  "Balance",
+  "Black Lotus",
+  "Braingeyser",
+  "Chaos Orb",
+  "Channel",
+  "Demonic Consultation",
+  "Demonic Tutor",
+  "Library of Alexandria",
+  "Mana Crypt",
+  "Mana Drain",
+  "Mind Twist",
+  "Mox Emerald",
+  "Mox Jet",
+  "Mox Pearl",
+  "Mox Ruby",
+  "Mox Sapphire",
+  "Recall",
+  "Regrowth",
+  "Sol Ring",
+  "Time Vault",
+  "Time Walk",
+  "Timetwister",
+  "Wheel of Fortune",
+];
+
+const A2A_BANNED = [
+  "Amulet of Quoz",
+  "Bronze Tablet",
+  "Contract from Below",
+  "Darkpact",
+  "Demonic Attorney",
+  "Jeweled Bird",
+  "Rebirth",
+  "Tempest Efreet",
+  "Timmerian Fiends",
+];
+
 export const DEFAULT_RULESET_ID = "eternal-central";
 
 export const RULESETS = {
@@ -91,7 +130,7 @@ export const RULESETS = {
     restrictedCards: [],
     minMainDeckSize: 40,
     maxMainDeckSize: 40,
-    maxSideboardSize: 0,
+    maxSideboardSize: 5,
     defaultMaxCopies: 4,
     allowAlphaBasicLands: true,
     maxCopiesByCardName: {
@@ -190,6 +229,56 @@ export const RULESETS = {
       "Up to 9 cards total may come from the FE40 exception list",
     ],
   },
+  a2a: {
+    id: "a2a",
+    label: "A2A (Alpha to Alliances)",
+    shortLabel: "A2A",
+    description: "Old-frame format covering Alpha through Alliances with specific promo allowances.",
+    sourceLabel: "Cleveland ROCS",
+    sourceUrl: "https://clevelandrocs.net/builder/",
+    legalSets: [
+      { code: "lea", name: "Alpha" },
+      { code: "leb", name: "Beta" },
+      { code: "2ed", name: "Unlimited" },
+      { code: "cei", name: "Collector's Edition" },
+      { code: "ced", name: "International Collector's Edition" },
+      { code: "arn", name: "Arabian Nights" },
+      { code: "atq", name: "Antiquities" },
+      { code: "3ed", name: "Revised" },
+      { code: "leg", name: "Legends" },
+      { code: "drk", name: "The Dark" },
+      { code: "fem", name: "Fallen Empires" },
+      { code: "4ed", name: "Fourth Edition" },
+      { code: "ice", name: "Ice Age" },
+      { code: "chr", name: "Chronicles" },
+      { code: "hml", name: "Homelands" },
+      { code: "ren", name: "Renaissance" },
+      { code: "all", name: "Alliances" },
+    ],
+    bannedCards: A2A_BANNED,
+    restrictedCards: A2A_RESTRICTED,
+    minMainDeckSize: 60,
+    maxMainDeckSize: null,
+    maxSideboardSize: 15,
+    defaultMaxCopies: 4,
+    allowedOffFormatCards: ["Arena", "Giant Badger", "Mana Crypt", "Nalathni Dragon", "Sewers of Estark", "Windseeker Centaur"],
+    maxCopiesByCardName: {
+      Arena: 1,
+      "Giant Badger": 1,
+      "Mana Crypt": 1,
+      "Nalathni Dragon": 1,
+      "Sewers of Estark": 1,
+      "Windseeker Centaur": 1,
+    },
+    unlimitedCardsByName: ["Aurochs", "Bog Rats", "Diseased Vermin", "Plague Rats", "Pestilence Rats"],
+    notes: [
+      "Minimum 60 cards in main deck",
+      "Arena, Giant Badger, Mana Crypt, Nalathni Dragon, Sewers of Estark, and Windseeker Centaur are legal promos",
+      "Aurochs and Rat creatures (Bog Rats, Diseased Vermin, Plague Rats, Pestilence Rats) have unlimited copies",
+      "Restricted list applies at 1 copy each",
+      "All ante cards are banned",
+    ],
+  },
 };
 
 export const RULESET_OPTIONS = Object.values(RULESETS).map((ruleset) => ({
@@ -240,6 +329,9 @@ export function isBasicLand(cardName) {
 
 export function getMaxCopies(cardName, rulesetId = DEFAULT_RULESET_ID) {
   const ruleset = getRuleset(rulesetId);
+
+  if (ruleset.unlimitedCardsByName?.includes(cardName)) return 99;
+
   const override = ruleset.maxCopiesByCardName?.[cardName];
   if (typeof override === "number") return override;
 
@@ -324,11 +416,11 @@ export function buildScryfallQuery({ search = "", colors = [], type = "", set = 
     const setTerms = setCodes.map((c) => `e:${c}`);
 
     if (ruleset.allowAlphaBasicLands) {
-      setTerms.push(`(e:lea and (${BASIC_LANDS.map((name) => `!"${name}"`).join(" or ")}))`);
+      setTerms.push("e:lea");
     }
 
     if (ruleset.allowedOffFormatCards?.length) {
-      setTerms.push(`(${ruleset.allowedOffFormatCards.map((name) => `!"${name}"`).join(" or ")})`);
+      setTerms.push(...ruleset.allowedOffFormatCards.map((name) => `name:\"${name}\"`));
     }
 
     setQuery = `(${setTerms.join(" or ")})`;

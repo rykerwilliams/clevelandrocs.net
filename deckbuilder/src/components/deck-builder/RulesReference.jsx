@@ -1,11 +1,13 @@
 import React from "react";
-import { getRuleset } from "@/lib/oldSchoolData";
+import { getRuleset, getAllowedOffFormatCardsCount, getAllowedOffFormatCardsLimit } from "@/lib/oldSchoolData";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-export default function RulesReference({ rulesetId }) {
+export default function RulesReference({ rulesetId, mainDeck = [] }) {
   const ruleset = getRuleset(rulesetId);
   const hasRarityCaps = Boolean(ruleset.rarityCaps);
+  const exceptionLimit = getAllowedOffFormatCardsLimit(rulesetId);
+  const exceptionCount = getAllowedOffFormatCardsCount(mainDeck, rulesetId);
 
   return (
     <ScrollArea className="h-full">
@@ -34,8 +36,28 @@ export default function RulesReference({ rulesetId }) {
                 Rares max {ruleset.rarityCaps.rare}, uncommons max {ruleset.rarityCaps.uncommon}
               </li>
             ) : null}
+            {exceptionLimit != null ? (
+              <li>
+                Exception-list cards: {exceptionCount}/{exceptionLimit}
+              </li>
+            ) : null}
           </ul>
         </div>
+
+        {rulesetId === "fallen-empires-40" ? (
+          <div className="rounded-lg border border-stone-800 bg-stone-900/60 p-3 text-xs text-stone-400 leading-relaxed">
+            Up to 9 cards from{" "}
+            <a
+              href="https://moxfield.com/decks/txWTpsGXwEqiEm7kyGWmMA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-500 hover:text-amber-400 underline"
+            >
+              Sarpadian Scryings
+            </a>{" "}
+            may be included in decks (following normal deckbuilding rules)!
+          </div>
+        ) : null}
 
         {/* Legal Sets */}
         <div>

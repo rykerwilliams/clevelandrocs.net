@@ -441,7 +441,7 @@ export default function DeckBuilder() {
                 <DeckStats mainDeck={mainDeck} />
               </TabsContent>
               <TabsContent value="rules" className="flex-1 overflow-hidden mt-0">
-                <RulesReference rulesetId={rulesetId} />
+                <RulesReference rulesetId={rulesetId} mainDeck={mainDeck} />
               </TabsContent>
             </Tabs>
           </div>
@@ -467,7 +467,7 @@ export default function DeckBuilder() {
           )}
           {mobileTab === "rules" && (
             <div className="flex-1 overflow-hidden">
-              <RulesReference rulesetId={rulesetId} />
+              <RulesReference rulesetId={rulesetId} mainDeck={mainDeck} />
             </div>
           )}
         </div>
