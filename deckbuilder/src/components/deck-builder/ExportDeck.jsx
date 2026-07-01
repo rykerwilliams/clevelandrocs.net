@@ -58,6 +58,12 @@ function getGridDimensions(cardCount, cardHeightOverWidth) {
   return { columns, rows };
 }
 
+function getCanvasSafeImageUrl(uri) {
+  if (!uri) return "";
+  const normalized = uri.replace(/^https?:\/\//i, "");
+  return `https://images.weserv.nl/?url=${encodeURIComponent(normalized)}`;
+}
+
 export default function ExportDeck({ deckName, mainDeck, sideboard, rulesetLabel }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -124,30 +130,20 @@ export default function ExportDeck({ deckName, mainDeck, sideboard, rulesetLabel
       ctx.fillText(`${rulesetLabel} • ${cardSlots.length} cards`, padding, padding + 44);
 
       const imageCache = new Map();
-      const objectUrls = [];
       const uniqueUris = [...new Set(cardSlots.map((entry) => entry.image_uri).filter(Boolean))];
 
       await Promise.all(
         uniqueUris.map(async (uri) => {
-          try {
-            const res = await fetch(uri);
-            if (!res.ok) return;
-            const blob = await res.blob();
-            const objectUrl = URL.createObjectURL(blob);
-            objectUrls.push(objectUrl);
-
-            await new Promise((resolve) => {
-              const img = new window.Image();
-              img.onload = () => {
-                imageCache.set(uri, img);
-                resolve();
-              };
-              img.onerror = () => resolve();
-              img.src = objectUrl;
-            });
-          } catch {
-            // Skip images that fail to load; fallback tile will be rendered.
-          }
+          await new Promise((resolve) => {
+            const img = new window.Image();
+            img.crossOrigin = "anonymous";
+            img.onload = () => {
+              imageCache.set(uri, img);
+              resolve();
+            };
+            img.onerror = () => resolve();
+            img.src = getCanvasSafeImageUrl(uri);
+          });
         })
       );
 
@@ -176,8 +172,6 @@ export default function ExportDeck({ deckName, mainDeck, sideboard, rulesetLabel
       const fileBase = safeDeckName.replace(/[\\/:*?"<>|]/g, "_");
       a.download = `${fileBase}.png`;
       a.click();
-
-      objectUrls.forEach((url) => URL.revokeObjectURL(url));
     } catch {
       toast({ title: "Failed to export image", variant: "destructive" });
     } finally {
