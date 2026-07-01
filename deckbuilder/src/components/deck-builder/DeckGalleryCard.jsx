@@ -40,7 +40,7 @@ export default function DeckGalleryCard({ entry, onAdd, onRemove, onDelete, sect
         {/* Points badge */}
         {pointsLimit != null && cardPointsTotal > 0 ? (
           <Badge
-            className="absolute bottom-1.5 left-1.5 bg-sky-700/90 text-white text-[9px] px-1.5 py-0.5"
+            className="absolute top-1.5 left-1/2 -translate-x-1/2 bg-sky-700/90 text-white text-[9px] px-1.5 py-0.5"
             title={`${entry.quantity} x ${cardPointValue} points`}
           >
             {cardPointsTotal} pt
@@ -71,7 +71,7 @@ export default function DeckGalleryCard({ entry, onAdd, onRemove, onDelete, sect
 
         {/* Over-limit indicator */}
         {overLimit && (
-          <div className="absolute top-1.5 left-1/2 -translate-x-1/2 flex items-center gap-1 bg-red-700/90 text-white text-[9px] px-1.5 py-0.5 rounded">
+          <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 flex items-center gap-1 bg-red-700/90 text-white text-[9px] px-1.5 py-0.5 rounded">
             <AlertTriangle className="w-2.5 h-2.5" />
             Limit
           </div>

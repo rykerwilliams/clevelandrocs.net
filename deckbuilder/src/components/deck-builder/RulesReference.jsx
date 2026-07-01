@@ -1,5 +1,12 @@
 import React from "react";
-import { getRuleset, getAllowedOffFormatCardsCount, getAllowedOffFormatCardsLimit, getDeckPointsTotal, getPointsLimit } from "@/lib/oldSchoolData";
+import {
+  getRuleset,
+  getAllowedOffFormatCardsCount,
+  getAllowedOffFormatCardsLimit,
+  getDeckPointsTotal,
+  getPointsLimit,
+  getCardPointValue,
+} from "@/lib/oldSchoolData";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
@@ -9,7 +16,19 @@ export default function RulesReference({ rulesetId, mainDeck = [], sideboard = [
   const exceptionLimit = getAllowedOffFormatCardsLimit(rulesetId);
   const exceptionCount = getAllowedOffFormatCardsCount(mainDeck, rulesetId);
   const pointsLimit = getPointsLimit(rulesetId);
-  const pointsTotal = getDeckPointsTotal([...mainDeck, ...sideboard], rulesetId);
+  const allEntries = [...mainDeck, ...sideboard];
+  const pointsTotal = getDeckPointsTotal(allEntries, rulesetId);
+  const pointsBreakdown = allEntries
+    .map((entry) => {
+      const pointValue = getCardPointValue(entry.card_name, rulesetId);
+      return {
+        ...entry,
+        pointValue,
+        pointsSubtotal: pointValue * (entry.quantity || 0),
+      };
+    })
+    .filter((entry) => entry.pointValue > 0)
+    .sort((a, b) => b.pointsSubtotal - a.pointsSubtotal || a.card_name.localeCompare(b.card_name));
 
   return (
     <ScrollArea className="h-full">
@@ -50,6 +69,29 @@ export default function RulesReference({ rulesetId, mainDeck = [], sideboard = [
             ) : null}
           </ul>
         </div>
+
+        {pointsLimit != null ? (
+          <div>
+            <h4 className="text-sky-300 font-semibold text-sm mb-2 uppercase tracking-wider">Points Breakdown</h4>
+            {pointsBreakdown.length === 0 ? (
+              <p className="text-stone-500 text-xs">No point cards in deck.</p>
+            ) : (
+              <div className="space-y-1">
+                {pointsBreakdown.map((entry) => (
+                  <div
+                    key={`${entry.card_name}-${entry.set_code || ""}`}
+                    className="text-stone-300 text-xs px-2 py-1 bg-sky-950/20 rounded border border-sky-900/30 flex items-center justify-between gap-3"
+                  >
+                    <span className="truncate">{entry.card_name}</span>
+                    <span className="text-sky-300 font-mono shrink-0">
+                      {entry.quantity}x{entry.pointValue} = {entry.pointsSubtotal}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ) : null}
 
         {rulesetId === "fallen-empires-40" ? (
           <div className="rounded-lg border border-stone-800 bg-stone-900/60 p-3 text-xs text-stone-400 leading-relaxed">
