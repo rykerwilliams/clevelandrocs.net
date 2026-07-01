@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Search, SunMoon } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "about", href: "/" },
@@ -11,8 +11,25 @@ const NAV_ITEMS = [
 export default function SiteHeader({ active = "Deck Builder" }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const handleSearch = () => {
+    const ninjaKeys = document.querySelector("ninja-keys");
+    if (ninjaKeys && typeof ninjaKeys.open === "function") {
+      ninjaKeys.open();
+      return;
+    }
+    window.location.href = "/search/";
+  };
+
+  const handleThemeToggle = () => {
+    const current = localStorage.getItem("theme");
+    const next = current === "dark" ? "light" : "dark";
+    localStorage.setItem("theme", next);
+    document.documentElement.setAttribute("data-theme", next);
+    document.documentElement.setAttribute("data-theme-setting", next);
+  };
+
   return (
-    <div className="border-b border-stone-200 bg-white text-stone-700">
+    <div className="border-b border-stone-200 bg-stone-950 text-stone-700">
       <div className="max-w-6xl mx-auto h-12 px-4 flex items-center gap-4">
         <a href="/" className="text-sm sm:text-base font-light tracking-tight text-stone-900">
           clevelandrocs.net
@@ -27,6 +44,20 @@ export default function SiteHeader({ active = "Deck Builder" }) {
               </a>
             );
           })}
+
+          <button type="button" className="text-stone-600 hover:text-stone-900 transition-colors" title="Search" onClick={handleSearch}>
+            <span className="inline-flex items-center gap-1">
+              Search
+              <Search className="w-4 h-4" />
+            </span>
+          </button>
+
+          <button type="button" className="text-stone-600 hover:text-stone-900 transition-colors" title="Change theme" onClick={handleThemeToggle}>
+            <span className="inline-flex items-center gap-1">
+              Theme
+              <SunMoon className="w-4 h-4" />
+            </span>
+          </button>
         </div>
 
         <button
@@ -55,6 +86,12 @@ export default function SiteHeader({ active = "Deck Builder" }) {
               </a>
             );
           })}
+          <button type="button" className="py-1 text-left text-stone-600 hover:text-stone-900" onClick={handleSearch}>
+            Search
+          </button>
+          <button type="button" className="py-1 text-left text-stone-600 hover:text-stone-900" onClick={handleThemeToggle}>
+            Change theme
+          </button>
         </div>
       )}
     </div>

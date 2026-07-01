@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Copy, Check, Download, Image as ImageIcon, Loader2 } from "lucide-react";
+import { Copy, Check, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/components/ui/use-toast";
@@ -51,23 +51,9 @@ function formatDeckText(deckName, mainDeck, sideboard, rulesetLabel) {
   return text;
 }
 
-function getGridDimensions(cardCount, cardHeightOverWidth) {
-  if (cardCount <= 0) return { columns: 1, rows: 1 };
-  const columns = Math.max(1, Math.ceil(Math.sqrt(cardCount * cardHeightOverWidth)));
-  const rows = Math.max(1, Math.ceil(cardCount / columns));
-  return { columns, rows };
-}
-
-function getCanvasSafeImageUrl(uri) {
-  if (!uri) return "";
-  const normalized = uri.replace(/^https?:\/\//i, "");
-  return `https://images.weserv.nl/?url=${encodeURIComponent(normalized)}`;
-}
-
 export default function ExportDeck({ deckName, mainDeck, sideboard, rulesetLabel }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [exportingImage, setExportingImage] = useState(false);
   const { toast } = useToast();
 
   const deckText = formatDeckText(deckName, mainDeck, sideboard, rulesetLabel);
@@ -91,92 +77,6 @@ export default function ExportDeck({ deckName, mainDeck, sideboard, rulesetLabel
     a.download = `${deckName.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.txt`;
     a.click();
     URL.revokeObjectURL(url);
-  };
-
-  const handleDownloadImage = async () => {
-    const cardSlots = mainDeck.flatMap((entry) => Array.from({ length: entry.quantity }, () => entry));
-    if (cardSlots.length === 0) {
-      toast({ title: "No cards to export", description: "Add cards to your main deck first.", variant: "destructive" });
-      return;
-    }
-
-    setExportingImage(true);
-    try {
-      const cardWidth = 200;
-      const cardHeight = 280;
-      const gap = 12;
-      const padding = 20;
-      const labelHeight = 48;
-      const cardHeightOverWidth = cardHeight / cardWidth;
-
-      const { columns, rows } = getGridDimensions(cardSlots.length, cardHeightOverWidth);
-      const width = padding * 2 + columns * cardWidth + (columns - 1) * gap;
-      const height = padding * 2 + labelHeight + rows * cardHeight + (rows - 1) * gap;
-
-      const canvas = document.createElement("canvas");
-      canvas.width = width;
-      canvas.height = height;
-      const ctx = canvas.getContext("2d");
-      if (!ctx) throw new Error("Canvas is not available");
-
-      ctx.fillStyle = "#0c0a09";
-      ctx.fillRect(0, 0, width, height);
-
-      ctx.fillStyle = "#e7e5e4";
-      ctx.font = "700 26px system-ui, -apple-system, Segoe UI, sans-serif";
-      ctx.fillText(deckName, padding, padding + 24);
-      ctx.fillStyle = "#a8a29e";
-      ctx.font = "500 16px system-ui, -apple-system, Segoe UI, sans-serif";
-      ctx.fillText(`${rulesetLabel} • ${cardSlots.length} cards`, padding, padding + 44);
-
-      const imageCache = new Map();
-      const uniqueUris = [...new Set(cardSlots.map((entry) => entry.image_uri).filter(Boolean))];
-
-      await Promise.all(
-        uniqueUris.map(async (uri) => {
-          await new Promise((resolve) => {
-            const img = new window.Image();
-            img.crossOrigin = "anonymous";
-            img.onload = () => {
-              imageCache.set(uri, img);
-              resolve();
-            };
-            img.onerror = () => resolve();
-            img.src = getCanvasSafeImageUrl(uri);
-          });
-        })
-      );
-
-      cardSlots.forEach((entry, index) => {
-        const row = Math.floor(index / columns);
-        const column = index % columns;
-        const x = padding + column * (cardWidth + gap);
-        const y = padding + labelHeight + row * (cardHeight + gap);
-        const img = imageCache.get(entry.image_uri);
-
-        if (img) {
-          ctx.drawImage(img, x, y, cardWidth, cardHeight);
-        } else {
-          ctx.fillStyle = "#1c1917";
-          ctx.fillRect(x, y, cardWidth, cardHeight);
-          ctx.fillStyle = "#a8a29e";
-          ctx.font = "600 15px system-ui, -apple-system, Segoe UI, sans-serif";
-          ctx.fillText(entry.card_name, x + 10, y + 26, cardWidth - 20);
-        }
-      });
-
-      const imageUrl = canvas.toDataURL("image/png");
-      const a = document.createElement("a");
-      a.href = imageUrl;
-      const safeDeckName = (deckName || "deck").trim() || "deck";
-      const fileBase = safeDeckName.replace(/[\\/:*?"<>|]/g, "_");
-      a.download = `${fileBase}.png`;
-      a.click();
-    } catch {
-      toast({ title: "Failed to export image", variant: "destructive" });
-    } finally {
-      setExportingImage(false);
-    }
   };
 
   return (
@@ -203,16 +103,6 @@ export default function ExportDeck({ deckName, mainDeck, sideboard, rulesetLabel
             <Button onClick={handleDownload} variant="outline" size="sm" className="border-stone-700 text-stone-300 hover:bg-stone-800 h-9">
               <Download className="w-4 h-4 mr-1.5" />
               Download .txt
-            </Button>
-            <Button
-              onClick={handleDownloadImage}
-              variant="outline"
-              size="sm"
-              disabled={exportingImage}
-              className="border-stone-700 text-stone-300 hover:bg-stone-800 h-9"
-            >
-              {exportingImage ? <Loader2 className="w-4 h-4 mr-1.5 animate-spin" /> : <ImageIcon className="w-4 h-4 mr-1.5" />}
-              Download .png
             </Button>
           </div>
           <div className="relative">
