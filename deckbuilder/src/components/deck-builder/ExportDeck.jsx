@@ -124,22 +124,31 @@ export default function ExportDeck({ deckName, mainDeck, sideboard, rulesetLabel
       ctx.fillText(`${rulesetLabel} • ${cardSlots.length} cards`, padding, padding + 44);
 
       const imageCache = new Map();
+      const objectUrls = [];
       const uniqueUris = [...new Set(cardSlots.map((entry) => entry.image_uri).filter(Boolean))];
 
       await Promise.all(
-        uniqueUris.map(
-          (uri) =>
-            new Promise((resolve) => {
+        uniqueUris.map(async (uri) => {
+          try {
+            const res = await fetch(uri);
+            if (!res.ok) return;
+            const blob = await res.blob();
+            const objectUrl = URL.createObjectURL(blob);
+            objectUrls.push(objectUrl);
+
+            await new Promise((resolve) => {
               const img = new window.Image();
-              img.crossOrigin = "anonymous";
               img.onload = () => {
                 imageCache.set(uri, img);
                 resolve();
               };
               img.onerror = () => resolve();
-              img.src = uri;
-            })
-        )
+              img.src = objectUrl;
+            });
+          } catch {
+            // Skip images that fail to load; fallback tile will be rendered.
+          }
+        })
       );
 
       cardSlots.forEach((entry, index) => {
@@ -158,21 +167,17 @@ export default function ExportDeck({ deckName, mainDeck, sideboard, rulesetLabel
           ctx.font = "600 15px system-ui, -apple-system, Segoe UI, sans-serif";
           ctx.fillText(entry.card_name, x + 10, y + 26, cardWidth - 20);
         }
-
-        if (entry.quantity > 1) {
-          ctx.fillStyle = "rgba(0, 0, 0, 0.78)";
-          ctx.fillRect(x + 8, y + 8, 46, 26);
-          ctx.fillStyle = "#fbbf24";
-          ctx.font = "700 16px system-ui, -apple-system, Segoe UI, sans-serif";
-          ctx.fillText(`x${entry.quantity}`, x + 16, y + 26);
-        }
       });
 
       const imageUrl = canvas.toDataURL("image/png");
       const a = document.createElement("a");
       a.href = imageUrl;
-      a.download = `${deckName.replace(/[^a-z0-9]/gi, "_").toLowerCase()}_grid.png`;
+      const safeDeckName = (deckName || "deck").trim() || "deck";
+      const fileBase = safeDeckName.replace(/[\\/:*?"<>|]/g, "_");
+      a.download = `${fileBase}.png`;
       a.click();
+
+      objectUrls.forEach((url) => URL.revokeObjectURL(url));
     } catch {
       toast({ title: "Failed to export image", variant: "destructive" });
     } finally {
