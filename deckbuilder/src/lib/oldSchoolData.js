@@ -66,6 +66,34 @@ const A2A_BANNED = [
   "Timmerian Fiends",
 ];
 
+const MIDDLE_SCHOOL_BANNED = [
+  "Amulet of Quoz",
+  "Balance",
+  "Brainstorm",
+  "Bronze Tablet",
+  "Channel",
+  "Dark Ritual",
+  "Demonic Consultation",
+  "Flash",
+  "Goblin Recruiter",
+  "Imperial Seal",
+  "Jeweled Bird",
+  "Mana Crypt",
+  "Mana Vault",
+  "Memory Jar",
+  "Mind's Desire",
+  "Mind Twist",
+  "Rebirth",
+  "Strip Mine",
+  "Tempest Efreet",
+  "Timmerian Fiends",
+  "Tolarian Academy",
+  "Vampiric Tutor",
+  "Windfall",
+  "Yawgmoth's Bargain",
+  "Yawgmoth's Will",
+];
+
 export const DEFAULT_RULESET_ID = "eternal-central";
 
 export const RULESETS = {
@@ -279,6 +307,80 @@ export const RULESETS = {
       "All ante cards are banned",
     ],
   },
+  "middle-school": {
+    id: "middle-school",
+    label: "Middle School",
+    shortLabel: "MS",
+    description: "Old-frame 1995-2003 format with promo allowances and no restricted list.",
+    sourceLabel: "Eternal Central",
+    sourceUrl: "https://www.eternalcentral.com/middleschoolrules/",
+    legalSets: [
+      { code: "4ed", name: "Fourth Edition" },
+      { code: "ice", name: "Ice Age" },
+      { code: "chr", name: "Chronicles" },
+      { code: "ren", name: "Renaissance" },
+      { code: "hml", name: "Homelands" },
+      { code: "all", name: "Alliances" },
+      { code: "mir", name: "Mirage" },
+      { code: "vis", name: "Visions" },
+      { code: "5ed", name: "Fifth Edition" },
+      { code: "wth", name: "Weatherlight" },
+      { code: "por", name: "Portal" },
+      { code: "tmp", name: "Tempest" },
+      { code: "sth", name: "Stronghold" },
+      { code: "exo", name: "Exodus" },
+      { code: "p02", name: "Portal Second Age" },
+      { code: "usg", name: "Urza's Saga" },
+      { code: "ulg", name: "Urza's Legacy" },
+      { code: "6ed", name: "Sixth Edition" },
+      { code: "uds", name: "Urza's Destiny" },
+      { code: "ptk", name: "Portal Three Kingdoms" },
+      { code: "s99", name: "Starter 1999" },
+      { code: "mmq", name: "Mercadian Masques" },
+      { code: "nem", name: "Nemesis" },
+      { code: "pcy", name: "Prophecy" },
+      { code: "inv", name: "Invasion" },
+      { code: "pls", name: "Planeshift" },
+      { code: "apc", name: "Apocalypse" },
+      { code: "ody", name: "Odyssey" },
+      { code: "tor", name: "Torment" },
+      { code: "jud", name: "Judgment" },
+      { code: "ons", name: "Onslaught" },
+      { code: "lgn", name: "Legions" },
+      { code: "scg", name: "Scourge" },
+    ],
+    bannedCards: MIDDLE_SCHOOL_BANNED,
+    restrictedCards: [],
+    minMainDeckSize: 60,
+    maxMainDeckSize: null,
+    maxSideboardSize: 15,
+    defaultMaxCopies: 4,
+    allowReprintsOfLegalCards: true,
+    legalReprintBrowseNames: ["Arena", "Sewers of Estark", "Nalathni Dragon", "Giant Badger", "Windseeker Centaur"],
+    allowedOffFormatCards: [
+      "Arena",
+      "Sewers of Estark",
+      "Nalathni Dragon",
+      "Giant Badger",
+      "Windseeker Centaur",
+      "Fireball",
+      "Counterspell",
+      "Disenchant",
+      "Incinerate",
+    ],
+    notes: [
+      "Minimum 60 cards in main deck",
+      "No restricted list",
+      "Mana burn happens",
+      "Judgment Wish cycle works as originally designed",
+      "Damage uses the stack",
+      "London Mulligan rule",
+      "Reprints of legal cards are allowed, including CE/ICE, World Championship, artist proofs, and modern-bordered reprints",
+      "Arena, Sewers of Estark, Nalathni Dragon, Giant Badger, and Windseeker Centaur are legal book promos; Mana Crypt is banned",
+      "Arena League and DCI membership promos from the era are legal",
+      "No official no-draw rule in EC Middle School tournaments",
+    ],
+  },
 };
 
 export const RULESET_OPTIONS = Object.values(RULESETS).map((ruleset) => ({
@@ -420,7 +522,10 @@ export function buildScryfallQuery({ search = "", colors = [], type = "", set = 
       setTerms.push("e:lea");
     }
 
-    if (ruleset.allowedOffFormatCards?.length && normalizedSearch) {
+    const browseNames = ruleset.legalReprintBrowseNames || [];
+    if (browseNames.length > 0 && (!normalizedSearch || browseNames.some((name) => name.toLowerCase().includes(normalizedSearch)))) {
+      setTerms.push(...browseNames.map((name) => `name:"${name}"`));
+    } else if (ruleset.allowedOffFormatCards?.length && normalizedSearch) {
       const exactMatch = ruleset.allowedOffFormatCards.find((name) => name.toLowerCase() === normalizedSearch);
       if (exactMatch) {
         setTerms.push(`name:"${exactMatch}"`);
