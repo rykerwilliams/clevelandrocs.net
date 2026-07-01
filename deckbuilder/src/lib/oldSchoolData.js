@@ -226,7 +226,7 @@ export const RULESETS = {
       "Alpha basic lands are allowed",
       "Hymn to Tourach is banned",
       "Hand of Justice, Icatian Javelineers, and Dwarven Catapult are max 2 copies",
-      "Up to 9 cards total may come from the FE40 exception list",
+      "Up to 9 cards from Sarpadian Scryings may be included in decks (following normal deckbuilding rules)!",
     ],
   },
   a2a: {
