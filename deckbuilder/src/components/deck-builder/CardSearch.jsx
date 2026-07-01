@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { COLOR_FILTERS, TYPE_FILTERS, buildScryfallQuery, isBanned, isRestricted, getLegalSets } from "@/lib/oldSchoolData";
+import { COLOR_FILTERS, TYPE_FILTERS, buildScryfallQuery, isBanned, isRestricted, getLegalSets, isSetLegal } from "@/lib/oldSchoolData";
 import CardImage from "@/components/deck-builder/CardImage";
 import debounce from "lodash/debounce";
 
@@ -23,6 +23,16 @@ export default function CardSearch({ onAddCard, rulesetId }) {
   const [hoverPreview, setHoverPreview] = useState(null);
   const scrollRef = useRef(null);
   const legalSets = getLegalSets(rulesetId);
+
+  const filterLegalCards = useCallback(
+    (list) =>
+      list.filter((card) => {
+        const cardName = card.name || card.card_name || "";
+        const setCode = (card.set || card.set_code || "").toLowerCase();
+        return isSetLegal(setCode, rulesetId) && !isBanned(cardName, rulesetId);
+      }),
+    [rulesetId]
+  );
 
   const getPreviewPosition = (clientX, clientY) => {
     const previewWidth = 260;
@@ -57,34 +67,37 @@ export default function CardSearch({ onAddCard, rulesetId }) {
     setHoverPreview(null);
   };
 
-  const fetchCards = useCallback(async (query, page = null) => {
-    setLoading(true);
-    try {
-      const url = page ? page : `https://api.scryfall.com/cards/search?q=${encodeURIComponent(query)}&unique=cards&order=name`;
+  const fetchCards = useCallback(
+    async (query, page = null) => {
+      setLoading(true);
+      try {
+        const url = page ? page : `https://api.scryfall.com/cards/search?q=${encodeURIComponent(query)}&unique=cards&order=name`;
 
-      const res = await fetch(url);
-      if (!res.ok) {
-        setCards(page ? (prev) => prev : []);
-        setHasMore(false);
-        setLoading(false);
-        return;
-      }
-      const data = await res.json();
-      const newCards = data.data || [];
+        const res = await fetch(url);
+        if (!res.ok) {
+          setCards(page ? (prev) => prev : []);
+          setHasMore(false);
+          setLoading(false);
+          return;
+        }
+        const data = await res.json();
+        const newCards = filterLegalCards(data.data || []);
 
-      if (page) {
-        setCards((prev) => [...prev, ...newCards]);
-      } else {
-        setCards(newCards);
-        setTotalCards(data.total_cards || 0);
+        if (page) {
+          setCards((prev) => [...prev, ...newCards]);
+        } else {
+          setCards(newCards);
+          setTotalCards(newCards.length);
+        }
+        setHasMore(data.has_more || false);
+        setNextPage(data.next_page || null);
+      } catch {
+        if (!page) setCards([]);
       }
-      setHasMore(data.has_more || false);
-      setNextPage(data.next_page || null);
-    } catch {
-      if (!page) setCards([]);
-    }
-    setLoading(false);
-  }, []);
+      setLoading(false);
+    },
+    [filterLegalCards]
+  );
 
   const debouncedSearch = useCallback(
     debounce((s, c, t, st, cm) => {

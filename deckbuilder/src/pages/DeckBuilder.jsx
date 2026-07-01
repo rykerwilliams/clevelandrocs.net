@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { Link } from "react-router-dom";
-import { ArrowLeft, BarChart3, BookOpen, List, Search, Check, AlertTriangle } from "lucide-react";
+import { BarChart3, BookOpen, List, Search, Check, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -272,16 +271,30 @@ export default function DeckBuilder() {
 
   const mainCount = mainDeck.reduce((s, e) => s + e.quantity, 0);
   const sideCount = sideboard.reduce((s, e) => s + e.quantity, 0);
+  const allEntries = [...mainDeck, ...sideboard];
   const rarityScopeEntries = ruleset.rarityCapsScope === "main" ? mainDeck : [...mainDeck, ...sideboard];
   const rarityCounts = getRarityCount(rarityScopeEntries);
   const rarityValid =
     !rarityCaps ||
     (rarityCounts.rare <= (rarityCaps.rare ?? Number.POSITIVE_INFINITY) &&
       rarityCounts.uncommon <= (rarityCaps.uncommon ?? Number.POSITIVE_INFINITY));
-  const setsValid = [...mainDeck, ...sideboard].every((entry) => isSetLegal(entry.set_code, rulesetId));
+  const invalidSetEntries = allEntries.filter((entry) => !isSetLegal(entry.set_code, rulesetId));
+  const setsValid = invalidSetEntries.length === 0;
   const mainSizeValid = mainCount >= ruleset.minMainDeckSize && (ruleset.maxMainDeckSize == null || mainCount <= ruleset.maxMainDeckSize);
   const sideSizeValid = sideCount <= ruleset.maxSideboardSize;
-  const isValid = mainSizeValid && sideSizeValid && rarityValid && setsValid;
+
+  const totalCopiesByCard = allEntries.reduce((acc, entry) => {
+    acc[entry.card_name] = (acc[entry.card_name] || 0) + entry.quantity;
+    return acc;
+  }, {});
+
+  const bannedCardsInDeck = Object.keys(totalCopiesByCard).filter((cardName) => isBanned(cardName, rulesetId));
+  const bannedValid = bannedCardsInDeck.length === 0;
+
+  const copyLimitViolations = Object.entries(totalCopiesByCard).filter(([cardName, totalCopies]) => totalCopies > getMaxCopies(cardName, rulesetId));
+  const copyLimitsValid = copyLimitViolations.length === 0;
+
+  const isValid = mainSizeValid && sideSizeValid && rarityValid && setsValid && bannedValid && copyLimitsValid;
 
   const validityLabel = ruleset.maxMainDeckSize ? `${mainCount}/${ruleset.maxMainDeckSize}` : `${mainCount}/${ruleset.minMainDeckSize}`;
 
@@ -291,10 +304,6 @@ export default function DeckBuilder() {
 
       {/* Top Bar */}
       <header className="h-14 border-b border-stone-800 bg-stone-950/95 backdrop-blur-sm flex items-center px-4 gap-3 shrink-0 sticky top-0 z-30">
-        <Link to="/" className="text-stone-500 hover:text-stone-300 transition-colors">
-          <ArrowLeft className="w-5 h-5" />
-        </Link>
-
         <Input
           value={deckName}
           onChange={(e) => setDeckName(e.target.value)}
