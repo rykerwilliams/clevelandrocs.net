@@ -132,7 +132,7 @@ export default function DeckBuilder() {
   const isValid = mainCount >= 60 && sideCount <= 15;
 
   return (
-    <div className="h-screen overflow-hidden bg-stone-950 flex flex-col">
+    <div className="deckbuilder-theme h-screen overflow-hidden bg-stone-950 flex flex-col">
       <SiteHeader active="Deck Builder" />
 
       {/* Top Bar */}

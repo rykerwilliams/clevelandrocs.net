@@ -1,13 +1,7 @@
 import React, { useState } from "react";
-import { Copy, Check, Download, X } from "lucide-react";
+import { Copy, Check, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/components/ui/use-toast";
 
 function groupByType(entries) {
@@ -88,11 +82,7 @@ export default function ExportDeck({ deckName, mainDeck, sideboard }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button
-          variant="ghost"
-          size="sm"
-          className="text-stone-400 hover:text-amber-400 hover:bg-stone-800 h-8 text-xs"
-        >
+        <Button variant="ghost" size="sm" className="text-stone-400 hover:text-amber-400 hover:bg-stone-800 h-8 text-xs">
           <Download className="w-3.5 h-3.5 mr-1" />
           Export
         </Button>
@@ -106,24 +96,11 @@ export default function ExportDeck({ deckName, mainDeck, sideboard }) {
         </DialogHeader>
         <div className="space-y-3">
           <div className="flex gap-2">
-            <Button
-              onClick={handleCopy}
-              size="sm"
-              className="flex-1 bg-amber-600 hover:bg-amber-500 text-stone-950 font-semibold h-9"
-            >
-              {copied ? (
-                <Check className="w-4 h-4 mr-1.5" />
-              ) : (
-                <Copy className="w-4 h-4 mr-1.5" />
-              )}
+            <Button onClick={handleCopy} size="sm" className="flex-1 bg-amber-600 hover:bg-amber-500 text-stone-950 font-semibold h-9">
+              {copied ? <Check className="w-4 h-4 mr-1.5" /> : <Copy className="w-4 h-4 mr-1.5" />}
               {copied ? "Copied!" : "Copy to Clipboard"}
             </Button>
-            <Button
-              onClick={handleDownload}
-              variant="outline"
-              size="sm"
-              className="border-stone-700 text-stone-300 hover:bg-stone-800 h-9"
-            >
+            <Button onClick={handleDownload} variant="outline" size="sm" className="border-stone-700 text-stone-300 hover:bg-stone-800 h-9">
               <Download className="w-4 h-4 mr-1.5" />
               Download .txt
             </Button>
