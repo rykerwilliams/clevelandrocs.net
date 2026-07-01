@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { COLOR_FILTERS, TYPE_FILTERS, buildScryfallQuery, isBanned, isRestricted, getLegalSets, isSetLegal } from "@/lib/oldSchoolData";
+import { COLOR_FILTERS, TYPE_FILTERS, buildScryfallQuery, isRestricted, getLegalSets, isCardLegal } from "@/lib/oldSchoolData";
 import CardImage from "@/components/deck-builder/CardImage";
 import debounce from "lodash/debounce";
 
@@ -29,7 +29,7 @@ export default function CardSearch({ onAddCard, rulesetId }) {
       list.filter((card) => {
         const cardName = card.name || card.card_name || "";
         const setCode = (card.set || card.set_code || "").toLowerCase();
-        return isSetLegal(setCode, rulesetId) && !isBanned(cardName, rulesetId);
+        return isCardLegal({ cardName, setCode }, rulesetId);
       }),
     [rulesetId]
   );
@@ -274,9 +274,6 @@ export default function CardSearch({ onAddCard, rulesetId }) {
                   <CardImage card={card} size="small" onClick={() => onAddCard(card)} />
                   {isRestricted(card.name, rulesetId) && (
                     <Badge className="absolute top-1 right-1 bg-amber-600/90 text-white text-[9px] px-1 py-0">R</Badge>
-                  )}
-                  {isBanned(card.name, rulesetId) && (
-                    <Badge className="absolute top-1 right-1 bg-red-700/90 text-white text-[9px] px-1 py-0">BANNED</Badge>
                   )}
                   <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-2 pt-6 opacity-0 group-hover:opacity-100 transition-opacity rounded-b-lg pointer-events-none">
                     <p className="text-white text-[10px] font-medium leading-tight truncate">{card.name}</p>

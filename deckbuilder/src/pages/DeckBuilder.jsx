@@ -11,7 +11,9 @@ import {
   getMaxCopies,
   getRarityCaps,
   getRarityCount,
-  isSetLegal,
+  isCardLegal,
+  getAllowedOffFormatCardsLimit,
+  getAllowedOffFormatCardsCount,
   getRuleset,
   RULESET_OPTIONS,
   DEFAULT_RULESET_ID,
@@ -35,6 +37,7 @@ export default function DeckBuilder() {
 
   const ruleset = getRuleset(rulesetId);
   const rarityCaps = getRarityCaps(rulesetId);
+  const offFormatLimit = getAllowedOffFormatCardsLimit(rulesetId);
 
   const getTotalCopies = useCallback(
     (cardName) => {
@@ -63,10 +66,10 @@ export default function DeckBuilder() {
         return;
       }
 
-      if (!isSetLegal(cardSetCode, rulesetId)) {
+      if (!isCardLegal({ cardName, setCode: cardSetCode }, rulesetId)) {
         toast({
-          title: "Set is not legal",
-          description: `${cardName} is not legal in ${ruleset.shortLabel} due to printing set.`,
+          title: "Card is not legal",
+          description: `${cardName} is not legal in ${ruleset.shortLabel}.`,
           variant: "destructive",
         });
         return;
@@ -135,6 +138,18 @@ export default function DeckBuilder() {
         }
       }
 
+      if (!addingToSideboard && offFormatLimit != null) {
+        const offFormatCount = getAllowedOffFormatCardsCount(mainDeck, rulesetId);
+        if (ruleset.allowedOffFormatCards?.includes(cardName) && offFormatCount >= offFormatLimit) {
+          toast({
+            title: "Exception list limit reached",
+            description: `${ruleset.shortLabel} allows up to ${offFormatLimit} cards from the exception list.`,
+            variant: "destructive",
+          });
+          return;
+        }
+      }
+
       const newEntry = {
         card_name: cardName,
         scryfall_id: card.scryfall_id || card.id,
@@ -166,7 +181,7 @@ export default function DeckBuilder() {
         });
       }
     },
-    [addingToSideboard, getTotalCopies, mainDeck, rarityCaps, ruleset, rulesetId, sideboard, toast]
+    [addingToSideboard, getTotalCopies, mainDeck, offFormatLimit, rarityCaps, ruleset, rulesetId, sideboard, toast]
   );
 
   const incrementCard = useCallback(
@@ -183,9 +198,9 @@ export default function DeckBuilder() {
         return;
       }
 
-      if (!isSetLegal(entry.set_code, rulesetId)) {
+      if (!isCardLegal({ cardName: entry.card_name, setCode: entry.set_code }, rulesetId)) {
         toast({
-          title: "Set is not legal",
+          title: "Card is not legal",
           description: `${entry.card_name} is not legal in ${ruleset.shortLabel}.`,
           variant: "destructive",
         });
@@ -247,10 +262,22 @@ export default function DeckBuilder() {
         }
       }
 
+      if (section === "main" && offFormatLimit != null) {
+        const offFormatCount = getAllowedOffFormatCardsCount(mainDeck, rulesetId);
+        if (ruleset.allowedOffFormatCards?.includes(entry.card_name) && offFormatCount >= offFormatLimit) {
+          toast({
+            title: "Exception list limit reached",
+            description: `${ruleset.shortLabel} allows up to ${offFormatLimit} cards from the exception list.`,
+            variant: "destructive",
+          });
+          return;
+        }
+      }
+
       const setter = section === "sideboard" ? setSideboard : setMainDeck;
       setter((prev) => prev.map((e) => (e.card_name === entry.card_name ? { ...e, quantity: e.quantity + 1 } : e)));
     },
-    [getTotalCopies, mainDeck, rarityCaps, ruleset, rulesetId, sideboard, toast]
+    [getTotalCopies, mainDeck, offFormatLimit, rarityCaps, ruleset, rulesetId, sideboard, toast]
   );
 
   const decrementCard = useCallback((entry, section) => {
@@ -278,10 +305,12 @@ export default function DeckBuilder() {
     !rarityCaps ||
     (rarityCounts.rare <= (rarityCaps.rare ?? Number.POSITIVE_INFINITY) &&
       rarityCounts.uncommon <= (rarityCaps.uncommon ?? Number.POSITIVE_INFINITY));
-  const invalidSetEntries = allEntries.filter((entry) => !isSetLegal(entry.set_code, rulesetId));
-  const setsValid = invalidSetEntries.length === 0;
+  const illegalEntries = allEntries.filter((entry) => !isCardLegal({ cardName: entry.card_name, setCode: entry.set_code }, rulesetId));
+  const setsValid = illegalEntries.length === 0;
   const mainSizeValid = mainCount >= ruleset.minMainDeckSize && (ruleset.maxMainDeckSize == null || mainCount <= ruleset.maxMainDeckSize);
   const sideSizeValid = sideCount <= ruleset.maxSideboardSize;
+  const offFormatCount = getAllowedOffFormatCardsCount(mainDeck, rulesetId);
+  const offFormatValid = offFormatLimit == null || offFormatCount <= offFormatLimit;
 
   const totalCopiesByCard = allEntries.reduce((acc, entry) => {
     acc[entry.card_name] = (acc[entry.card_name] || 0) + entry.quantity;
@@ -294,7 +323,7 @@ export default function DeckBuilder() {
   const copyLimitViolations = Object.entries(totalCopiesByCard).filter(([cardName, totalCopies]) => totalCopies > getMaxCopies(cardName, rulesetId));
   const copyLimitsValid = copyLimitViolations.length === 0;
 
-  const isValid = mainSizeValid && sideSizeValid && rarityValid && setsValid && bannedValid && copyLimitsValid;
+  const isValid = mainSizeValid && sideSizeValid && rarityValid && setsValid && bannedValid && copyLimitsValid && offFormatValid;
 
   const validityLabel = ruleset.maxMainDeckSize ? `${mainCount}/${ruleset.maxMainDeckSize}` : `${mainCount}/${ruleset.minMainDeckSize}`;
 
