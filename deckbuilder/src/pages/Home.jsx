@@ -7,7 +7,7 @@ import SiteHeader from "@/components/SiteHeader";
 export default function Home() {
   return (
     <div className="min-h-screen bg-stone-950 text-stone-200">
-      <SiteHeader active="Deck Builder" />
+      <SiteHeader active="deck builder" />
 
       {/* Hero */}
       <div className="relative overflow-hidden">

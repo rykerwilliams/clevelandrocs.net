@@ -430,7 +430,7 @@ export default function DeckBuilder() {
 
   return (
     <div className="deckbuilder-theme h-screen overflow-hidden bg-stone-950 flex flex-col">
-      <SiteHeader active="Deck Builder" />
+      <SiteHeader active="deck builder" />
 
       {/* Top Bar */}
       <header className="h-14 border-b border-stone-800 bg-stone-950/95 backdrop-blur-sm flex items-center px-4 gap-3 shrink-0 sticky top-0 z-30">

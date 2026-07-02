@@ -5,10 +5,10 @@ const NAV_ITEMS = [
   { label: "about", href: "/" },
   { label: "profiles", href: "/profiles/" },
   { label: "articles", href: "/articles/" },
-  { label: "Deck Builder", href: "/builder/" },
+  { label: "deck builder", href: "/builder/" },
 ];
 
-export default function SiteHeader({ active = "Deck Builder" }) {
+export default function SiteHeader({ active = "deck builder" }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleSearch = () => {
