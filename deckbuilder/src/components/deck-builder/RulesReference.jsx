@@ -93,21 +93,6 @@ export default function RulesReference({ rulesetId, mainDeck = [], sideboard = [
           </div>
         ) : null}
 
-        {rulesetId === "fallen-empires-40" ? (
-          <div className="rounded-lg border border-stone-800 bg-stone-900/60 p-3 text-xs text-stone-400 leading-relaxed">
-            Up to 9 cards from{" "}
-            <a
-              href="https://moxfield.com/decks/txWTpsGXwEqiEm7kyGWmMA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-amber-500 hover:text-amber-400 underline"
-            >
-              Sarpadian Scryings
-            </a>{" "}
-            may be included in decks (following normal deckbuilding rules)!
-          </div>
-        ) : null}
-
         {/* Legal Sets */}
         <div>
           <h4 className="text-stone-200 font-semibold text-sm mb-2 uppercase tracking-wider">Legal Sets</h4>

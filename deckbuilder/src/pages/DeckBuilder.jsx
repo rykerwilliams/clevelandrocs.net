@@ -44,6 +44,24 @@ export default function DeckBuilder() {
   const offFormatLimit = getAllowedOffFormatCardsLimit(rulesetId);
   const pointsLimit = getPointsLimit(rulesetId);
 
+  const clearDeck = useCallback(() => {
+    if (mainDeck.length === 0 && sideboard.length === 0) {
+      return;
+    }
+
+    const confirmed = window.confirm("Clear main deck and sideboard?");
+    if (!confirmed) {
+      return;
+    }
+
+    setMainDeck([]);
+    setSideboard([]);
+    toast({
+      title: "Deck cleared",
+      description: "Main deck and sideboard were cleared.",
+    });
+  }, [mainDeck.length, sideboard.length, toast]);
+
   const getTotalCopies = useCallback(
     (cardName) => {
       let count = 0;
@@ -473,6 +491,16 @@ export default function DeckBuilder() {
               PTS {pointsTotal}/{pointsLimit}
             </div>
           ) : null}
+
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={clearDeck}
+            disabled={mainDeck.length === 0 && sideboard.length === 0}
+            className="text-xs h-8 text-stone-400 hover:text-red-400 hover:bg-stone-800"
+          >
+            Clear deck
+          </Button>
 
           <ExportDeck deckName={deckName} mainDeck={mainDeck} sideboard={sideboard} rulesetLabel={ruleset.label} />
 
