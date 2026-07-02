@@ -13,8 +13,9 @@ export default function SiteHeader({ active = "deck builder" }) {
 
   const handleSearch = () => {
     const ninjaKeys = document.querySelector("ninja-keys");
-    if (ninjaKeys && typeof ninjaKeys.open === "function") {
-      ninjaKeys.open();
+    const openNinjaKeys = ninjaKeys && typeof ninjaKeys.open === "function" ? ninjaKeys.open.bind(ninjaKeys) : null;
+    if (openNinjaKeys) {
+      openNinjaKeys();
       return;
     }
     window.location.href = "/search/";
