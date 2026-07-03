@@ -524,7 +524,10 @@ export default function DeckBuilder() {
             </SelectItem>
             {templateOptions.map((template) => (
               <SelectItem key={template.id} value={template.id} className="text-stone-300">
-                {template.name}
+                <div className="flex flex-col leading-tight">
+                  <span>{template.name}</span>
+                  {template.description ? <span className="text-[10px] text-stone-500 mt-0.5">{template.description}</span> : null}
+                </div>
               </SelectItem>
             ))}
           </SelectContent>
