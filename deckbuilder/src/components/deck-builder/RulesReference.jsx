@@ -54,7 +54,8 @@ export default function RulesReference({ rulesetId, mainDeck = [], sideboard = [
             {ruleset.restrictedCards.length > 0 ? <li>Restricted cards: maximum 1 copy</li> : null}
             {hasRarityCaps ? (
               <li>
-                Rares max {ruleset.rarityCaps.rare}, uncommons max {ruleset.rarityCaps.uncommon}
+                Rares: up to {ruleset.rarityCaps.rare} total, uncommons: up to {ruleset.rarityCaps.uncommon} total
+                {ruleset.rarityCapsScope === "main" ? " in main deck" : " (main + sideboard)"}
               </li>
             ) : null}
             {exceptionLimit != null ? (
