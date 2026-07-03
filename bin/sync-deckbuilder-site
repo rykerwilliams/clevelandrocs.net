@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+echo "Building deckbuilder..."
+cd "$REPO_ROOT/deckbuilder"
+npm run build
+
+cd "$REPO_ROOT"
+
+echo "Syncing dist to builder/..."
+mkdir -p builder
+rm -rf builder/assets
+cp -R deckbuilder/dist/assets builder/assets
+cp deckbuilder/dist/index.html builder/index.html
+
+echo "Syncing dist to _site/builder/..."
+mkdir -p _site/builder
+rm -rf _site/builder/assets
+cp -R deckbuilder/dist/assets _site/builder/assets
+cp deckbuilder/dist/index.html _site/builder/index.html
+
+echo "Deckbuilder site sync complete."
