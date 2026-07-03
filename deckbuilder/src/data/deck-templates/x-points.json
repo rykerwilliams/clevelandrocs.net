@@ -1,0 +1,42 @@
+[
+  {
+    "id": "xp-uw-tempo",
+    "name": "X-Points UW Tempo",
+    "description": "Low-point white-blue tempo list.",
+    "mainDeck": [
+      { "card_name": "Savannah Lions", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Serra Angel", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Swords to Plowshares", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Counterspell", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Disenchant", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Plains", "quantity": 20, "set_code": "lea" },
+      { "card_name": "Island", "quantity": 20, "set_code": "lea" }
+    ],
+    "sideboard": [
+      { "card_name": "Blue Elemental Blast", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Red Elemental Blast", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Divine Offering", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Karma", "quantity": 3, "set_code": "leg" }
+    ]
+  },
+  {
+    "id": "xp-br-midrange",
+    "name": "X-Points BR Midrange",
+    "description": "Creature and removal shell with no high-point package.",
+    "mainDeck": [
+      { "card_name": "Hypnotic Specter", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Sengir Vampire", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Lightning Bolt", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Terror", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Shatter", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Swamp", "quantity": 20, "set_code": "lea" },
+      { "card_name": "Mountain", "quantity": 20, "set_code": "lea" }
+    ],
+    "sideboard": [
+      { "card_name": "Blue Elemental Blast", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Red Elemental Blast", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Dust to Dust", "quantity": 4, "set_code": "atq" },
+      { "card_name": "Blood Moon", "quantity": 3, "set_code": "drk" }
+    ]
+  }
+]

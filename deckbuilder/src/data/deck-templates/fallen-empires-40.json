@@ -1,0 +1,54 @@
+[
+  {
+    "id": "fr-sarpadian-spores",
+    "name": "Forgotten Realms Sarpadian Spores",
+    "description": "Fallen Empires core with off-format fungus package.",
+    "mainDeck": [
+      { "card_name": "Thallid", "quantity": 4, "set_code": "fem" },
+      { "card_name": "Elvish Farmer", "quantity": 4, "set_code": "fem" },
+      { "card_name": "Thelonite Druid", "quantity": 4, "set_code": "fem" },
+      { "card_name": "Icatian Javelineers", "quantity": 4, "set_code": "fem" },
+      { "card_name": "Order of Leitbur", "quantity": 4, "set_code": "fem" },
+      { "card_name": "Coral Colony", "quantity": 1 },
+      { "card_name": "Deathspore Thallid", "quantity": 1 },
+      { "card_name": "Utopia Mycon", "quantity": 1 },
+      { "card_name": "Sporesower Thallid", "quantity": 1 },
+      { "card_name": "Fungal Infection", "quantity": 1 },
+      { "card_name": "Thallid Omnivore", "quantity": 1 },
+      { "card_name": "Forest", "quantity": 18, "set_code": "fem" },
+      { "card_name": "Plains", "quantity": 16, "set_code": "fem" }
+    ],
+    "sideboard": [
+      { "card_name": "Memory Lapse", "quantity": 4, "set_code": "hml" },
+      { "card_name": "Dark Banishing", "quantity": 4, "set_code": "hml" },
+      { "card_name": "Icatian Priest", "quantity": 4, "set_code": "fem" },
+      { "card_name": "Willow Priestess", "quantity": 3, "set_code": "hml" }
+    ]
+  },
+  {
+    "id": "fr-vodalian-tide",
+    "name": "Forgotten Realms Vodalian Tide",
+    "description": "Blue-black shell with Homelands cards and allowed add-ons.",
+    "mainDeck": [
+      { "card_name": "Memory Lapse", "quantity": 4, "set_code": "hml" },
+      { "card_name": "Merchant Scroll", "quantity": 4, "set_code": "hml" },
+      { "card_name": "Dark Banishing", "quantity": 4, "set_code": "hml" },
+      { "card_name": "Sengir Autocrat", "quantity": 4, "set_code": "hml" },
+      { "card_name": "Homarid", "quantity": 4, "set_code": "fem" },
+      { "card_name": "Vodalian Hexcatcher", "quantity": 1 },
+      { "card_name": "Vodalian Merchant", "quantity": 1 },
+      { "card_name": "Vodalian Mystic", "quantity": 1 },
+      { "card_name": "Vohar, Vodalian Desecrator", "quantity": 1 },
+      { "card_name": "Homarid Explorer", "quantity": 1 },
+      { "card_name": "Island", "quantity": 18, "set_code": "hml" },
+      { "card_name": "Swamp", "quantity": 17, "set_code": "hml" }
+    ],
+    "sideboard": [
+      { "card_name": "Memory Lapse", "quantity": 4, "set_code": "hml" },
+      { "card_name": "Apprentice Wizard", "quantity": 4, "set_code": "hml" },
+      { "card_name": "Giant Oyster", "quantity": 4, "set_code": "drk" },
+      { "card_name": "Serrated Arrows", "quantity": 1, "set_code": "hml" },
+      { "card_name": "Dark Banishing", "quantity": 2, "set_code": "hml" }
+    ]
+  }
+]

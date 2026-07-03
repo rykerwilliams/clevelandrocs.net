@@ -1,0 +1,42 @@
+[
+  {
+    "id": "a40-br-vise",
+    "name": "A40 BR Vise",
+    "description": "Sample Alpha 40 black-red list.",
+    "mainDeck": [
+      { "card_name": "Black Vise", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Dark Ritual", "quantity": 3, "set_code": "lea" },
+      { "card_name": "Demonic Tutor", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Fireball", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Howl from Beyond", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Icy Manipulator", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Jade Statue", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Lightning Bolt", "quantity": 3, "set_code": "lea" },
+      { "card_name": "Lord of the Pit", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Mountain", "quantity": 8, "set_code": "lea" },
+      { "card_name": "Orcish Artillery", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Paralyze", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Roc of Kher Ridges", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Shatter", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Sol Ring", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Swamp", "quantity": 7, "set_code": "lea" },
+      { "card_name": "Terror", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Uthden Troll", "quantity": 3, "set_code": "lea" }
+    ],
+    "sideboard": []
+  },
+  {
+    "id": "a40-green-stompy",
+    "name": "A40 Green Stompy",
+    "description": "Simple green pressure deck for Alpha 40.",
+    "mainDeck": [
+      { "card_name": "Llanowar Elves", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Grizzly Bears", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Giant Growth", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Craw Wurm", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Hurricane", "quantity": 3, "set_code": "lea" },
+      { "card_name": "Forest", "quantity": 21, "set_code": "lea" }
+    ],
+    "sideboard": []
+  }
+]

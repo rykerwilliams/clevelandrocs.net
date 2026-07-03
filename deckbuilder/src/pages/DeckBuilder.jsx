@@ -22,6 +22,7 @@ import {
   RULESET_OPTIONS,
   DEFAULT_RULESET_ID,
 } from "@/lib/oldSchoolData";
+import { getTemplatesForRuleset, getTemplateById, materializeTemplateDeck } from "@/lib/deckTemplates";
 import CardSearch from "@/components/deck-builder/CardSearch";
 import DeckList from "@/components/deck-builder/DeckList";
 import DeckStats from "@/components/deck-builder/DeckStats";
@@ -38,11 +39,53 @@ export default function DeckBuilder() {
   const [addingToSideboard, setAddingToSideboard] = useState(false);
   const [mobileTab, setMobileTab] = useState("search");
   const [rulesetId, setRulesetId] = useState(DEFAULT_RULESET_ID);
+  const [selectedTemplateId, setSelectedTemplateId] = useState("");
 
   const ruleset = getRuleset(rulesetId);
+  const templateOptions = getTemplatesForRuleset(rulesetId);
   const rarityCaps = getRarityCaps(rulesetId);
   const offFormatLimit = getAllowedOffFormatCardsLimit(rulesetId);
   const pointsLimit = getPointsLimit(rulesetId);
+
+  const handleRulesetChange = useCallback((value) => {
+    setRulesetId(value);
+    setSelectedTemplateId("");
+  }, []);
+
+  const handleTemplateChange = useCallback(
+    (templateId) => {
+      if (templateId === "__none__") {
+        setSelectedTemplateId("");
+        return;
+      }
+
+      const template = getTemplateById(rulesetId, templateId);
+      if (!template) {
+        return;
+      }
+
+      const currentCards = mainDeck.reduce((sum, entry) => sum + entry.quantity, 0) + sideboard.reduce((sum, entry) => sum + entry.quantity, 0);
+      if (currentCards > 0) {
+        const confirmed = window.confirm("Load template decklist and replace current main deck and sideboard?");
+        if (!confirmed) {
+          return;
+        }
+      }
+
+      const materialized = materializeTemplateDeck(template);
+      setMainDeck(materialized.mainDeck);
+      setSideboard(materialized.sideboard);
+      setDeckName(template.name || "Untitled Deck");
+      setSelectedTemplateId(templateId);
+      setAddingToSideboard(false);
+
+      toast({
+        title: "Template loaded",
+        description: `${template.name} loaded into main deck and sideboard.`,
+      });
+    },
+    [mainDeck, rulesetId, sideboard, toast]
+  );
 
   const clearDeck = useCallback(() => {
     if (mainDeck.length === 0 && sideboard.length === 0) {
@@ -458,7 +501,7 @@ export default function DeckBuilder() {
           className="bg-transparent border-none text-stone-200 font-semibold text-base focus-visible:ring-0 focus-visible:ring-offset-0 max-w-xs px-2 h-9"
         />
 
-        <Select value={rulesetId} onValueChange={setRulesetId}>
+        <Select value={rulesetId} onValueChange={handleRulesetChange}>
           <SelectTrigger className="w-52 h-8 bg-stone-900 border-stone-700 text-stone-300 text-xs">
             <SelectValue placeholder="Ruleset" />
           </SelectTrigger>
@@ -466,6 +509,22 @@ export default function DeckBuilder() {
             {RULESET_OPTIONS.map((option) => (
               <SelectItem key={option.value} value={option.value} className="text-stone-300">
                 {option.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+
+        <Select value={selectedTemplateId || "__none__"} onValueChange={handleTemplateChange}>
+          <SelectTrigger className="w-72 h-8 bg-stone-900 border-stone-700 text-stone-300 text-xs">
+            <SelectValue placeholder="Template decklist" />
+          </SelectTrigger>
+          <SelectContent className="bg-stone-900 border-stone-700">
+            <SelectItem value="__none__" className="text-stone-500">
+              Start from template...
+            </SelectItem>
+            {templateOptions.map((template) => (
+              <SelectItem key={template.id} value={template.id} className="text-stone-300">
+                {template.name}
               </SelectItem>
             ))}
           </SelectContent>

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "sw-uw-tempo",
+    "name": "Swedish UW Tempo",
+    "description": "Pressure with efficient creatures and clean answers.",
+    "mainDeck": [
+      { "card_name": "Savannah Lions", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Serra Angel", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Swords to Plowshares", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Counterspell", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Disenchant", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Plains", "quantity": 20, "set_code": "lea" },
+      { "card_name": "Island", "quantity": 20, "set_code": "lea" }
+    ],
+    "sideboard": [
+      { "card_name": "Blue Elemental Blast", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Red Elemental Blast", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Divine Offering", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Circle of Protection: Red", "quantity": 3, "set_code": "lea" }
+    ]
+  },
+  {
+    "id": "sw-rg-djinn-ape",
+    "name": "Swedish RG Djinn-Ape",
+    "description": "Creature-heavy red-green shell.",
+    "mainDeck": [
+      { "card_name": "Erhnam Djinn", "quantity": 4, "set_code": "arn" },
+      { "card_name": "Kird Ape", "quantity": 4, "set_code": "arn" },
+      { "card_name": "Lightning Bolt", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Chain Lightning", "quantity": 4, "set_code": "leg" },
+      { "card_name": "Giant Growth", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Forest", "quantity": 22, "set_code": "lea" },
+      { "card_name": "Mountain", "quantity": 18, "set_code": "lea" }
+    ],
+    "sideboard": [
+      { "card_name": "Red Elemental Blast", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Blue Elemental Blast", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Shatter", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Avoid Fate", "quantity": 3, "set_code": "drk" }
+    ]
+  }
+]

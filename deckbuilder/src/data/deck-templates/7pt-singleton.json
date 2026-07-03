@@ -1,0 +1,38 @@
+[
+  {
+    "id": "7pt-uw-control-shell",
+    "name": "7pt UW Control Shell",
+    "description": "Singleton shell with stable mana and simple interaction.",
+    "mainDeck": [
+      { "card_name": "Plains", "quantity": 26, "set_code": "lea" },
+      { "card_name": "Island", "quantity": 26, "set_code": "lea" },
+      { "card_name": "Serra Angel", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Swords to Plowshares", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Disenchant", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Counterspell", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Unsummon", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Serendib Efreet", "quantity": 1, "set_code": "arn" },
+      { "card_name": "Icy Manipulator", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Jayemdae Tome", "quantity": 1, "set_code": "lea" }
+    ],
+    "sideboard": []
+  },
+  {
+    "id": "7pt-br-grind",
+    "name": "7pt BR Grind",
+    "description": "Singleton black-red attrition shell.",
+    "mainDeck": [
+      { "card_name": "Swamp", "quantity": 26, "set_code": "lea" },
+      { "card_name": "Mountain", "quantity": 26, "set_code": "lea" },
+      { "card_name": "Lightning Bolt", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Shatter", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Terror", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Sengir Vampire", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Hypnotic Specter", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Orcish Artillery", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Drain Life", "quantity": 1, "set_code": "lea" },
+      { "card_name": "Nevinyrral's Disk", "quantity": 1, "set_code": "2ed" }
+    ],
+    "sideboard": []
+  }
+]

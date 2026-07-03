@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ms-uw-control",
+    "name": "Middle School UW Control",
+    "description": "Blue-white control shell for the 1995-2003 card pool.",
+    "mainDeck": [
+      { "card_name": "Counterspell", "quantity": 4 },
+      { "card_name": "Disenchant", "quantity": 4 },
+      { "card_name": "Wrath of God", "quantity": 4, "set_code": "5ed" },
+      { "card_name": "Serra Angel", "quantity": 4, "set_code": "6ed" },
+      { "card_name": "Impulse", "quantity": 4, "set_code": "vis" },
+      { "card_name": "Island", "quantity": 20, "set_code": "6ed" },
+      { "card_name": "Plains", "quantity": 20, "set_code": "6ed" }
+    ],
+    "sideboard": [
+      { "card_name": "Hydroblast", "quantity": 4, "set_code": "ice" },
+      { "card_name": "Pyroblast", "quantity": 4, "set_code": "ice" },
+      { "card_name": "Circle of Protection: Red", "quantity": 4, "set_code": "5ed" },
+      { "card_name": "Disenchant", "quantity": 3 }
+    ]
+  },
+  {
+    "id": "ms-green-stompy",
+    "name": "Middle School Green Stompy",
+    "description": "Creature-heavy green deck with simple splash options.",
+    "mainDeck": [
+      { "card_name": "River Boa", "quantity": 4, "set_code": "vis" },
+      { "card_name": "Rogue Elephant", "quantity": 4, "set_code": "vis" },
+      { "card_name": "Rancor", "quantity": 4, "set_code": "ulg" },
+      { "card_name": "Llanowar Elves", "quantity": 4, "set_code": "6ed" },
+      { "card_name": "Albino Troll", "quantity": 4, "set_code": "wth" },
+      { "card_name": "Forest", "quantity": 20, "set_code": "6ed" },
+      { "card_name": "Mountain", "quantity": 20, "set_code": "6ed" }
+    ],
+    "sideboard": [
+      { "card_name": "Naturalize", "quantity": 4, "set_code": "ons" },
+      { "card_name": "Pyroblast", "quantity": 4, "set_code": "ice" },
+      { "card_name": "Uktabi Orangutan", "quantity": 4, "set_code": "vis" },
+      { "card_name": "Tormod's Crypt", "quantity": 3, "set_code": "chr" }
+    ]
+  }
+]

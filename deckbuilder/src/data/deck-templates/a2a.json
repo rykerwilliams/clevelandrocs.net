@@ -1,0 +1,42 @@
+[
+  {
+    "id": "a2a-uw-control",
+    "name": "A2A UW Control",
+    "description": "Classic white-blue control shell for Alpha to Alliances.",
+    "mainDeck": [
+      { "card_name": "Savannah Lions", "quantity": 4, "set_code": "2ed" },
+      { "card_name": "Serra Angel", "quantity": 4, "set_code": "2ed" },
+      { "card_name": "Swords to Plowshares", "quantity": 4, "set_code": "2ed" },
+      { "card_name": "Counterspell", "quantity": 4, "set_code": "2ed" },
+      { "card_name": "Disenchant", "quantity": 4, "set_code": "2ed" },
+      { "card_name": "Plains", "quantity": 20, "set_code": "2ed" },
+      { "card_name": "Island", "quantity": 20, "set_code": "2ed" }
+    ],
+    "sideboard": [
+      { "card_name": "Blue Elemental Blast", "quantity": 4, "set_code": "2ed" },
+      { "card_name": "Red Elemental Blast", "quantity": 4, "set_code": "2ed" },
+      { "card_name": "Disenchant", "quantity": 4, "set_code": "2ed" },
+      { "card_name": "Divine Offering", "quantity": 3, "set_code": "2ed" }
+    ]
+  },
+  {
+    "id": "a2a-ur-burn",
+    "name": "A2A UR Burn",
+    "description": "Low-curve blue-red list without restricted cards.",
+    "mainDeck": [
+      { "card_name": "Serendib Efreet", "quantity": 4, "set_code": "arn" },
+      { "card_name": "Lightning Bolt", "quantity": 4, "set_code": "2ed" },
+      { "card_name": "Counterspell", "quantity": 4, "set_code": "2ed" },
+      { "card_name": "Psionic Blast", "quantity": 4, "set_code": "2ed" },
+      { "card_name": "Su-Chi", "quantity": 4, "set_code": "atq" },
+      { "card_name": "Island", "quantity": 20, "set_code": "2ed" },
+      { "card_name": "Mountain", "quantity": 20, "set_code": "2ed" }
+    ],
+    "sideboard": [
+      { "card_name": "Blue Elemental Blast", "quantity": 4, "set_code": "2ed" },
+      { "card_name": "Red Elemental Blast", "quantity": 4, "set_code": "2ed" },
+      { "card_name": "Shatter", "quantity": 4, "set_code": "2ed" },
+      { "card_name": "Blood Moon", "quantity": 3, "set_code": "drk" }
+    ]
+  }
+]

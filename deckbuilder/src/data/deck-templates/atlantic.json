@@ -1,0 +1,42 @@
+[
+  {
+    "id": "atl-thallid-midrange",
+    "name": "Atlantic Thallid Midrange",
+    "description": "Fallen Empires green-black fungus shell.",
+    "mainDeck": [
+      { "card_name": "Thallid", "quantity": 4, "set_code": "fem" },
+      { "card_name": "Elvish Farmer", "quantity": 4, "set_code": "fem" },
+      { "card_name": "Thelonite Druid", "quantity": 4, "set_code": "fem" },
+      { "card_name": "Hymn to Tourach", "quantity": 4, "set_code": "fem" },
+      { "card_name": "Order of the Ebon Hand", "quantity": 4, "set_code": "fem" },
+      { "card_name": "Forest", "quantity": 20, "set_code": "lea" },
+      { "card_name": "Swamp", "quantity": 20, "set_code": "lea" }
+    ],
+    "sideboard": [
+      { "card_name": "Tormod's Crypt", "quantity": 4, "set_code": "atq" },
+      { "card_name": "Tranquility", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Terror", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Whirling Dervish", "quantity": 3, "set_code": "arn" }
+    ]
+  },
+  {
+    "id": "atl-ur-burn",
+    "name": "Atlantic UR Burn",
+    "description": "Straightforward red-blue spell pressure.",
+    "mainDeck": [
+      { "card_name": "Serendib Efreet", "quantity": 4, "set_code": "arn" },
+      { "card_name": "Lightning Bolt", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Counterspell", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Psionic Blast", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Shatter", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Island", "quantity": 20, "set_code": "lea" },
+      { "card_name": "Mountain", "quantity": 20, "set_code": "lea" }
+    ],
+    "sideboard": [
+      { "card_name": "Blue Elemental Blast", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Red Elemental Blast", "quantity": 4, "set_code": "lea" },
+      { "card_name": "Tormod's Crypt", "quantity": 4, "set_code": "atq" },
+      { "card_name": "Blood Moon", "quantity": 3, "set_code": "drk" }
+    ]
+  }
+]
