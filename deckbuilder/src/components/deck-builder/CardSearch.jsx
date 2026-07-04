@@ -8,7 +8,21 @@ import { COLOR_FILTERS, TYPE_FILTERS, buildScryfallQuery, isRestricted, getLegal
 import CardImage from "@/components/deck-builder/CardImage";
 import debounce from "lodash/debounce";
 
-const POWER_NINE = ["Ancestral Recall", "Time Walk", "Timetwister", "Black Lotus", "Mox Sapphire", "Mox Pearl", "Mox Jet", "Mox Emerald", "Mox Ruby"];
+const POWER_PACKAGE = [
+  { name: "Ancestral Recall", setCode: "lea" },
+  { name: "Time Walk", setCode: "lea" },
+  { name: "Timetwister", setCode: "lea" },
+  { name: "Black Lotus", setCode: "lea" },
+  { name: "Mox Sapphire", setCode: "lea" },
+  { name: "Mox Pearl", setCode: "lea" },
+  { name: "Mox Jet", setCode: "lea" },
+  { name: "Mox Emerald", setCode: "lea" },
+  { name: "Mox Ruby", setCode: "lea" },
+  { name: "Chaos Orb", setCode: "lea" },
+  { name: "Sol Ring", setCode: "lea" },
+  { name: "Demonic Tutor", setCode: "lea" },
+  { name: "Library of Alexandria", setCode: "arn" },
+];
 
 export default function CardSearch({ onAddCard, rulesetId }) {
   const [search, setSearch] = useState("");
@@ -23,6 +37,7 @@ export default function CardSearch({ onAddCard, rulesetId }) {
   const [showFilters, setShowFilters] = useState(false);
   const [totalCards, setTotalCards] = useState(0);
   const [hoverPreview, setHoverPreview] = useState(null);
+  const [addingPowerPackage, setAddingPowerPackage] = useState(false);
   const scrollRef = useRef(null);
   const legalSets = getLegalSets(rulesetId);
 
@@ -138,15 +153,53 @@ export default function CardSearch({ onAddCard, rulesetId }) {
   };
 
   const hasActiveFilters = colors.length > 0 || type || set || cmc !== "";
+  const canAddPowerPackage = POWER_PACKAGE.every(({ name, setCode }) => isCardLegal({ cardName: name, setCode }, rulesetId));
 
-  const handleAddPowerNine = () => {
-    POWER_NINE.forEach((name) => {
-      onAddCard({
-        name,
-        set: "lea",
-        set_code: "lea",
+  const handleAddPowerNine = async () => {
+    if (!canAddPowerPackage || addingPowerPackage) {
+      return;
+    }
+
+    setAddingPowerPackage(true);
+
+    try {
+      const response = await fetch("https://api.scryfall.com/cards/collection", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          identifiers: POWER_PACKAGE.map(({ name, setCode }) => ({
+            name,
+            set: setCode,
+          })),
+        }),
       });
-    });
+
+      const cardsByName = new Map();
+      if (response.ok) {
+        const data = await response.json();
+        (data.data || []).forEach((card) => {
+          cardsByName.set(card.name.toLowerCase(), card);
+        });
+      }
+
+      POWER_PACKAGE.forEach(({ name, setCode }) => {
+        const card = cardsByName.get(name.toLowerCase());
+        if (card) {
+          onAddCard(card);
+          return;
+        }
+
+        onAddCard({
+          name,
+          set: setCode,
+          set_code: setCode,
+        });
+      });
+    } finally {
+      setAddingPowerPackage(false);
+    }
   };
 
   return (
@@ -179,9 +232,17 @@ export default function CardSearch({ onAddCard, rulesetId }) {
             Filters
             <ChevronDown className={`w-3.5 h-3.5 ml-1 transition-transform ${showFilters ? "rotate-180" : ""}`} />
           </Button>
-          <Button variant="ghost" size="sm" onClick={handleAddPowerNine} className="text-stone-400 hover:text-amber-400 hover:bg-stone-800 text-xs">
-            Add Power 9
-          </Button>
+          {canAddPowerPackage ? (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleAddPowerNine}
+              disabled={addingPowerPackage}
+              className="text-stone-400 hover:text-amber-400 hover:bg-stone-800 text-xs"
+            >
+              {addingPowerPackage ? "Adding..." : "Add Power 9"}
+            </Button>
+          ) : null}
           {hasActiveFilters && (
             <Button variant="ghost" size="sm" onClick={clearFilters} className="text-stone-500 hover:text-stone-300 text-xs">
               Clear all
