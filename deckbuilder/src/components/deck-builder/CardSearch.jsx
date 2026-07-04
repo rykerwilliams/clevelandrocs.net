@@ -8,6 +8,8 @@ import { COLOR_FILTERS, TYPE_FILTERS, buildScryfallQuery, isRestricted, getLegal
 import CardImage from "@/components/deck-builder/CardImage";
 import debounce from "lodash/debounce";
 
+const POWER_NINE = ["Ancestral Recall", "Time Walk", "Timetwister", "Black Lotus", "Mox Sapphire", "Mox Pearl", "Mox Jet", "Mox Emerald", "Mox Ruby"];
+
 export default function CardSearch({ onAddCard, rulesetId }) {
   const [search, setSearch] = useState("");
   const [colors, setColors] = useState([]);
@@ -137,6 +139,16 @@ export default function CardSearch({ onAddCard, rulesetId }) {
 
   const hasActiveFilters = colors.length > 0 || type || set || cmc !== "";
 
+  const handleAddPowerNine = () => {
+    POWER_NINE.forEach((name) => {
+      onAddCard({
+        name,
+        set: "lea",
+        set_code: "lea",
+      });
+    });
+  };
+
   return (
     <div className="flex flex-col h-full">
       {/* Search Bar */}
@@ -166,6 +178,9 @@ export default function CardSearch({ onAddCard, rulesetId }) {
             <Filter className="w-3.5 h-3.5 mr-1.5" />
             Filters
             <ChevronDown className={`w-3.5 h-3.5 ml-1 transition-transform ${showFilters ? "rotate-180" : ""}`} />
+          </Button>
+          <Button variant="ghost" size="sm" onClick={handleAddPowerNine} className="text-stone-400 hover:text-amber-400 hover:bg-stone-800 text-xs">
+            Add Power 9
           </Button>
           {hasActiveFilters && (
             <Button variant="ghost" size="sm" onClick={clearFilters} className="text-stone-500 hover:text-stone-300 text-xs">
