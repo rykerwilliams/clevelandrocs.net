@@ -89,7 +89,7 @@ function groupByType(entries) {
 }
 
 export default function DeckList({ mainDeck, sideboard, onAdd, onRemove, onDelete, rulesetId }) {
-  const [view, setView] = useState("list");
+  const [view, setView] = useState(() => (typeof window !== "undefined" && window.innerWidth >= 640 ? "gallery" : "list"));
   const [hoverPreview, setHoverPreview] = useState(null);
   const ruleset = getRuleset(rulesetId);
 

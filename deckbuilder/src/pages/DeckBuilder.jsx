@@ -47,13 +47,71 @@ export default function DeckBuilder() {
   const offFormatLimit = getAllowedOffFormatCardsLimit(rulesetId);
   const pointsLimit = getPointsLimit(rulesetId);
 
+  const hydrateTemplateEntries = useCallback(async (entries = []) => {
+    if (!entries.length) return [];
+
+    const uniqueKeys = Array.from(new Set(entries.map((entry) => `${entry.card_name}::${(entry.set_code || "").toLowerCase()}`))).map((key) => {
+      const [cardName, setCode] = key.split("::");
+      return { cardName, setCode };
+    });
+
+    const metadataByKey = new Map();
+
+    await Promise.all(
+      uniqueKeys.map(async ({ cardName, setCode }) => {
+        if (!cardName) return;
+
+        const fetchCard = async (withSetCode) => {
+          const params = new URLSearchParams({ exact: cardName });
+          if (withSetCode) {
+            params.set("set", withSetCode);
+          }
+          const response = await fetch(`https://api.scryfall.com/cards/named?${params.toString()}`);
+          if (!response.ok) return null;
+          return response.json();
+        };
+
+        let cardData = await fetchCard(setCode);
+        if (!cardData && setCode) {
+          cardData = await fetchCard("");
+        }
+
+        if (cardData) {
+          metadataByKey.set(`${cardName}::${setCode}`, cardData);
+          metadataByKey.set(`${cardName}::`, cardData);
+        }
+      })
+    );
+
+    return entries.map((entry) => {
+      const setCode = (entry.set_code || "").toLowerCase();
+      const data = metadataByKey.get(`${entry.card_name}::${setCode}`) || metadataByKey.get(`${entry.card_name}::`);
+
+      if (!data) {
+        return entry;
+      }
+
+      return {
+        ...entry,
+        scryfall_id: entry.scryfall_id || data.id || "",
+        image_uri: entry.image_uri || data.image_uris?.normal || data.image_uris?.large || "",
+        mana_cost: entry.mana_cost || data.mana_cost || "",
+        type_line: entry.type_line || data.type_line || "",
+        set_name: entry.set_name || data.set_name || "",
+        set_code: setCode || (data.set || "").toLowerCase(),
+        rarity: (entry.rarity || data.rarity || "").toLowerCase(),
+        colors: entry.colors?.length ? entry.colors : data.colors || [],
+      };
+    });
+  }, []);
+
   const handleRulesetChange = useCallback((value) => {
     setRulesetId(value);
     setSelectedTemplateId("");
   }, []);
 
   const handleTemplateChange = useCallback(
-    (templateId) => {
+    async (templateId) => {
       if (templateId === "__none__") {
         setSelectedTemplateId("");
         return;
@@ -73,8 +131,13 @@ export default function DeckBuilder() {
       }
 
       const materialized = materializeTemplateDeck(template);
-      setMainDeck(materialized.mainDeck);
-      setSideboard(materialized.sideboard);
+      const [hydratedMain, hydratedSide] = await Promise.all([
+        hydrateTemplateEntries(materialized.mainDeck),
+        hydrateTemplateEntries(materialized.sideboard),
+      ]);
+
+      setMainDeck(hydratedMain);
+      setSideboard(hydratedSide);
       setDeckName(template.name || "Untitled Deck");
       setSelectedTemplateId(templateId);
       setAddingToSideboard(false);
@@ -84,7 +147,7 @@ export default function DeckBuilder() {
         description: `${template.name} loaded into main deck and sideboard.`,
       });
     },
-    [mainDeck, rulesetId, sideboard, toast]
+    [hydrateTemplateEntries, mainDeck, rulesetId, sideboard, toast]
   );
 
   const clearDeck = useCallback(() => {
