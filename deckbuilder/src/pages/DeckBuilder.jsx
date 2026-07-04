@@ -28,6 +28,7 @@ import DeckList from "@/components/deck-builder/DeckList";
 import DeckStats from "@/components/deck-builder/DeckStats";
 import RulesReference from "@/components/deck-builder/RulesReference";
 import ExportDeck from "@/components/deck-builder/ExportDeck";
+import TestInPhase from "@/components/deck-builder/TestInPhase";
 import SiteHeader from "@/components/SiteHeader";
 
 export default function DeckBuilder() {
@@ -42,6 +43,7 @@ export default function DeckBuilder() {
   const [selectedTemplateId, setSelectedTemplateId] = useState("");
 
   const ruleset = getRuleset(rulesetId);
+  const showTemplateDropdown = false;
   const templateOptions = getTemplatesForRuleset(rulesetId);
   const rarityCaps = getRarityCaps(rulesetId);
   const offFormatLimit = getAllowedOffFormatCardsLimit(rulesetId);
@@ -577,24 +579,26 @@ export default function DeckBuilder() {
           </SelectContent>
         </Select>
 
-        <Select value={selectedTemplateId || "__none__"} onValueChange={handleTemplateChange}>
-          <SelectTrigger className="w-72 h-8 bg-stone-900 border-stone-700 text-stone-300 text-xs">
-            <SelectValue placeholder="Template decklist" />
-          </SelectTrigger>
-          <SelectContent className="bg-stone-900 border-stone-700">
-            <SelectItem value="__none__" className="text-stone-500">
-              Start from template...
-            </SelectItem>
-            {templateOptions.map((template) => (
-              <SelectItem key={template.id} value={template.id} className="text-stone-300">
-                <div className="flex flex-col leading-tight">
-                  <span>{template.name}</span>
-                  {template.description ? <span className="text-[10px] text-stone-500 mt-0.5">{template.description}</span> : null}
-                </div>
+        {showTemplateDropdown ? (
+          <Select value={selectedTemplateId || "__none__"} onValueChange={handleTemplateChange}>
+            <SelectTrigger className="w-72 h-8 bg-stone-900 border-stone-700 text-stone-300 text-xs">
+              <SelectValue placeholder="Template decklist" />
+            </SelectTrigger>
+            <SelectContent className="bg-stone-900 border-stone-700">
+              <SelectItem value="__none__" className="text-stone-500">
+                Start from template...
               </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+              {templateOptions.map((template) => (
+                <SelectItem key={template.id} value={template.id} className="text-stone-300">
+                  <div className="flex flex-col leading-tight">
+                    <span>{template.name}</span>
+                    {template.description ? <span className="text-[10px] text-stone-500 mt-0.5">{template.description}</span> : null}
+                  </div>
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        ) : null}
 
         <div className="flex items-center gap-2 ml-auto">
           {/* Validity indicator */}
@@ -628,6 +632,8 @@ export default function DeckBuilder() {
           </Button>
 
           <ExportDeck deckName={deckName} mainDeck={mainDeck} sideboard={sideboard} rulesetLabel={ruleset.label} />
+
+          <TestInPhase mainDeck={mainDeck} sideboard={sideboard} />
 
           {/* Sideboard toggle */}
           <Button
