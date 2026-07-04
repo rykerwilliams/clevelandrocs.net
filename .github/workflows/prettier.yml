@@ -17,18 +17,46 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - name: Setup Node.js ⚙️
         uses: actions/setup-node@v5
+        with:
+          node-version: 24
       - name: Install deps (lockfile) 💾
         run: npm ci
+      - name: Determine changed files 📂
+        id: changed
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+            HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+          else
+            BASE_SHA="${{ github.event.before }}"
+            HEAD_SHA="${{ github.sha }}"
+          fi
+
+          git diff --name-only "$BASE_SHA" "$HEAD_SHA" \
+            | grep -E '\\.(js|jsx|ts|tsx|json|md|yml|yaml|scss|css|liquid)$' \
+            > changed-files.txt || true
+
+          COUNT=$(wc -l < changed-files.txt | tr -d ' ')
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
       - name: Prettier Check 🔎
         id: prettier
-        run: npx prettier . --check
+        run: |
+          if [ "${{ steps.changed.outputs.count }}" = "0" ]; then
+            echo "No Prettier-target files changed."
+            exit 0
+          fi
+          xargs -a changed-files.txt npx prettier --check
       - name: Create diff 📝
         # https://docs.github.com/en/actions/learn-github-actions/expressions#failure
         if: ${{ failure() }}
         run: |
-          npx prettier . --write
+          if [ -f changed-files.txt ] && [ -s changed-files.txt ]; then
+            xargs -a changed-files.txt npx prettier --write
+          fi
           git diff -- . ':(exclude)package-lock.json' ':(exclude)package.json' > diff.txt
           npm install -g diff2html-cli
           diff2html -i file -s side -F diff.html -- diff.txt

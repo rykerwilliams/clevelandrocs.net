@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
-const PHASE_URL = "https://phase-rs.dev";
+const PHASE_URL = "https://phase-rs.dev/my-decks";
 
 function buildPhaseImportText(mainDeck = [], sideboard = []) {
   const lines = ["Deck"];
