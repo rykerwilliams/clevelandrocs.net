@@ -33,7 +33,7 @@ banned:
   - Timmerian Fiends
 ---
 
-{% include figure.liquid loading="eager" path="assets/img/formats/FRlogo.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/formats/FRlogo.png" class="img-fluid rounded z-depth-1" max-width="900px" zoomable=true %}
 
 Forgotten Realms is an immersive old-school wedge variant that focuses on late ’94–’95 Magic.
 
