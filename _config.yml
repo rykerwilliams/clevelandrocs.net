@@ -156,6 +156,9 @@ collections:
   food:
     output: true
     permalink: /food/:year/:month/:day/:title/
+  formats:
+    output: true
+    permalink: /formats/:name/
 
 # -----------------------------------------------------------------------------
 # Jekyll settings

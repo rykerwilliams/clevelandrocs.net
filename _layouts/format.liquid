@@ -1,0 +1,179 @@
+---
+layout: default
+---
+{% assign tags = page.tags | join: '' %}
+{% assign categories = page.categories | join: '' %}
+
+<style>
+  .format-page {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .format-page .post-header {
+    margin-bottom: 2rem;
+  }
+  .format-page .post-title {
+    margin-bottom: 0.5rem;
+  }
+  .format-page .format-summary {
+    font-size: 1.1rem;
+    color: var(--global-text-color-light);
+    margin-bottom: 1rem;
+  }
+  .format-page .post-tags {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+  }
+  .format-page .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .format-page .post-content img,
+  .format-page .post-content figure,
+  .format-page .post-content .figure,
+  .format-page .post-content .img-fluid {
+    display: block;
+    max-width: 72%;
+    width: auto;
+    height: auto;
+    margin: 1.5rem auto;
+  }
+  @media (max-width: 768px) {
+    .format-page .post-content img,
+    .format-page .post-content figure,
+    .format-page .post-content .figure,
+    .format-page .post-content .img-fluid {
+      max-width: 92%;
+    }
+  }
+  .format-page .overview-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  }
+  .format-page .overview-card h3 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+  }
+  .format-page .overview-card strong {
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+  .format-page .format-list {
+    margin: 0.75rem 0 0 1rem;
+    padding-left: 0;
+  }
+  .format-page .format-list li + li {
+    margin-top: 0.25rem;
+  }
+  .format-page .rule-block {
+    margin-top: 2rem;
+  }
+  .format-page .rule-block h2 {
+    margin-bottom: 0.85rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    .format-page .overview-card {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.02);
+    }
+  }
+</style>
+
+<div class="post format-page">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="format-summary">{{ page.description }}</p>
+    {% endif %}
+    <p class="post-meta">
+      {% if page.date %}
+        Updated {{ page.date | date: '%B %d, %Y' }}
+      {% endif %}
+    </p>
+    <p class="post-tags">
+      {% if tags != '' %}
+        {% for tag in page.tags %}
+          <span><i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</span>
+          {% unless forloop.last %}&nbsp; &middot; &nbsp;{% endunless %}
+        {% endfor %}
+      {% endif %}
+      {% if categories != '' %}
+        {% unless tags == '' %}&nbsp; &middot; &nbsp;{% endunless %}
+        {% for category in page.categories %}
+          <span><i class="fa-solid fa-tag fa-sm"></i> {{ category }}</span>
+          {% unless forloop.last %}&nbsp; &middot; &nbsp;{% endunless %}
+        {% endfor %}
+      {% endif %}
+    </p>
+  </header>
+
+  <article class="post-content">
+    {% if page.rules and page.rules != empty %}
+      <div class="overview-grid">
+        {% for rule in page.rules %}
+          <div class="overview-card">
+            <h3>{{ rule.label }}</h3>
+            <strong>{{ rule.value }}</strong>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if page.toc and page.toc.beginning %}
+      <div id="table-of-contents">
+        {% toc %}
+      </div>
+      <hr>
+    {% endif %}
+
+    <div id="markdown-content">
+      {{ content }}
+    </div>
+
+    {% if page.legal_sets and page.legal_sets != empty %}
+      <div class="rule-block">
+        <h2>Legal sets</h2>
+        <ul class="format-list">
+          {% for set in page.legal_sets %}
+            <li>{{ set }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if page.restricted and page.restricted != empty %}
+      <div class="rule-block">
+        <h2>Restricted</h2>
+        <ul class="format-list">
+          {% for item in page.restricted %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if page.banned and page.banned != empty %}
+      <div class="rule-block">
+        <h2>Banned</h2>
+        <ul class="format-list">
+          {% for item in page.banned %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </article>
+
+  {% if site.giscus and page.giscus_comments %}
+    {% include giscus.liquid %}
+  {% endif %}
+</div>
