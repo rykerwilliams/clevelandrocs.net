@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "nav-formats",
           title: "formats",
-          description: "FE40 and Forgotten Realms format rules.",
+          description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/formats/";
@@ -173,7 +173,17 @@ ninja.data = [{
             window.location.href = "/articles/2019/02/25/2019-Bottlehouse/";
           
         },
-      },{id: "news-eternal-weekend-2026-dates-are-set-https-www-magic-gg-news-eternal-weekend-returns-in-2026-featuring-legacy-and-vintage",
+      },{id: "formats-fallen-empires-40",
+          title: 'Fallen Empires 40',
+          description: "Constructed old-school wedge format built around the Fallen Empires card pool.",
+          section: "Formats",handler: () => {
+              window.location.href = "/formats/fe40/";
+            },},{id: "formats-forgotten-realms",
+          title: 'Forgotten Realms',
+          description: "Immersive old-school wedge format focused on late ’94–’95 Magic.",
+          section: "Formats",handler: () => {
+              window.location.href = "/formats/forgotten-realms/";
+            },},{id: "news-eternal-weekend-2026-dates-are-set-https-www-magic-gg-news-eternal-weekend-returns-in-2026-featuring-legacy-and-vintage",
           title: 'Eternal Weekend 2026 dates are set: https://www.magic.gg/news/eternal-weekend-returns-in-2026-featuring-legacy-and-vintage',
           description: "",
           section: "News",},{id: "news-ornithoptoberfest-is-october-4th",
