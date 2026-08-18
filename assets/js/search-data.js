@@ -23,6 +23,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/articles/";
           },
+        },{id: "nav-formats",
+          title: "formats",
+          description: "FE40 and Forgotten Realms format rules.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/formats/";
+          },
         },{id: "post-kumite-ix",
         
           title: "Kumite IX",
