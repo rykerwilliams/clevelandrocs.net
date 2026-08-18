@@ -4,16 +4,6 @@ permalink: /formats/
 title: formats
 nav: true
 nav_order: 2
-pagination:
-  enabled: true
-  collection: formats
-  permalink: /formats/page/:num/
-  per_page: 5
-  sort_field: date
-  sort_reverse: true
-  trail:
-    before: 1
-    after: 3
 ---
 
 <div class="post">
@@ -21,11 +11,7 @@ pagination:
   <h1>Formats</h1>
   <p class="text-muted">Browse the format pages below for structure, card pool, and community rules.</p>
 
-{% if page.pagination.enabled %}
-{% assign formatlist = paginator.posts %}
-{% else %}
 {% assign formatlist = site.formats %}
-{% endif %}
 
   <ul class="post-list">
     {% for format in formatlist %}
@@ -47,9 +33,5 @@ pagination:
       </li>
     {% endfor %}
   </ul>
-
-{% if page.pagination.enabled %}
-{% include pagination.liquid %}
-{% endif %}
 
 </div>
