@@ -70,4 +70,4 @@ Same art/same frame reprints are allowed.
 
 Forgotten Realms is a sister format to FE40 and also features a semi-monthly global online league. The format is easy to enter, friendly to casual play, and well suited to kitchen-table or bar-room games.
 
-For community discussion and league updates, join the Discord: <a href="https://discord.gg/cgdh4rfhHw">Cleveland Old School Discord</a>.
+For community discussion and league updates, <a href="https://discord.gg/cgdh4rfhHw">join the Discord</a>.
