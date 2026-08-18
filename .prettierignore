@@ -15,6 +15,9 @@ _site/**
 .sass-cache/**
 node_modules/**
 vendor/**
+builder/**
+deckbuilder/dist/**
+deckbuilder/base44/**
 # Generated or third-party assets
 assets/css/**
 assets/html/**

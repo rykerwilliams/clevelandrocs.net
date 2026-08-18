@@ -56,34 +56,21 @@ export default function DeckStats({ mainDeck }) {
       count,
     }));
 
-  const totalNonLand = mainDeck
-    .filter((e) => !(e.type_line || "").includes("Land"))
-    .reduce((s, e) => s + e.quantity, 0);
+  const totalNonLand = mainDeck.filter((e) => !(e.type_line || "").includes("Land")).reduce((s, e) => s + e.quantity, 0);
 
   if (mainDeck.length === 0) {
-    return (
-      <div className="p-6 text-center text-stone-600 text-sm">
-        Add cards to see deck statistics
-      </div>
-    );
+    return <div className="p-6 text-center text-stone-600 text-sm">Add cards to see deck statistics</div>;
   }
 
   return (
     <div className="p-4 space-y-6">
       {/* Mana Curve */}
       <div>
-        <h4 className="text-stone-400 text-xs uppercase tracking-widest font-semibold mb-3">
-          Mana Curve
-        </h4>
+        <h4 className="text-stone-400 text-xs uppercase tracking-widest font-semibold mb-3">Mana Curve</h4>
         <div className="h-32">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={curveChart} barCategoryGap="20%">
-              <XAxis
-                dataKey="cmc"
-                axisLine={false}
-                tickLine={false}
-                tick={{ fill: "#78716c", fontSize: 11 }}
-              />
+              <XAxis dataKey="cmc" axisLine={false} tickLine={false} tick={{ fill: "#78716c", fontSize: 11 }} />
               <YAxis hide />
               <Tooltip
                 contentStyle={{
@@ -107,9 +94,7 @@ export default function DeckStats({ mainDeck }) {
 
       {/* Color Distribution */}
       <div>
-        <h4 className="text-stone-400 text-xs uppercase tracking-widest font-semibold mb-3">
-          Color Distribution
-        </h4>
+        <h4 className="text-stone-400 text-xs uppercase tracking-widest font-semibold mb-3">Color Distribution</h4>
         <div className="space-y-2">
           {colorEntries.map((entry) => (
             <div key={entry.key} className="flex items-center gap-3">
@@ -130,9 +115,7 @@ export default function DeckStats({ mainDeck }) {
                   }}
                 />
               </div>
-              <span className="text-stone-500 text-xs font-mono w-6 text-right">
-                {entry.count}
-              </span>
+              <span className="text-stone-500 text-xs font-mono w-6 text-right">{entry.count}</span>
             </div>
           ))}
         </div>
@@ -140,26 +123,17 @@ export default function DeckStats({ mainDeck }) {
 
       {/* Type Breakdown */}
       <div>
-        <h4 className="text-stone-400 text-xs uppercase tracking-widest font-semibold mb-3">
-          Card Types
-        </h4>
+        <h4 className="text-stone-400 text-xs uppercase tracking-widest font-semibold mb-3">Card Types</h4>
         <div className="grid grid-cols-2 gap-2">
-          {["Creature", "Instant", "Sorcery", "Enchantment", "Artifact", "Land"].map(
-            (type) => {
-              const count = mainDeck
-                .filter((e) => (e.type_line || "").includes(type))
-                .reduce((s, e) => s + e.quantity, 0);
-              return (
-                <div
-                  key={type}
-                  className="bg-stone-800/50 rounded-lg px-3 py-2 flex justify-between items-center"
-                >
-                  <span className="text-stone-400 text-xs">{type}s</span>
-                  <span className="text-amber-400 font-mono text-xs">{count}</span>
-                </div>
-              );
-            }
-          )}
+          {["Creature", "Instant", "Sorcery", "Enchantment", "Artifact", "Land"].map((type) => {
+            const count = mainDeck.filter((e) => (e.type_line || "").includes(type)).reduce((s, e) => s + e.quantity, 0);
+            return (
+              <div key={type} className="bg-stone-800/50 rounded-lg px-3 py-2 flex justify-between items-center">
+                <span className="text-stone-400 text-xs">{type}s</span>
+                <span className="text-amber-400 font-mono text-xs">{count}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

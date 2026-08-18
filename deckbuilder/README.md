@@ -27,9 +27,9 @@ For example, when the Base44 project config includes a `serveCommand`, `base44 d
 
 ```json5
 {
-  "site": {
-    "serveCommand": "npm run dev"
-  }
+  site: {
+    serveCommand: "npm run dev",
+  },
 }
 ```
 
