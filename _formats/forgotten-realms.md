@@ -10,15 +10,6 @@ categories:
   - Formats
 toc:
   beginning: true
-rules:
-  - label: Main deck
-    value: 60 cards or more
-  - label: Sideboard
-    value: 15 cards or less
-  - label: Rules
-    value: Modern rules + mana burn
-  - label: Format
-    value: Wedge / immersive old-school
 ---
 
 {% include figure.liquid loading="eager" path="assets/img/formats/FRlogo.png" class="img-fluid rounded z-depth-1" max-width="900px" zoomable=true %}
