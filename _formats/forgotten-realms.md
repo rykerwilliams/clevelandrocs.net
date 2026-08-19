@@ -24,13 +24,13 @@ legal_sets:
   - Fallen Empires
   - Homelands
 restricted:
-  - Hymn to Tourach
-  - Maze of Ith
-  - Serrated Arrows
+  - "Hymn to Tourach: 1"
+  - "Maze of Ith: 1"
+  - "Serrated Arrows: 1"
 banned:
-  - An-Zerrin Ruins
-  - Apocalypse Chime
-  - Timmerian Fiends
+  - "An-Zerrin Ruins"
+  - "Apocalypse Chime"
+  - "Timmerian Fiends"
 ---
 
 {% include figure.liquid loading="eager" path="assets/img/formats/FRlogo.png" class="img-fluid rounded z-depth-1" max-width="900px" zoomable=true %}
