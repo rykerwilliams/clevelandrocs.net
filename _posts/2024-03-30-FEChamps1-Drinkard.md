@@ -8,6 +8,9 @@ tags: FE40
 author: Troy Drinkard
 categories: Tournaments OldSchool DeckTech
 thumbnail: assets/img/FE1Drinkard/the-ring.png
+event_location: Willoughby Hills, Ohio
+event_lat: 41.5637
+event_lon: -81.4559
 toc:
   sidebar: left
 images:

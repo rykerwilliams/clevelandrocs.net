@@ -8,6 +8,9 @@ tags: EternalCentral
 author: Mike Klements
 categories: Tournaments OldSchool
 thumbnail: assets/img/ShanodinCircuit1/1.jpg
+event_location: Willoughby Hills, Ohio
+event_lat: 41.5637
+event_lon: -81.4559
 toc:
   sidebar: left
 images:

@@ -8,6 +8,9 @@ tags: BFO
 author: BCDruid
 categories: Tournaments OldSchool
 thumbnail: assets/img/BFO2023/hyborian.webp
+event_location: West Lafayette, Ohio
+event_lat: 40.2729
+event_lon: -81.7490
 toc:
   sidebar: left
 images:

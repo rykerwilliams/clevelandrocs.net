@@ -8,6 +8,9 @@ tags: Boreal International Canada Montreal TundraWolves
 author: Kyle Wells
 categories: Tournaments OldSchool
 thumbnail: assets/img/TundraWolvesV/bouy.jpg
+event_location: Montreal, Quebec
+event_lat: 45.5017
+event_lon: -73.5673
 toc:
   sidebar: left
 images:

@@ -8,6 +8,9 @@ tags: FullGrip
 author: Mike Klements
 categories: Tournaments Premodern
 thumbnail: assets/img/FGPM226/6.png
+event_location: Akron, Ohio
+event_lat: 41.0814
+event_lon: -81.5190
 toc:
   sidebar: left
 images:

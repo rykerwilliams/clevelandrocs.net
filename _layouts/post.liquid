@@ -112,6 +112,10 @@ layout: default
     <div id="markdown-content">
       {{ content }}
     </div>
+
+    {% if page.event_lat and page.event_lon and page.event_location %}
+      {% include event_travel_map.liquid %}
+    {% endif %}
   </article>
 
   {% if site.related_blog_posts and site.related_blog_posts.enabled %}

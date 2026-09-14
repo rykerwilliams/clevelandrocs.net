@@ -100,7 +100,7 @@
   </script>
 {% endif %}
 
-{% if page.map %}
+{% if page.map or page.event_lat and page.event_lon and page.event_location %}
   <!-- GeoJSON support via Leaflet -->
   <link
     defer

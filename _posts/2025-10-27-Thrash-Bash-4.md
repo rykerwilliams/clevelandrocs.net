@@ -8,6 +8,9 @@ tags: Swedish
 author: Kyle Wells
 categories: Tournaments OldSchool
 thumbnail: assets/img/thrash4/studebaker.jpg
+event_location: South Bend, Indiana
+event_lat: 41.6764
+event_lon: -86.2520
 toc:
   sidebar: left
 images:

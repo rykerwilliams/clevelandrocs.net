@@ -60,7 +60,7 @@
   <script defer src="{{ '/assets/js/diff2html-setup.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
 {% endif %}
 
-{% if page.map %}
+{% if page.map or page.event_lat and page.event_lon and page.event_location %}
   <!-- Leaflet -->
   <script
     src="{{ site.third_party_libraries.leaflet.url.js }}"

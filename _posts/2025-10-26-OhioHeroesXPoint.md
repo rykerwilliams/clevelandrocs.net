@@ -8,6 +8,9 @@ tags: XPoints
 author: Mike Klements
 categories: Tournaments OldSchool
 thumbnail: assets/img/ohioheroes/october25xpoint/4.png
+event_location: Brookfield, Ohio
+event_lat: 41.2406
+event_lon: -80.5698
 toc:
   sidebar: left
 images:
