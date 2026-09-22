@@ -7,11 +7,14 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
   {% assign distance_miles = event_lat | haversine_miles: event_lon, cleveland_lat, cleveland_lon %}
-    {% assign map_id = page.url | slugify | prepend: 'event-travel-map-' %}
+  {% assign map_id = page.url | slugify | prepend: 'event-travel-map-' %}
 
-    <section class="event-travel-map" style="margin: 1.25rem 0 0; padding: 0.9rem; border: 1px solid #d6d6d6; border-radius: 10px; background: #fafafa; color: #1f2937;">
-      <h2 style="margin-top: 0; margin-bottom: 0.35rem; font-size: 1.2rem; color: #111827;">Travel Map</h2>
-      <p style="margin: 0 0 0.75rem; color: #1f2937;">
+  <section
+    class="event-travel-map"
+    style="margin: 1.25rem 0 0; padding: 0.9rem; border: 1px solid #d6d6d6; border-radius: 10px; background: #fafafa; color: #1f2937;"
+  >
+    <h2 style="margin-top: 0; margin-bottom: 0.35rem; font-size: 1.2rem; color: #111827;">Travel Map</h2>
+    <p style="margin: 0 0 0.75rem; color: #1f2937;">
       Cleveland, Ohio to {{ page.event_location }}
       {% if distance_miles %}
         (
@@ -22,8 +25,7 @@
         {% else %}
           {{ distance_miles }} miles
         {% endif %}
-        as the crow flies
-        )
+        as the Roc flies )
       {% endif %}
     </p>
 
@@ -75,7 +77,13 @@
     </script>
 
     <p style="margin: 0.65rem 0 0; font-size: 0.95rem; color: #1f2937;">
-      <a style="color: #0f4da8;" href="https://www.openstreetmap.org/directions?engine=fossgis_osrm_car&amp;route={{ cleveland_lat }},{{ cleveland_lon }};{{ event_lat }},{{ event_lon }}" target="_blank" rel="noopener noreferrer">Open driving route in OpenStreetMap</a>
+      <a
+        style="color: #0f4da8;"
+        href="https://www.openstreetmap.org/directions?engine=fossgis_osrm_car&amp;route={{ cleveland_lat }},{{ cleveland_lon }};{{ event_lat }},{{ event_lon }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Open driving route in OpenStreetMap</a
+      >
     </p>
   </section>
 {% endif %}
