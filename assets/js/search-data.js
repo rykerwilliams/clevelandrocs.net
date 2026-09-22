@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/formats/";
           },
-        },{id: "post-kumite-ix",
+        },{id: "post-fallen-empires-world-champs-iii",
+        
+          title: "Fallen Empires World Champs III",
+        
+        description: "Third Fallen Empires 40 World Championship",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2026/09/22/FEChamps3/";
+          
+        },
+      },{id: "post-kumite-ix",
         
           title: "Kumite IX",
         
@@ -188,9 +199,6 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "news-ornithoptoberfest-is-october-4th",
           title: 'Ornithoptoberfest is October 4th!',
-          description: "",
-          section: "News",},{id: "news-join-us-for-the-2026-fallen-empires-world-champs-sept-19th",
-          title: 'Join us for the 2026 Fallen Empires World champs Sept 19th',
           description: "",
           section: "News",},{id: "profiles-bcdruid",
           title: 'BCDruid',
