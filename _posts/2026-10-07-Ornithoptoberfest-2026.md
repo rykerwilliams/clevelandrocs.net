@@ -90,7 +90,7 @@ This might have been my most interesting matchup of the day. I have to take the 
 
 {% include figure.liquid loading="eager" path="assets/img/ohioheroes/ornithoptoberfest/2026/12.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-It took me this long to feel like luck was really on my side. I think my opponent managed to land all 10 of his points, and I was able to squirrel away with a top-deck fueled win game 1. With a barrier-howling mine package in game 2 I felt behind again, but was able to dodge removal, pay for paralyze (1) and close the door. GGs!
+It took me this long to feel like luck was really on my side. I think my opponent managed to land all 10 of his points, and I was able to squirrel away with a top-deck fueled win game 1. With a barrier-howling mine package in game 2 I felt behind again, but was able to dodge removal, pay for paralyze (!) and close the door. GGs!
 
 {% include figure.liquid loading="eager" path="assets/img/ohioheroes/ornithoptoberfest/2026/13.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
