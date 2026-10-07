@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/formats/";
           },
-        },{id: "post-fallen-empires-world-champs-iii",
+        },{id: "post-ohio-heroes-ornithoptoberfest",
+        
+          title: "Ohio Heroes Ornithoptoberfest",
+        
+        description: "Ohio Heroes Ornithoptoberfest 2026",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2026/10/07/Ornithoptoberfest-2026/";
+          
+        },
+      },{id: "post-fallen-empires-world-champs-iii",
         
           title: "Fallen Empires World Champs III",
         
@@ -197,8 +208,8 @@ ninja.data = [{
             },},{id: "news-eternal-weekend-2026-dates-are-set-https-www-magic-gg-news-eternal-weekend-returns-in-2026-featuring-legacy-and-vintage",
           title: 'Eternal Weekend 2026 dates are set: https://www.magic.gg/news/eternal-weekend-returns-in-2026-featuring-legacy-and-vintage',
           description: "",
-          section: "News",},{id: "news-ornithoptoberfest-is-october-4th",
-          title: 'Ornithoptoberfest is October 4th!',
+          section: "News",},{id: "news-bootlegger-s-ball-is-coming-up-quickly-in-december-the-rocs-are-excited-to-swoop-down-to-nashville-once-again",
+          title: 'Bootlegger’s Ball is coming up quickly in December! The Rocs are excited to...',
           description: "",
           section: "News",},{id: "profiles-bcdruid",
           title: 'BCDruid',
