@@ -7,7 +7,7 @@ description: Thrash Bash 5
 tags: Swedish
 author: Kyle Wells
 categories: Tournaments OldSchool
-thumbnail: assets/img/thrash5/1.jpg
+thumbnail: assets/img/thrash5/12.jpg
 event_location: South Bend, Indiana
 event_lat: 41.6764
 event_lon: -86.2520
@@ -31,15 +31,21 @@ It was finally that time again. The time when the whole crew starts acting like 
 
 Time for skating. Time for Thrash Bash 5. Time for thrashin'! Kyle, Kevin, Brne, Stoomie, and Sam Flood—yeah, I mean Chad—got some birria, rolled the windows down, and hit the road like we were chasing the last session of the day. Our GPS said we’d arrive at exactly 4:20, but I somehow routed us to the Joe Singer mansion where Stoomie was crashing, so we took the scenic route through a little extra chaos. Chad had us staying in a sick house right by the Yellow Cat Cafe, so we stopped there, got ready, and then headed over to CJ’s pub for the Daggers event and the Ebon Hand Unhinged Cube of Madness shindig.
 
-{% include figure.liquid loading="eager" path="assets/img/thrash5/2.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/thrash5/6.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+{% include figure.liquid loading="eager" path="assets/img/thrash5/7.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 ## Friday Night
 
-The Daggers crew kept it rolling with a small 7-point Singleton tournament, and since we were playing best-of-three with six dudes, it turned into a full-on all-nighter. Stoomie took the whole thing down with his nasty black-and-red list, but somehow he still got smoked by me even though I was running Adun Reanimator, which was more wild than efficient. I watched the Ebon Hand cube draft for a while and it looked rad as hell. Those guys are gonna put it on <a href="https://www.youtube.com/@theebonhand8999">their YouTube vlog</a> soon, so keep your eyes peeled. Some of the cards were marked up with sharpies and it wasn’t singleton, so nobody was really making a “plan,” which is exactly why it felt so punk rock.
+The Daggers crew kept it rolling with a small 7-point Singleton tournament, and since we were playing best-of-three with six dudes, it turned into a full-on all-nighter. Stoomie took the whole thing down with his nasty black-and-red list, but somehow he still got smoked by me even though I was running Adun Reanimator, which was more wild than efficient.
+
+{% include figure.liquid loading="eager" path="assets/img/thrash5/9.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+I watched the Ebon Hand cube draft for a while and it looked rad as hell. Those guys are gonna put it on <a href="https://www.youtube.com/@theebonhand8999">their YouTube vlog</a> soon, so keep your eyes peeled. Some of the cards were marked up with sharpies and it wasn’t singleton, so nobody was really making a “plan,” which is exactly why it felt so punk rock.
+
+{% include figure.liquid loading="eager" path="assets/img/thrash5/10.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 After that, we rolled back to the house and watched Thrashin while we kept throwing more Magic at the kitchen table. I took down a four-player match with my kid’s Hydra deck, so I was basically set for the weekend. Still, I called it an early night because the real battle was waiting on Saturday, and I needed my legs for the long haul.
-
-{% include figure.liquid loading="eager" path="assets/img/thrash5/7.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 ## Saturday
 
@@ -49,9 +55,17 @@ It’s always good to get the whole crew together, even with a few legends missi
 
 "One is fighting for love. The other for honor. For both of them... it's skate or die."
 
+{% include figure.liquid loading="eager" path="assets/img/thrash5/14.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
 I played mono-white Shahrazad aggro weenie, and Chad rolled Rug-Atog. I’ve now played all five mono-colored decks at a Thrash Bash, so I guess next year it’ll be mono-multicolored or maybe just brown. That’s the kind of progress we’re talking about here.
 
-I felt good after beating my buddy Rom Wells in round one and taking the First Blood award with a 2-0 start. But I think I left everything I had on the table in that match, because the rest of the weekend I played like somebody tossed a handful of jacks in front of me and broke my arm. Still, I got to do the most Magic of anyone, casting Shahrazad seven or eight times and never seeing the bye, and I met Amrah and Piquardo and a bunch of other dudes I knew from Discord but not in person. That was a great day.
+I felt good after beating my buddy Rom Wells in round one and taking the First Blood award with a 2-0 start.
+
+{% include figure.liquid loading="eager" path="assets/img/thrash5/29.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+But I think I left everything I had on the table in that match, because the rest of the weekend I played like somebody tossed a handful of jacks in front of me and broke my arm. Still, I got to do the most Magic of anyone, casting Shahrazad seven or eight times and never seeing the bye, and I met Amrah and Piquardo and a bunch of other dudes I knew from Discord but not in person. That was a great day.
+
+{% include figure.liquid loading="eager" path="assets/img/thrash5/19.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 The weather was perfect too, which meant a bunch of us got to spell some rounds outside, just soaking in the sunshine like the whole scene was a movie and we were the cool kids in the opening credits. And the food? Dave absolutely bodied it again. BBQ, salad, elote hushpuppies, and more, all washed down with a killer beer selection served by a woman who said we were her easiest party ever. My one regret is that I forgot to try the Ebon Hand card crank, so I’m officially calling dibs on that at the next event.
 
@@ -63,10 +77,14 @@ None of the Yellow Cat crew made top four, so we tucked our tails and headed bac
 
 ## Sunday
 
-I got up early, gassed up the van, grabbed some coffee, and picked up a newspaper like a proper weekend outlaw. We hit the Yellow Cat again, obviously, then drove out to scoop Stoomster from the Joe Singer flop house. He spun us a bunch of stories about their shenanigans on the way home—honestly, it sounded fun, just not exactly the kind of chaos that ends with a checkered flag and a busted board. We even somehow ended up at the same suspicious gas station Dagger house where we stopped on the way out. Kismet, baby.
+I got up early, gassed up the van, grabbed some coffee, and picked up a newspaper like a proper weekend outlaw.
+
+{% include figure.liquid loading="eager" path="assets/img/thrash5/26.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+We hit the Yellow Cat again, obviously, then drove out to scoop Stoomster from the Joe Singer flop house. He spun us a bunch of stories about their shenanigans on the way home—honestly, it sounded fun, just not exactly the kind of chaos that ends with a checkered flag and a busted board. We even somehow ended up at the same suspicious gas station Dagger house where we stopped on the way out. Kismet, baby.
 
 I don’t know about anybody else, but I always get super juiced for the next Thrash Bash the second one ends. Right now I’m already itching for the next run, the next deck, the next bad decision, and the next time we all look like a bunch of wild teenagers rolling into town with our boards under our arms and our hearts in our throats.
 
-{% include figure.liquid loading="eager" path="assets/img/thrash5/30.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img/thrash5/13.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 > "Breakin' is a memory. For wimps." -Hook
