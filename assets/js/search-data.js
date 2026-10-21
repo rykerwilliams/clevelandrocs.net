@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/formats/";
           },
-        },{id: "post-ohio-heroes-ornithoptoberfest",
+        },{id: "post-thrash-bash-5",
+        
+          title: "Thrash Bash 5",
+        
+        description: "Thrash Bash 5",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2026/10/21/Thrash-Bash-5/";
+          
+        },
+      },{id: "post-ohio-heroes-ornithoptoberfest",
         
           title: "Ohio Heroes Ornithoptoberfest",
         
