@@ -69,8 +69,6 @@ But I think I left everything I had on the table in that match, because the rest
 
 The weather was perfect too, which meant a bunch of us got to spell some rounds outside, just soaking in the sunshine like the whole scene was a movie and we were the cool kids in the opening credits. And the food? Dave absolutely bodied it again. BBQ, salad, elote hushpuppies, and more, all washed down with a killer beer selection served by a woman who said we were her easiest party ever. My one regret is that I forgot to try the Ebon Hand card crank, so I’m officially calling dibs on that at the next event. Speaking of Cincinnati, congrats to Jon and Eric for taking 1st place and last place and driving together. Solid bookend!
 
-{% include figure.liquid loading="eager" path="assets/img/thrash5/14.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
-
 None of the Yellow Cat crew made top four, so we tucked our tails and headed back to the house. The Joe Singer crew went out and partied, of course, while the rest of us old heads just ordered pizza, watched Conan the Barbarian, and played more Magic. We also watched the Guardians take on the Rays, and the Guardians didn’t come out on top. Oh well. Cleveland can’t always dominate.
 
 {% include figure.liquid loading="eager" path="assets/img/thrash5/20.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
