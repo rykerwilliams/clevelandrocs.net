@@ -49,7 +49,7 @@ After that, we rolled back to the house and watched Thrashin while we kept throw
 
 ## Saturday
 
-With the house so close to the Yellow Cat Diner, we started the day with a light breakfast of pork chops, skillets, sausage gravy, black coffee, and a hot sauce bar. That place is cheap enough to crush a meal without checking your wallet twice, even if you’re basically fueling up to go rip through a tournament like it’s a downtown alley session. After breakfast we snapped our unsolicited deck pics and ran a few test matches before heading to The Ewe and grabbing one of the few parking spots left in town.
+With the house so close to the Yellow Cat, we started the day with a light breakfast of pork chops, skillets, sausage gravy, black coffee, and a hot sauce bar. That place is cheap enough to crush a meal without checking your wallet twice, even if you’re basically fueling up to go rip through a tournament like it’s a downtown alley session. After breakfast we snapped our unsolicited deck pics and ran a few test matches before heading to The Ewe and grabbing one of the few parking spots left in town.
 
 It’s always good to get the whole crew together, even with a few legends missing this time around. The old venue changed hands, so we had to find a new spot for the big race and cap attendance at 30. Dave did his usual amazing job and booked us a room at our favorite post-race dinner hangout, the Crooked Ewe. If you ever find yourself in South Bend, make that stop. Kevin and Dagger hopeful Jon Brne both got in off the waitlist and brought decks built to wreck faces.
 
