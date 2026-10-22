@@ -53,7 +53,7 @@ With the house so close to the Yellow Cat, we started the day with a light break
 
 It’s always good to get the whole crew together, even with a few legends missing this time around. The old venue changed hands, so we had to find a new spot for the big race and cap attendance at 30. Dave did his usual amazing job and booked us a room at our favorite post-race dinner hangout, the Crooked Ewe. If you ever find yourself in South Bend, make that stop. Kevin and Dagger hopeful Jon Brne both got in off the waitlist and brought decks built to wreck faces.
 
-"One is fighting for love. The other for honor. For both of them... it's skate or die."
+> "One is fighting for love. The other for honor. For both of them... it's skate or die."
 
 {% include figure.liquid loading="eager" path="assets/img/thrash5/14.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
@@ -81,7 +81,7 @@ I got up early, gassed up the van, grabbed some coffee, and picked up a newspape
 
 {% include figure.liquid loading="eager" path="assets/img/thrash5/26.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-We hit the Yellow Cat again, obviously, then drove out to scoop Stoomster from the Joe Singer flop house. He spun us a bunch of stories about their shenanigans on the way home—honestly, it sounded fun, just not exactly the kind of chaos that ends with a checkered flag and a busted board. We even somehow ended up at the same suspicious gas station Dagger house where we stopped on the way out. Kismet, baby.
+We hit the Yellow Cat again, obviously, then drove out to scoop Stoomster from the Joe Singer flop house. He spun us a bunch of stories about their shenanigans on the way home - honestly, it sounded fun, just not exactly the kind of chaos that ends with a checkered flag and a busted board. We even somehow ended up at the same suspicious gas station Dagger house where we stopped on the way out. Kismet, baby.
 
 I don’t know about anybody else, but I always get super juiced for the next Thrash Bash the second one ends. Right now I’m already itching for the next run, the next deck, the next bad decision, and the next time we all look like a bunch of wild teenagers rolling into town with our boards under our arms and our hearts in our throats.
 
