@@ -4,7 +4,7 @@ title: Thrash Bash 5
 date: 2026-10-21 16:20:00-0500
 featured: true
 description: Thrash Bash 5
-tags: Swedish
+tags: EternalCentral
 author: Kyle Wells
 categories: Tournaments OldSchool
 thumbnail: assets/img/thrash5/12.jpg
@@ -67,7 +67,7 @@ But I think I left everything I had on the table in that match, because the rest
 
 {% include figure.liquid loading="eager" path="assets/img/thrash5/19.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
-The weather was perfect too, which meant a bunch of us got to spell some rounds outside, just soaking in the sunshine like the whole scene was a movie and we were the cool kids in the opening credits. And the food? Dave absolutely bodied it again. BBQ, salad, elote hushpuppies, and more, all washed down with a killer beer selection served by a woman who said we were her easiest party ever. My one regret is that I forgot to try the Ebon Hand card crank, so I’m officially calling dibs on that at the next event.
+The weather was perfect too, which meant a bunch of us got to spell some rounds outside, just soaking in the sunshine like the whole scene was a movie and we were the cool kids in the opening credits. And the food? Dave absolutely bodied it again. BBQ, salad, elote hushpuppies, and more, all washed down with a killer beer selection served by a woman who said we were her easiest party ever. My one regret is that I forgot to try the Ebon Hand card crank, so I’m officially calling dibs on that at the next event. Speaking of Cincinnati, congrats to Jon and Eric for taking 1st place and last place and driving together. Solid bookend!
 
 {% include figure.liquid loading="eager" path="assets/img/thrash5/14.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
