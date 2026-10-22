@@ -91,3 +91,5 @@ I don’t know about anybody else, but I always get super juiced for the next Th
 {% include figure.liquid loading="eager" path="assets/img/thrash5/25.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 > "Breakin' is a memory. For wimps." -Hook
+
+{% include figure.liquid loading="eager" path="assets/img/thrash5/12.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
