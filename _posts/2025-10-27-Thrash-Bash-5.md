@@ -33,7 +33,6 @@ Time for skating. Time for Thrash Bash 5. Time for thrashin'! Kyle, Kevin, Brne,
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-       </div>
         {% include figure.liquid loading="eager" path="assets/img/thrash5/6.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
