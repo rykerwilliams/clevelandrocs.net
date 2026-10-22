@@ -31,9 +31,14 @@ It was finally that time again. The time when the whole crew starts acting like 
 
 Time for skating. Time for Thrash Bash 5. Time for thrashin'! Kyle, Kevin, Brne, Stoomie, and Sam Flood—yeah, I mean Chad—got some birria, rolled the windows down, and hit the road like we were chasing the last session of the day. Our GPS said we’d arrive at exactly 4:20, but I somehow routed us to the Joe Singer mansion where Stoomie was crashing, so we took the scenic route through a little extra chaos. Chad had us staying in a sick house right by the Yellow Cat Cafe, so we stopped there, got ready, and then headed over to CJ’s pub for the Daggers event and the Ebon Hand Unhinged Cube of Madness shindig.
 
-{% include figure.liquid loading="eager" path="assets/img/thrash5/6.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
-
-{% include figure.liquid loading="eager" path="assets/img/thrash5/7.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+       </div>
+        {% include figure.liquid loading="eager" path="assets/img/thrash5/6.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/thrash5/7.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
 
 ## Friday Night
 
