@@ -2,7 +2,7 @@
 layout: post
 title: Ohio Heroes Ornithoptoberfest
 date: 2026-10-07 16:20:00-0500
-featured: true
+featured: false
 description: Ohio Heroes Ornithoptoberfest 2026
 tags: XPoints
 author: Mike Klements
