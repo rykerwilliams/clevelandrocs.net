@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/formats/";
           },
-        },{id: "post-thrash-bash-5",
+        },{id: "post-eternal-weekend-elks-lodge-2026",
+        
+          title: "Eternal Weekend Elks Lodge 2026",
+        
+        description: "Eternal Weekend 2026 Old School at the Elks Lodge",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/articles/2026/11/01/Elks-Lodge-2026/";
+          
+        },
+      },{id: "post-thrash-bash-5",
         
           title: "Thrash Bash 5",
         
@@ -216,10 +227,7 @@ ninja.data = [{
           description: "Immersive old-school wedge format focused on late ’94–’95 Magic.",
           section: "Formats",handler: () => {
               window.location.href = "/formats/forgotten-realms/";
-            },},{id: "news-eternal-weekend-2026-dates-are-set-https-www-magic-gg-news-eternal-weekend-returns-in-2026-featuring-legacy-and-vintage",
-          title: 'Eternal Weekend 2026 dates are set: https://www.magic.gg/news/eternal-weekend-returns-in-2026-featuring-legacy-and-vintage',
-          description: "",
-          section: "News",},{id: "news-bootlegger-s-ball-is-coming-up-quickly-in-december-the-rocs-are-excited-to-swoop-down-to-nashville-once-again",
+            },},{id: "news-bootlegger-s-ball-is-coming-up-quickly-in-december-the-rocs-are-excited-to-swoop-down-to-nashville-once-again",
           title: 'Bootlegger’s Ball is coming up quickly in December! The Rocs are excited to...',
           description: "",
           section: "News",},{id: "profiles-bcdruid",
